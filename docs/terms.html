@@ -3,111 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions - MyHobbyPlan</title>
+    <title>Terms and Conditions — MyHobbyPlan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #4f46e5;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            max-width: 900px;
+            color: var(--text-main);
+            background-color: var(--bg);
+            padding: 40px 24px;
+        }
+
+        .wrapper {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 20px;
-            color: #333;
         }
-        h1, h2 {
-            color: #2c3e50;
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 32px;
+            font-size: 0.875rem;
+            transition: opacity 0.2s;
         }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 40px;
+        }
+
         h1 {
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #111827;
+            margin-bottom: 8px;
         }
-        h2 {
-            margin-top: 25px;
-            font-size: 1.2em;
+
+        .brand-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
         }
+
         .effective-date {
-            font-weight: bold;
-            color: #7f8c8d;
-            margin-bottom: 20px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 40px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
         p {
-            margin: 10px 0;
+            margin-bottom: 16px;
         }
+
         ul {
-            margin: 10px 0 10px 20px;
+            margin: 0 0 16px 20px;
         }
+
         li {
-            margin: 5px 0;
+            margin-bottom: 8px;
+        }
+
+        .contact-card {
+            background-color: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Terms and Conditions</h1>
-    <p style="font-size: 1.3em; font-weight: bold;">MyHobbyPlan</p>
-    <p class="effective-date">Effective Date: June 26, 2026</p>
+    <div class="wrapper">
+        <a href="index.html" class="back-link">
+            ← Back to Home
+        </a>
 
-    <h2>Welcome to MyHobbyPlan</h2>
-    <p>By downloading, installing, or using this application, you agree to these Terms and Conditions.</p>
+        <header>
+            <p class="brand-name">MyHobbyPlan</p>
+            <h1>Terms and Conditions</h1>
+            <p class="effective-date">Effective Date: June 26, 2026</p>
+        </header>
 
-    <h2>1. Use of the Application</h2>
-    <ul>
-        <li>MyHobbyPlan is intended to help users organize hobbies, schedule activities, and access weather information for planning purposes.</li>
-        <li>The application is intended for lawful, personal, and non-commercial use.</li>
-    </ul>
+        <section>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using the MyHobbyPlan application, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the application.</p>
 
-    <h2>2. User Responsibilities</h2>
-    <p>You agree to:</p>
-    <ul>
-        <li>Use the application responsibly.</li>
-        <li>Provide accurate city information for weather forecasts.</li>
-        <li>Not misuse or attempt to interfere with the application's functionality.</li>
-        <li>Not reverse engineer, modify, or redistribute the application without permission.</li>
-    </ul>
+            <h2>2. Use of Service</h2>
+            <p>MyHobbyPlan is provided to help users organize hobbies and schedule activities. You agree to use the application only for lawful, personal, and non-commercial purposes.</p>
 
-    <h2>3. Weather Information</h2>
-    <ul>
-        <li>Weather forecasts are provided by third-party weather services.</li>
-        <li>Forecasts are estimates and may change without notice.</li>
-        <li>Users should always exercise personal judgment before participating in outdoor activities.</li>
-        <li>MyHobbyPlan is not responsible for losses, damages, injuries, or inconvenience resulting from inaccurate or changing weather conditions.</li>
-    </ul>
+            <h2>3. Weather Data & Third-Party Content</h2>
+            <ul>
+                <li>Weather forecasts are provided for planning purposes only and are estimates based on third-party data.</li>
+                <li>Users should always exercise personal judgment before participating in outdoor activities.</li>
+                <li>Eleviq Technologies is not liable for any losses, injuries, or damages resulting from inaccurate weather information.</li>
+            </ul>
 
-    <h2>4. Advertisements</h2>
-    <ul>
-        <li>The free version of MyHobbyPlan contains advertisements.</li>
-        <li>These advertisements help support ongoing development and maintenance of the application.</li>
-    </ul>
+            <h2>4. Intellectual Property</h2>
+            <p>All content, branding, logos, source code, and design within the application are the intellectual property of <strong>Eleviq Technologies</strong>. Unauthorized reproduction or redistribution is strictly prohibited.</p>
 
-    <h2>5. Intellectual Property</h2>
-    <p>All content, logos, graphics, branding, source code, and application design remain the intellectual property of Eleviq Technologies unless otherwise stated.</p>
-    <p>Unauthorized copying or redistribution is prohibited.</p>
+            <h2>5. Limitation of Liability</h2>
+            <p>The application is provided "as is" without any warranties. Eleviq Technologies shall not be liable for any direct or indirect damages arising from the use or inability to use the application.</p>
 
-    <h2>6. Limitation of Liability</h2>
-    <ul>
-        <li>MyHobbyPlan is provided "as is" without warranties of any kind.</li>
-        <li>To the fullest extent permitted by law, Eleviq Technologies shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of the application.</li>
-    </ul>
+            <h2>6. Termination</h2>
+            <p>We reserve the right to suspend or discontinue the application or any specific features at our sole discretion and without prior notice.</p>
 
-    <h2>7. Availability</h2>
-    <p>We strive to keep the application available and functional but do not guarantee uninterrupted access or error-free operation.</p>
-    <p>Features may change, be updated, or discontinued without prior notice.</p>
+            <h2>7. Governing Law</h2>
+            <p>These terms are governed by the laws of the Republic of Kenya. Any disputes shall be subject to the exclusive jurisdiction of the courts in Kenya.</p>
 
-    <h2>8. Termination</h2>
-    <p>We reserve the right to suspend or discontinue the application or any of its features at our discretion.</p>
-
-    <h2>9. Changes to These Terms</h2>
-    <ul>
-        <li>These Terms and Conditions may be updated from time to time.</li>
-        <li>Continued use of the application after changes are published constitutes acceptance of the revised Terms.</li>
-    </ul>
-
-    <h2>10. Governing Law</h2>
-    <p>These Terms and Conditions shall be governed by the laws of the Republic of Kenya, unless otherwise required by applicable law.</p>
-
-    <h2>11. Contact Information</h2>
-    <p>
-        <strong>MyHobbyPlan</strong><br>
-        Email: <a href="mailto:contact@myhobbyplan.net">contact@myhobbyplan.net</a><br>
-        Phone: +254 790 683 823
-    </p>
+            <div class="contact-card">
+                <strong>Contact Information</strong>
+                <p>For questions regarding these Terms, please contact:</p>
+                <p>Email: <a href="mailto:contact@myhobbyplan.net">contact@myhobbyplan.net</a></p>
+                <p>Phone: +254 790 683 823</p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
