@@ -237,6 +237,22 @@
         }
         body { top: 0 !important; }
 
+        /* Feature Image Styling */
+        .feature-image {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .feature-item:hover .feature-image {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
         /* --- Mobile Responsive --- */
 
         @media (max-width: 850px) {
@@ -305,20 +321,23 @@
     <section class="section-features">
         <div class="features-grid">
             <div class="feature-item">
+                <img src="weatheraware_planning.png" alt="Weather-Aware Planning" class="feature-image">
                 <h3>Weather-Aware Planning</h3>
                 <p>View current weather and forecasts for your selected city to determine the best time for outdoor hobbies.</p>
             </div>
             <div class="feature-item">
+                <img src="smart_scheduling.png" alt="Smart Scheduling" class="feature-image">
                 <h3>Smart Scheduling</h3>
                 <p>Plan activities by date and time with an easy-to-use planner that keeps you on track.</p>
             </div>
             <div class="feature-item">
-                <h3>Personalized Preferences</h3>
-                <p>Set ideal weather conditions for each hobby—temperature, rain, and wind—for custom recommendations.</p>
-            </div>
-            <div class="feature-item">
+                <img src="hobby_management.png" alt="Hobby Management" class="feature-image">
                 <h3>Hobby Management</h3>
                 <p>Create, edit, organize, and manage all your hobbies in one intuitive application.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Personalized Preferences</h3>
+                <p>Set ideal weather conditions for each hobby—temperature, rain, and wind—for custom recommendations.</p>
             </div>
             <div class="feature-item">
                 <h3>Smart Notifications</h3>
