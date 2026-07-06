@@ -194,6 +194,49 @@
             color: #94a3b8;
         }
 
+        /* --- Language Selector Styling --- */
+        .language-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 99px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .language-icon {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+
+        /* Clean up Google Translate UI */
+        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0 !important;
+        }
+        .goog-te-combo {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+        body { top: 0 !important; }
+
         /* --- Mobile Responsive --- */
 
         @media (max-width: 850px) {
@@ -221,6 +264,13 @@
     </style>
 </head>
 <body>
+
+    <div class="language-container">
+        <svg class="language-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+        <div id="google_translate_element"></div>
+    </div>
 
     <header class="header-section">
         <div class="app-info">
@@ -291,6 +341,18 @@
             © 2026 MyHobbyPlan by Eleviq Technologies. All rights reserved.
         </p>
     </footer>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
