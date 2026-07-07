@@ -30,6 +30,48 @@
             padding: 40px 24px;
         }
 
+        /* --- Language Selector Styling --- */
+        .language-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 99px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .language-icon {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+
+        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0 !important;
+        }
+        .goog-te-combo {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+        body { top: 0 !important; }
+
         .wrapper {
             max-width: 720px;
             margin: 0 auto;
@@ -127,6 +169,12 @@
     </style>
 </head>
 <body>
+    <div class="language-container">
+        <svg class="language-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+        <div id="google_translate_element"></div>
+    </div>
     <div class="wrapper">
         <a href="index.html" class="back-link">
             ← Back to Home
@@ -172,5 +220,29 @@
             </div>
         </section>
     </div>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: true
+            }, 'google_translate_element');
+
+            setTimeout(function() {
+                var select = document.querySelector('select.goog-te-combo');
+                if (select && select.value === "") {
+                    var browserLang = navigator.language.split('-')[0];
+                    var supportedLangs = ['af', 'sq', 'am', 'ar', 'hy', 'az', 'eu', 'be', 'bn', 'bs', 'bg', 'ca', 'ceb', 'ny', 'zh-CN', 'zh-TW', 'co', 'hr', 'cs', 'da', 'nl', 'en', 'eo', 'et', 'tl', 'fi', 'fr', 'fy', 'gl', 'ka', 'de', 'el', 'gu', 'ht', 'ha', 'haw', 'iw', 'hi', 'hmn', 'hu', 'is', 'ig', 'id', 'ga', 'it', 'ja', 'jw', 'kn', 'kk', 'km', 'ko', 'ku', 'ky', 'lo', 'la', 'lv', 'lt', 'lb', 'mk', 'mg', 'ms', 'ml', 'mt', 'mi', 'mr', 'mn', 'my', 'ne', 'no', 'ps', 'fa', 'pl', 'pt', 'pa', 'ro', 'ru', 'sm', 'gd', 'sr', 'st', 'sn', 'sd', 'si', 'sk', 'sl', 'so', 'es', 'su', 'sw', 'sv', 'tg', 'ta', 'te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi', 'yo', 'zu'];
+                    if (browserLang !== 'en' && supportedLangs.includes(browserLang)) {
+                        select.value = browserLang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }
+            }, 1000);
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

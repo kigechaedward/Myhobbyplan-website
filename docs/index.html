@@ -571,8 +571,23 @@
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
+                autoDisplay: true // Set to true for more automatic behavior
             }, 'google_translate_element');
+
+            // Automatic detection and translation logic
+            setTimeout(function() {
+                var select = document.querySelector('select.goog-te-combo');
+                if (select && select.value === "") {
+                    // Get browser language (e.g., "fr-FR" -> "fr")
+                    var browserLang = navigator.language.split('-')[0];
+                    var supportedLangs = ['af', 'sq', 'am', 'ar', 'hy', 'az', 'eu', 'be', 'bn', 'bs', 'bg', 'ca', 'ceb', 'ny', 'zh-CN', 'zh-TW', 'co', 'hr', 'cs', 'da', 'nl', 'en', 'eo', 'et', 'tl', 'fi', 'fr', 'fy', 'gl', 'ka', 'de', 'el', 'gu', 'ht', 'ha', 'haw', 'iw', 'hi', 'hmn', 'hu', 'is', 'ig', 'id', 'ga', 'it', 'ja', 'jw', 'kn', 'kk', 'km', 'ko', 'ku', 'ky', 'lo', 'la', 'lv', 'lt', 'lb', 'mk', 'mg', 'ms', 'ml', 'mt', 'mi', 'mr', 'mn', 'my', 'ne', 'no', 'ps', 'fa', 'pl', 'pt', 'pa', 'ro', 'ru', 'sm', 'gd', 'sr', 'st', 'sn', 'sd', 'si', 'sk', 'sl', 'so', 'es', 'su', 'sw', 'sv', 'tg', 'ta', 'te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi', 'yo', 'zu'];
+
+                    if (browserLang !== 'en' && supportedLangs.includes(browserLang)) {
+                        select.value = browserLang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }
+            }, 1000);
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
