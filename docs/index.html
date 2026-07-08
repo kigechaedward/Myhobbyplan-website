@@ -399,6 +399,81 @@
             color: white;
         }
 
+        /* --- Contact Form Styling --- */
+        .section-contact {
+            padding: 100px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 48px;
+            border-radius: 32px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .form-input {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: #f8fafc;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(45, 90, 90, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+        }
+
         /* --- Mobile Responsive --- */
 
         @media (max-width: 850px) {
@@ -496,8 +571,35 @@
         </div>
     </section>
 
+    <section class="section-contact" id="contact">
+        <div class="contact-card">
+            <h2>Contact Us</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">
+                Have a question or feedback? Send us a message and we'll get back to you as soon as possible.
+            </p>
+            <form action="https://formspree.io/f/mkolavkw" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" name="name" id="full-name" class="form-input" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" name="_replyto" id="email-address" class="form-input" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" class="form-input form-textarea" placeholder="How can we help you?" required></textarea>
+                </div>
+                <!-- Hidden Honeypot for Spam Protection -->
+                <input type="text" name="_gotcha" style="display:none">
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-links">
+            <a href="#contact">Contact Us</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms & Conditions</a>
             <a href="mailto:contact@myhobbyplan.net">Contact Support</a>
