@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Pitch Deck — MyHobbyPlan</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Investor Pitch Deck — MyHobbyPlan">
+    <meta name="description" content="MyHobbyPlan investor pitch deck. Smart hobby planning powered by weather intelligence. Presented by Eleviq Technologies.">
+    <meta name="keywords" content="MyHobbyPlan, pitch deck, investor, startup, Eleviq Technologies, hobby planner, weather intelligence">
+    <meta name="author" content="Eleviq Technologies">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kigechaedward.github.io/Myhobbyplan-website/pitch.html">
+    <meta property="og:title" content="Investor Pitch Deck — MyHobbyPlan">
+    <meta property="og:description" content="Smart hobby planning powered by weather intelligence. Presented by Eleviq Technologies.">
+    <meta property="og:image" content="https://kigechaedward.github.io/Myhobbyplan-website/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kigechaedward.github.io/Myhobbyplan-website/pitch.html">
+    <meta property="twitter:title" content="Investor Pitch Deck — MyHobbyPlan">
+    <meta property="twitter:description" content="Smart hobby planning powered by weather intelligence. Presented by Eleviq Technologies.">
+    <meta property="twitter:image" content="https://kigechaedward.github.io/Myhobbyplan-website/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d5a5a;
+            --primary-light: rgba(45, 90, 90, 0.08);
+            --primary-glass: rgba(45, 90, 90, 0.15);
+            --accent: #f97316;
+            --accent-hover: #ea580c;
+            --accent-light: rgba(249, 115, 22, 0.1);
+            --text-main: #1f2937;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.1);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Navigation Bar --- */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            transition: var(--transition);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .nav-brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 99px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-hamburger svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .nav-mobile {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 999;
+        }
+
+        .nav-mobile.open { display: flex; }
+
+        .nav-mobile a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .nav-mobile a:hover, .nav-mobile a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* --- Section Shared Styles --- */
+        .pitch-section {
+            padding: 120px 24px 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 99px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(45,90,90,0.12);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--border);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- Hero --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 64px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #2d5a5a 0%, #1a3a3a 50%, #0f2626 100%);
+            z-index: 0;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(45,90,90,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 99px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--accent), #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-hero-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px rgba(249,115,22,0.4);
+        }
+
+        .btn-hero-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249,115,22,0.5);
+        }
+
+        .btn-hero-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            flex: 0 0 400px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-phone {
+            width: 280px;
+            height: 560px;
+            background: #111;
+            border-radius: 36px;
+            border: 6px solid #222;
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-phone-screen {
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            background: #111;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+
+        .hero-phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Problem Section --- */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #f97316);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .problem-icon {
+            width: 56px;
+            height: 56px;
+            background: #fef2f2;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- Solution Section --- */
+        .solution-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+            align-items: center;
+        }
+
+        .solution-text h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .solution-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .solution-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .solution-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .solution-check {
+            width: 24px;
+            height: 24px;
+            background: rgba(34,197,94,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #22c55e;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .solution-visual {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a3a3a 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(249,115,22,0.2), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .solution-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .solution-visual h4 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .solution-visual p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .feature-card:hover .feature-icon svg {
+            stroke: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* --- Technology Section --- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .tech-pill {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            padding: 14px 24px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .tech-pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .ai-section {
+            background: linear-gradient(135deg, rgba(45,90,90,0.05) 0%, rgba(249,115,22,0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .ai-text h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .ai-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .ai-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ai-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            padding: 14px 20px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .ai-feature-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* --- Market Section --- */
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .market-stat {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .market-stat:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .market-stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .market-stat-value span {
+            color: var(--accent);
+        }
+
+        .market-stat-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .market-stat-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+        /* --- Business Model --- */
+        .model-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .model-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .model-card.featured {
+            background: linear-gradient(135deg, var(--primary), #1a3a3a);
+            border: none;
+            color: white;
+        }
+
+        .model-card.featured h3, .model-card.featured p, .model-card.featured li {
+            color: white;
+        }
+
+        .model-card.featured .model-price {
+            color: var(--accent);
+        }
+
+        .model-tag {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 99px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .model-card.featured .model-tag {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .model-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .model-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .model-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .model-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .model-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .model-list li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .model-card.featured .model-list li::before {
+            color: var(--accent);
+        }
+
+        /* --- Traction Section --- */
+        .traction-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .traction-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .traction-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .traction-card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .traction-card-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .traction-card-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .traction-card-note {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* --- Roadmap --- */
+        .roadmap-scroll {
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            margin-top: 48px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .roadmap-track {
+            display: flex;
+            gap: 0;
+            min-width: max-content;
+            position: relative;
+            padding: 0 24px;
+        }
+
+        .roadmap-track::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 24px;
+            right: 24px;
+            height: 3px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .roadmap-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .roadmap-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--border);
+            border: 4px solid var(--bg-page);
+            margin-bottom: 20px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .roadmap-item.completed .roadmap-dot {
+            background: var(--primary);
+            box-shadow: 0 0 0 4px rgba(45,90,90,0.15);
+        }
+
+        .roadmap-item.active .roadmap-dot {
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(249,115,22,0.2);
+            animation: pulse-roadmap 2s infinite;
+        }
+
+        @keyframes pulse-roadmap {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(249,115,22,0.2); }
+            50% { box-shadow: 0 0 0 8px rgba(249,115,22,0.1); }
+        }
+
+        .roadmap-item:hover .roadmap-dot {
+            transform: scale(1.3);
+        }
+
+        .roadmap-content {
+            text-align: center;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px 16px;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .roadmap-item:hover .roadmap-content {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .roadmap-content h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .roadmap-content p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .roadmap-content .roadmap-date {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Competitive Advantage --- */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-top: 48px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .comparison-table thead {
+            background: var(--primary);
+        }
+
+        .comparison-table th {
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 16px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: rgba(45,90,90,0.03);
+        }
+
+        .table-yes {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .table-no {
+            color: #ef4444;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .table-partial {
+            color: #f59e0b;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .comparison-table .highlight-col {
+            background: rgba(45,90,90,0.04);
+        }
+
+        /* --- Social Impact --- */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .impact-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .impact-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .impact-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .impact-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* --- About / Founder --- */
+        .founder-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 56px;
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .founder-photo {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .founder-info .founder-role {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .founder-info p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .company-about {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .company-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+        }
+
+        .company-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .company-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a3a3a 50%, #0f2626 100%);
+            padding: 100px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+        }
+
+        .cta-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-cta-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px rgba(249,115,22,0.4);
+        }
+
+        .btn-cta-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249,115,22,0.5);
+        }
+
+        .btn-cta-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-links {
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact {
+            margin-top: 24px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 32px;
+        }
+
+        /* --- Scroll Reveal Animation --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero-title { font-size: 2.5rem; }
+            .hero-description { margin: 0 auto 40px; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { flex: none; }
+            .hero-phone { width: 240px; height: 480px; }
+
+            .section-title { font-size: 2rem; }
+
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .tech-grid { grid-template-columns: 1fr 1fr; }
+            .market-stats { grid-template-columns: 1fr 1fr; }
+            .model-cards { grid-template-columns: 1fr; }
+            .traction-grid { grid-template-columns: 1fr 1fr; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .company-about { grid-template-columns: 1fr; }
+
+            .solution-wrapper { grid-template-columns: 1fr; }
+            .solution-visual { min-height: 300px; }
+
+            .ai-section { grid-template-columns: 1fr; }
+
+            .founder-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 40px;
+            }
+            .founder-photo { margin: 0 auto; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr 1fr; }
+            .market-stats { grid-template-columns: 1fr; }
+            .traction-grid { grid-template-columns: 1fr; }
+            .problem-grid { grid-template-columns: 1fr; }
+
+            .nav-links { display: none; }
+            .nav-hamburger { display: block; }
+
+            .cta-title { font-size: 1.8rem; }
+
+            .founder-photo {
+                width: 140px;
+                height: 140px;
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="MyHobbyPlan Logo">
+                MyHobbyPlan
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#traction">Traction</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="nav-mobile" id="mobileNav">
+            <a href="#problem" onclick="closeMobileNav()">Problem</a>
+            <a href="#solution" onclick="closeMobileNav()">Solution</a>
+            <a href="#features" onclick="closeMobileNav()">Features</a>
+            <a href="#market" onclick="closeMobileNav()">Market</a>
+            <a href="#traction" onclick="closeMobileNav()">Traction</a>
+            <a href="#roadmap" onclick="closeMobileNav()">Roadmap</a>
+            <a href="#about" onclick="closeMobileNav()">About</a>
+            <a href="#contact" onclick="closeMobileNav()">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Investor Pitch Deck 2026
+                </div>
+                <h1 class="hero-title">MyHobbyPlan<br><span>Investor Pitch Deck</span></h1>
+                <p class="hero-description">
+                    Smart Hobby Planning Powered by Weather Intelligence. MyHobbyPlan helps people organize hobbies, plan activities, and use weather insights to make better outdoor planning decisions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-hero btn-hero-primary">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Download Pitch Deck (PDF)
+                    </a>
+                    <a href="#contact" class="btn-hero btn-hero-secondary">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-phone">
+                    <div class="hero-phone-screen">
+                        <img src="screenshot.png" alt="MyHobbyPlan App">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="pitch-section" id="problem">
+        <div class="reveal">
+            <div class="section-label">The Problem</div>
+            <h2 class="section-title">Hobbies Shouldn't Be This Hard to Maintain</h2>
+            <p class="section-subtitle">
+                Millions of people struggle to maintain hobbies and outdoor activities due to poor planning, busy schedules, and unpredictable weather. Existing tools don't solve the whole problem.
+            </p>
+        </div>
+        <div class="problem-grid reveal">
+            <div class="problem-card">
+                <div class="problem-icon">😰</div>
+                <h3>Busy Schedules</h3>
+                <p>People want to enjoy hobbies but struggle to find time. Without structured planning, hobbies are quickly abandoned as life gets busier.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🌧️</div>
+                <h3>Unpredictable Weather</h3>
+                <p>Outdoor hobbies depend on weather conditions, but most people check forecasts on separate apps with no connection to their hobby plans.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">📱</div>
+                <h3>Fragmented Tools</h3>
+                <p>Calendar apps don't understand hobbies. Weather apps don't know your preferences. Habit trackers ignore weather entirely. No single app combines them.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">😔</div>
+                <h3>Missed Opportunities</h3>
+                <p>Perfect weather windows for outdoor activities pass by unnoticed. Users miss ideal conditions because they're not actively monitoring forecasts.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">👥</div>
+                <h3>Family Coordination</h3>
+                <p>Families struggle to plan shared hobby time. There's no simple tool that helps coordinate activities across different schedules and preferences.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🔄</div>
+                <h3>No Personalization</h3>
+                <p>Existing apps offer generic experiences. They don't adapt to individual weather preferences, hobby priorities, or personal scheduling patterns.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Solution -->
+    <section class="pitch-section" id="solution">
+        <div class="reveal">
+            <div class="section-label">Our Solution</div>
+            <h2 class="section-title">The All-in-One Hobby Planning Platform</h2>
+            <p class="section-subtitle">
+                MyHobbyPlan combines scheduling, weather forecasting, reminders, and intelligent planning into one beautiful app — giving users the power to enjoy their hobbies more.
+            </p>
+        </div>
+        <div class="solution-wrapper reveal">
+            <div class="solution-text">
+                <h3>Plan Smarter. Enjoy More.</h3>
+                <p>
+                    MyHobbyPlan is designed around a simple insight: hobbies thrive when they're planned with context. By combining your hobby schedule with real-time weather data, we help you make better decisions about when and how to enjoy your activities.
+                </p>
+                <ul class="solution-list">
+                    <li>
+                        <span class="solution-check">✓</span>
+                        <span>Organize all hobbies in one intuitive dashboard</span>
+                    </li>
+                    <li>
+                        <span class="solution-check">✓</span>
+                        <span>Get real-time weather forecasts for your activity locations</span>
+                    </li>
+                    <li>
+                        <span class="solution-check">✓</span>
+                        <span>Set personalized weather preferences for each hobby</span>
+                    </li>
+                    <li>
+                        <span class="solution-check">✓</span>
+                        <span>Receive smart notifications when conditions are perfect</span>
+                    </li>
+                    <li>
+                        <span class="solution-check">✓</span>
+                        <span>Plan weekly and monthly activities with a visual planner</span>
+                    </li>
+                    <li>
+                        <span class="solution-check">✓</span>
+                        <span>Share and coordinate hobby plans with family members</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-visual">
+                <div class="solution-emoji">🎯</div>
+                <h4>Context-Aware Planning</h4>
+                <p>Your hobbies, your weather, your schedule — all in sync.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Features -->
+    <section class="pitch-section" id="features">
+        <div class="reveal">
+            <div class="section-label">Product Features</div>
+            <h2 class="section-title">Built for Hobbyists Who Love the Outdoors</h2>
+            <p class="section-subtitle">
+                A carefully crafted feature set that addresses every aspect of hobby planning and weather-aware scheduling.
+            </p>
+        </div>
+        <div class="features-grid reveal">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3>Hobby Management</h3>
+                <p>Create, edit, and organize all your hobbies in one intuitive dashboard. Categorize by type, set priorities, and track your engagement over time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                </div>
+                <h3>Weather-Based Planning</h3>
+                <p>View current weather and forecasts for your selected city. Get real-time data on temperature, rain, wind, and humidity to plan outdoor activities.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3>Weekly & Monthly Planner</h3>
+                <p>Plan your hobby activities week by week or month by month with a visual calendar. Drag, drop, and reschedule with ease.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h3>Weather Preferences</h3>
+                <p>Set ideal conditions for each hobby — temperature range, rain probability, wind speed — for customized activity recommendations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                </div>
+                <h3>Smart Notifications</h3>
+                <p>Receive timely reminders for scheduled hobbies and intelligent alerts when weather conditions match your ideal hobby preferences.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="28" height="28" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h3>Family-Friendly Experience</h3>
+                <p>Designed for users of all ages with a clean, simple, and welcoming interface. Coordinate hobby plans with family members easily.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Technology -->
+    <section class="pitch-section" id="technology">
+        <div class="reveal">
+            <div class="section-label">Technology</div>
+            <h2 class="section-title">Powered by Modern Technology</h2>
+            <p class="section-subtitle">
+                Built with a robust, scalable technology stack designed for performance, reliability, and a delightful user experience.
+            </p>
+        </div>
+        <div class="tech-grid reveal">
+            <div class="tech-pill">Kotlin</div>
+            <div class="tech-pill">Android Studio</div>
+            <div class="tech-pill">Jetpack Compose</div>
+            <div class="tech-pill">MVVM Architecture</div>
+            <div class="tech-pill">Room Database</div>
+            <div class="tech-pill">OpenWeather API</div>
+            <div class="tech-pill">Google AdMob</div>
+            <div class="tech-pill">Material Design 3</div>
+        </div>
+        <div class="ai-section reveal">
+            <div class="ai-text">
+                <h3>AI-Powered Intelligence</h3>
+                <p>
+                    We are integrating artificial intelligence to deliver personalized recommendations, intelligent planning, and enhanced user experiences that adapt to each user's unique hobby patterns and preferences.
+                </p>
+                <p>
+                    Our AI engine learns from user behavior, weather patterns, and scheduling habits to proactively suggest optimal activity times and discover new hobbies users might enjoy.
+                </p>
+            </div>
+            <div class="ai-features">
+                <div class="ai-feature">
+                    <span class="ai-feature-dot"></span>
+                    Personalized hobby recommendations
+                </div>
+                <div class="ai-feature">
+                    <span class="ai-feature-dot"></span>
+                    Intelligent scheduling optimization
+                </div>
+                <div class="ai-feature">
+                    <span class="ai-feature-dot"></span>
+                    Predictive weather-hobby matching
+                </div>
+                <div class="ai-feature">
+                    <span class="ai-feature-dot"></span>
+                    Adaptive user experience
+                </div>
+                <div class="ai-feature">
+                    <span class="ai-feature-dot"></span>
+                    Smart activity discovery
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Market Opportunity -->
+    <section class="pitch-section" id="market">
+        <div class="reveal">
+            <div class="section-label">Market Opportunity</div>
+            <h2 class="section-title">A Growing Multi-Billion Dollar Market</h2>
+            <p class="section-subtitle">
+                The convergence of wellness, productivity, outdoor recreation, and lifestyle applications represents a massive and rapidly expanding market opportunity.
+            </p>
+        </div>
+        <div class="market-stats reveal">
+            <div class="market-stat">
+                <div class="market-stat-value" data-target="5.6" data-suffix="T">$0</div>
+                <div class="market-stat-label">Global Wellness Market</div>
+                <div class="market-stat-desc">By 2027 (GWI)</div>
+            </div>
+            <div class="market-stat">
+                <div class="market-stat-value" data-target="887" data-suffix="B">$0</div>
+                <div class="market-stat-label">Productivity Apps</div>
+                <div class="market-stat-desc">Market size by 2026</div>
+            </div>
+            <div class="market-stat">
+                <div class="market-stat-value" data-target="890" data-suffix="M">0</div>
+                <div class="market-stat-label">Outdoor Recreation Users</div>
+                <div class="market-stat-desc">Worldwide active users</div>
+            </div>
+            <div class="market-stat">
+                <div class="market-stat-value" data-target="21" data-suffix="%">0%</div>
+                <div class="market-stat-label">App Market CAGR</div>
+                <div class="market-stat-desc">Annual growth rate</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Business Model -->
+    <section class="pitch-section" id="business">
+        <div class="reveal">
+            <div class="section-label">Business Model</div>
+            <h2 class="section-title">Sustainable Revenue with Growth Levers</h2>
+            <p class="section-subtitle">
+                A freemium model that maximizes user acquisition while creating multiple revenue streams through ads, premium features, and strategic partnerships.
+            </p>
+        </div>
+        <div class="model-cards reveal">
+            <div class="model-card">
+                <span class="model-tag">Core Product</span>
+                <h3>Free App</h3>
+                <div class="model-price">Free to Download & Use</div>
+                <p>
+                    The core app is completely free, supported by non-intrusive banner ads through Google AdMob. This ensures maximum accessibility and user acquisition.
+                </p>
+                <ul class="model-list">
+                    <li>Full hobby management features</li>
+                    <li>Basic weather forecasts</li>
+                    <li>Weekly & monthly planning</li>
+                    <li>Smart notifications</li>
+                    <li>Family coordination</li>
+                </ul>
+            </div>
+            <div class="model-card featured">
+                <span class="model-tag">Revenue Stream</span>
+                <h3>Rewarded Premium</h3>
+                <div class="model-price">Ad-Supported Upgrades</div>
+                <p>
+                    Users can access premium weather forecasts, extended 14-day outlooks, and AI-powered recommendations by watching rewarded video ads.
+                </p>
+                <ul class="model-list">
+                    <li>Extended 14-day weather forecasts</li>
+                    <li>AI-powered hobby suggestions</li>
+                    <li>Detailed weather analytics</li>
+                    <li>Priority notification delivery</li>
+                    <li>Ad-free experience option</li>
+                </ul>
+            </div>
+        </div>
+        <div class="company-about reveal" style="margin-top:32px;">
+            <div class="company-card">
+                <h3>Future Revenue Streams</h3>
+                <p>Strategic partnerships with outdoor brands, weather services, and lifestyle companies. Premium subscription tier for power users. White-label solutions for enterprise clients.</p>
+            </div>
+            <div class="company-card">
+                <h3>Growth Strategy</h3>
+                <p>Organic growth through SEO, social media, and word-of-mouth. Strategic partnerships with outdoor communities. Expansion to iOS, web, and wearable platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Traction -->
+    <section class="pitch-section" id="traction">
+        <div class="reveal">
+            <div class="section-label">Traction</div>
+            <h2 class="section-title">Early Momentum & Growth</h2>
+            <p class="section-subtitle">
+                MyHobbyPlan is gaining traction with users who love the unique combination of hobby planning and weather intelligence.
+            </p>
+        </div>
+        <div class="traction-grid reveal">
+            <div class="traction-card">
+                <div class="traction-card-icon">📥</div>
+                <div class="traction-card-number" data-target="0">0</div>
+                <div class="traction-card-label">Total Downloads</div>
+                <div class="traction-card-note">Update with real metrics</div>
+            </div>
+            <div class="traction-card">
+                <div class="traction-card-icon">👥</div>
+                <div class="traction-card-number" data-target="0">0</div>
+                <div class="traction-card-label">Active Users</div>
+                <div class="traction-card-note">Update with real metrics</div>
+            </div>
+            <div class="traction-card">
+                <div class="traction-card-icon">🌍</div>
+                <div class="traction-card-number" data-target="0">0</div>
+                <div class="traction-card-label">Countries Reached</div>
+                <div class="traction-card-note">Update with real metrics</div>
+            </div>
+            <div class="traction-card">
+                <div class="traction-card-icon">⭐</div>
+                <div class="traction-card-number" data-target="0">0</div>
+                <div class="traction-card-label">Average User Rating</div>
+                <div class="traction-card-note">Update with real metrics</div>
+            </div>
+            <div class="traction-card">
+                <div class="traction-card-icon">📊</div>
+                <div class="traction-card-number" data-target="0">0</div>
+                <div class="traction-card-label">User Engagement</div>
+                <div class="traction-card-note">Daily active users</div>
+            </div>
+            <div class="traction-card">
+                <div class="traction-card-icon">🌤️</div>
+                <div class="traction-card-number" data-target="0">0</div>
+                <div class="traction-card-label">Weather Forecast Usage</div>
+                <div class="traction-card-note">Monthly forecast requests</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Roadmap -->
+    <section class="pitch-section" id="roadmap">
+        <div class="reveal">
+            <div class="section-label">Roadmap</div>
+            <h2 class="section-title">Our Journey Forward</h2>
+            <p class="section-subtitle">
+                A clear vision for growth from initial launch to becoming the world's leading hobby planning platform.
+            </p>
+        </div>
+        <div class="roadmap-scroll reveal">
+            <div class="roadmap-track">
+                <div class="roadmap-item completed">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>Android Launch</h4>
+                        <p>Initial release on Google Play Store</p>
+                        <div class="roadmap-date">Q1 2026</div>
+                    </div>
+                </div>
+                <div class="roadmap-item completed">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>UI/UX Redesign</h4>
+                        <p>Modern interface with Material Design 3</p>
+                        <div class="roadmap-date">Q2 2026</div>
+                    </div>
+                </div>
+                <div class="roadmap-item active">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>Rewarded Forecasts</h4>
+                        <p>Premium weather via rewarded ads</p>
+                        <div class="roadmap-date">Q3 2026</div>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>AI Features</h4>
+                        <p>Smart recommendations & planning</p>
+                        <div class="roadmap-date">Q4 2026</div>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>Community</h4>
+                        <p>Social features & hobby sharing</p>
+                        <div class="roadmap-date">Q1 2027</div>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>iOS Version</h4>
+                        <p>Expand to Apple ecosystem</p>
+                        <div class="roadmap-date">Q2 2027</div>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>Web Platform</h4>
+                        <p>Browser-based companion app</p>
+                        <div class="roadmap-date">Q3 2027</div>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h4>Wearable</h4>
+                        <p>Smartwatch integration</p>
+                        <div class="roadmap-date">Q4 2027</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Competitive Advantage -->
+    <section class="pitch-section" id="competition">
+        <div class="reveal">
+            <div class="section-label">Competitive Advantage</div>
+            <h2 class="section-title">Why MyHobbyPlan Wins</h2>
+            <p class="section-subtitle">
+                No existing app combines hobby planning with weather intelligence. MyHobbyPlan fills a unique gap in the market.
+            </p>
+        </div>
+        <div class="comparison-table-wrapper reveal">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Weather Apps</th>
+                        <th>Calendar Apps</th>
+                        <th>Habit Trackers</th>
+                        <th class="highlight-col">MyHobbyPlan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hobby Management</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-partial">Basic</td>
+                        <td class="table-partial">Basic</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Full</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weather Integration</td>
+                        <td><span class="table-yes">✓ Full</span></td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Full</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weather-Based Reminders</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Smart</span></td>
+                    </tr>
+                    <tr>
+                        <td>Personalized Preferences</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-partial">Limited</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Deep</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weekly/Monthly Planner</td>
+                        <td class="table-no">✗</td>
+                        <td><span class="table-yes">✓</span></td>
+                        <td class="table-partial">Basic</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Visual</span></td>
+                    </tr>
+                    <tr>
+                        <td>Family Coordination</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-partial">Shared</td>
+                        <td class="table-no">✗</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Built-in</span></td>
+                    </tr>
+                    <tr>
+                        <td>AI Recommendations</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Coming</span></td>
+                    </tr>
+                    <tr>
+                        <td>Outdoor Activity Focus</td>
+                        <td class="table-partial">Passive</td>
+                        <td class="table-no">✗</td>
+                        <td class="table-no">✗</td>
+                        <td class="highlight-col"><span class="table-yes">✓ Core</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Social Impact -->
+    <section class="pitch-section" id="impact">
+        <div class="reveal">
+            <div class="section-label">Social Impact</div>
+            <h2 class="section-title">Technology for a Better Life</h2>
+            <p class="section-subtitle">
+                MyHobbyPlan goes beyond productivity — it empowers people to live healthier, more connected, and more fulfilling lives through accessible technology.
+            </p>
+        </div>
+        <div class="impact-grid reveal">
+            <div class="impact-card">
+                <div class="impact-emoji">💪</div>
+                <h3>Healthier Lifestyles</h3>
+                <p>Encourages physical activity and outdoor recreation by making it easier to plan and execute hobby sessions regularly.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-emoji">🧠</div>
+                <h3>Mental Wellbeing</h3>
+                <p>Hobbies reduce stress and improve mental health. Our app helps people maintain consistent hobby routines for long-term wellbeing.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-emoji">🏔️</div>
+                <h3>Outdoor Recreation</h3>
+                <p>Promotes outdoor activities by removing weather uncertainty. Users feel confident planning hiking, photography, gardening, and more.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-emoji">👨‍👩‍👧‍👦</div>
+                <h3>Family Engagement</h3>
+                <p>Helps families discover shared interests and plan activities together, strengthening bonds through quality time.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-emoji">🤝</div>
+                <h3>Community Building</h3>
+                <p>Creates opportunities for users to connect with local hobby communities and participate in group activities.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-emoji">♿</div>
+                <h3>Accessible Technology</h3>
+                <p>Designed for users of all ages and abilities. Clean, simple interface ensures everyone can benefit from smart hobby planning.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- About Eleviq Technologies -->
+    <section class="pitch-section" id="about">
+        <div class="reveal">
+            <div class="section-label">About Us</div>
+            <h2 class="section-title">Eleviq Technologies</h2>
+            <p class="section-subtitle">
+                A Kenyan software company building innovative AI-powered digital solutions that solve real-world challenges.
+            </p>
+        </div>
+        <div class="founder-card reveal">
+            <div class="founder-photo">EK</div>
+            <div class="founder-info">
+                <h3>Edward Kigecha</h3>
+                <div class="founder-role">Founder & CEO — Eleviq Technologies</div>
+                <p>
+                    Edward Kigecha is a visionary software engineer and entrepreneur dedicated to building technology solutions that make a real difference. With a passion for AI and user-centered design, he founded Eleviq Technologies to create innovative digital products that address everyday challenges in East Africa and beyond.
+                </p>
+                <p>
+                    Under his leadership, Eleviq Technologies has developed MyHobbyPlan as a flagship product — combining weather intelligence with hobby planning to help people enjoy their lives more. Edward believes in the power of accessible technology to transform communities and improve quality of life.
+                </p>
+            </div>
+        </div>
+        <div class="company-about reveal">
+            <div class="company-card">
+                <h3>Our Mission</h3>
+                <p>To build AI-powered digital solutions that solve real-world challenges, making technology accessible and beneficial for everyone. We believe in creating products that improve lives, strengthen communities, and drive positive social impact.</p>
+            </div>
+            <div class="company-card">
+                <h3>Our Vision</h3>
+                <p>To become a leading African technology company known for innovative, user-centered digital products that address everyday challenges. We envision a world where smart technology empowers everyone to live better, healthier, and more connected lives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content reveal">
+            <h2 class="cta-title">Let's Build the Future Together</h2>
+            <p class="cta-subtitle">
+                We're inviting investors, partners, grant organizations, and accelerators to connect with Eleviq Technologies and support the growth of MyHobbyPlan. Together, we can make hobby planning smarter and more accessible for millions worldwide.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:contact@myhobbyplan.net" class="btn-cta btn-cta-primary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Get in Touch
+                </a>
+                <a href="index.html" class="btn-cta btn-cta-secondary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Website
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
+        <div class="footer-contact">
+            <p><strong>Eleviq Technologies</strong></p>
+            <p>Email: <a href="mailto:contact@myhobbyplan.net">contact@myhobbyplan.net</a></p>
+            <p>Phone: +254 790 683 823</p>
+        </div>
+        <p class="copyright">&copy; 2026 MyHobbyPlan by Eleviq Technologies. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('open');
+        }
+        function closeMobileNav() {
+            document.getElementById('mobileNav').classList.remove('open');
+        }
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Animated Counters
+        function animateCounter(el, target, suffix, prefix) {
+            const duration = 2000;
+            const start = performance.now();
+            const isDecimal = target % 1 !== 0;
+
+            function update(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = target * eased;
+
+                if (prefix === '$') {
+                    el.textContent = '$' + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                } else {
+                    el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        // Observe market stats for animation
+        const marketStats = document.querySelectorAll('.market-stat-value[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    const target = parseFloat(entry.target.dataset.target);
+                    const suffix = entry.target.dataset.suffix || '';
+                    const text = entry.target.textContent;
+                    const prefix = text.startsWith('$') ? '$' : '';
+                    animateCounter(entry.target, target, suffix, prefix);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        marketStats.forEach(el => counterObserver.observe(el));
+
+        // Observe traction numbers
+        const tractionNumbers = document.querySelectorAll('.traction-card-number[data-target]');
+        const tractionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    const target = parseFloat(entry.target.dataset.target);
+                    animateCounter(entry.target, target, '', '');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        tractionNumbers.forEach(el => tractionObserver.observe(el));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('.pitch-section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a, .nav-mobile a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
