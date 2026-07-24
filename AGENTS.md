@@ -23,6 +23,7 @@
 ├── docs/
 │   ├── index.html      # Main landing page (703 lines)
 │   ├── pitch.html      # Investor pitch deck page
+│   ├── pitch-deck.pdf  # Downloadable pitch deck PDF
 │   ├── privacy.html    # Privacy policy page
 │   ├── terms.html      # Terms and conditions page
 │   ├── logo.png        # App logo
@@ -69,3 +70,4 @@
 - Added metadata, social tags, and JSON-LD structured data
 - Added feature screenshots, hover animations, and multi-language support
 - Added investor pitch deck page (pitch.html)
+- Added downloadable pitch deck PDF (pitch-deck.pdf)

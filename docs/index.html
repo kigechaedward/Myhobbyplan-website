@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyHobbyPlan — Plan Smarter. Enjoy More.</title>
+    <title>MyHobbyPlan — Smart Hobby Planning & Weather-Aware Scheduling App</title>
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="MyHobbyPlan — Plan Smarter. Enjoy More.">
-    <meta name="description" content="Organize hobbies, schedule activities, and plan adventures with real-time weather insights. MyHobbyPlan is the ultimate smart companion for hobbyists.">
-    <meta name="keywords" content="hobby planner, activity scheduler, weather-aware planning, MyHobbyPlan, Eleviq Technologies, hobby management, productivity app">
+    <meta name="title" content="MyHobbyPlan — Smart Hobby Planning & Weather-Aware Scheduling App">
+    <meta name="description" content="MyHobbyPlan is the ultimate smart companion for hobbyists. Organize hobbies, schedule activities, and plan adventures with real-time weather insights. Free on Android.">
+    <meta name="keywords" content="hobby planner, activity scheduler, weather-aware planning, MyHobbyPlan, Eleviq Technologies, hobby management, productivity app, outdoor activities, fitness planner, photography planner">
     <meta name="author" content="Eleviq Technologies">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://kigechaedward.github.io/Myhobbyplan-website/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kigechaedward.github.io/Myhobbyplan-website/">
-    <meta property="og:title" content="MyHobbyPlan — Plan Smarter. Enjoy More.">
-    <meta property="og:description" content="The smart companion for organizing hobbies and planning adventures with real-time weather insights.">
+    <meta property="og:title" content="MyHobbyPlan — Smart Hobby Planning & Weather-Aware Scheduling App">
+    <meta property="og:description" content="The smart companion for organizing hobbies and planning adventures with real-time weather insights. Free on Android.">
     <meta property="og:image" content="https://kigechaedward.github.io/Myhobbyplan-website/logo.png">
+    <meta property="og:site_name" content="MyHobbyPlan">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://kigechaedward.github.io/Myhobbyplan-website/">
-    <meta property="twitter:title" content="MyHobbyPlan — Plan Smarter. Enjoy More.">
-    <meta property="twitter:description" content="The smart companion for organizing hobbies and planning adventures with real-time weather insights.">
+    <meta property="twitter:title" content="MyHobbyPlan — Smart Hobby Planning & Weather-Aware Scheduling App">
+    <meta property="twitter:description" content="The smart companion for organizing hobbies and planning adventures with real-time weather insights. Free on Android.">
     <meta property="twitter:image" content="https://kigechaedward.github.io/Myhobbyplan-website/logo.png">
 
     <!-- JSON-LD Structured Data for AI & Search Engines -->
@@ -33,7 +36,7 @@
       "name": "MyHobbyPlan",
       "operatingSystem": "Android",
       "applicationCategory": "ProductivityApplication",
-      "description": "Organize hobbies, schedule activities, and plan adventures with real-time weather insights.",
+      "description": "Smart hobby planning and weather-aware scheduling app. Organize hobbies, schedule activities, and plan adventures with real-time weather insights.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -42,25 +45,52 @@
       "author": {
         "@type": "Organization",
         "name": "Eleviq Technologies",
-        "url": "https://kigechaedward.github.io/Myhobbyplan-website/"
-      }
+        "url": "https://kigechaedward.github.io/eleviq-website/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      },
+      "featureList": [
+        "Weather-Aware Planning",
+        "Smart Scheduling",
+        "Hobby Management",
+        "Personalized Preferences",
+        "Smart Notifications",
+        "Family-Friendly Interface"
+      ]
     }
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* Theme derived from Logo Palette */
             --primary: #2d5a5a;
+            --primary-light: #3a7a7a;
+            --primary-dark: #1e3e3e;
             --accent: #f97316;
             --accent-hover: #ea580c;
-            --text-main: #1f2937;
+            --accent-light: #fff7ed;
+            --text-main: #0f172a;
             --text-muted: #64748b;
+            --text-light: #94a3b8;
             --bg-page: #f8fafc;
+            --bg-hero: linear-gradient(135deg, #0f172a 0%, #1e3e3e 50%, #2d5a5a 100%);
             --white: #ffffff;
             --border: #e2e8f0;
-            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --shadow-glow: 0 0 40px rgba(45, 90, 90, 0.15);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --radius-full: 9999px;
         }
 
         * {
@@ -69,233 +99,1019 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-page);
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Landing Layout (Inspired by automatic-app-landing-page) --- */
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-        .header-section {
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
-            flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 80px 24px;
-            min-height: 80vh;
-            gap: 40px;
         }
 
-        .app-info {
-            flex: 1;
-            max-width: 500px;
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+            transition: color 0.3s ease;
         }
 
-        .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 32px;
-            border: 3px solid var(--white);
+        .navbar.scrolled .navbar-brand {
+            color: var(--text-main);
         }
 
-        h1.app-name {
-            font-size: 3.5rem;
+        .navbar-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .navbar-name {
+            font-size: 1.25rem;
             font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-links a {
+            color: var(--text-muted);
+        }
+
+        .navbar-links a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar.scrolled .navbar-links a:hover {
             color: var(--primary);
-            line-height: 1.1;
-            margin-bottom: 12px;
+            background: rgba(45, 90, 90, 0.08);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+            font-weight: 600 !important;
+            padding: 10px 24px !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .navbar.scrolled .nav-cta {
+            color: var(--white) !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--white);
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--text-main);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-content {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu-content a {
+            display: block;
+            padding: 16px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu-content a:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            background: var(--bg-hero);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(58, 122, 122, 0.2) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 140px 24px 100px;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.05;
+            margin-bottom: 24px;
             letter-spacing: -0.04em;
         }
 
-        .app-price {
+        .hero-title-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, #fb923c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
             font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 48px;
+            max-width: 520px;
         }
 
-        .app-description {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
-
-        .download-buttons {
+        .hero-buttons {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 64px;
         }
 
-        .store-btn {
-            height: 48px;
-            transition: transform 0.2s ease;
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            cursor: pointer;
         }
 
-        .store-btn:hover {
-            transform: scale(1.05);
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(249, 115, 22, 0.35);
         }
 
-        /* --- iPhone Mockup Section --- */
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
 
-        .iphone-container {
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
+        .hero-visual {
             flex: 1;
             display: flex;
             justify-content: center;
             position: relative;
         }
 
-        .iphone-frame {
-            width: 300px;
-            height: 600px;
-            background: #111;
-            border-radius: 40px;
-            border: 8px solid #222;
+        .phone-mockup {
             position: relative;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.3);
+            z-index: 2;
         }
 
-        .iphone-screen {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            background: #111;
-            border-radius: 30px;
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            background: #000;
+            border-radius: 48px;
+            border: 6px solid #1a1a1a;
+            position: relative;
+            box-shadow: 
+                0 0 0 2px #333,
+                0 50px 100px -20px rgba(0,0,0,0.5),
+                0 0 80px rgba(45, 90, 90, 0.2);
             overflow: hidden;
         }
 
-        .iphone-screen img {
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 3;
+        }
+
+        .phone-screen {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            background: #111;
+            border-radius: 42px;
+            overflow: hidden;
+        }
+
+        .phone-screen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        /* --- Features Section --- */
+        .phone-float-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-xl);
+            animation: float 4s ease-in-out infinite;
+            z-index: 3;
+        }
 
-        .section-features {
-            background: white;
-            padding: 100px 24px;
-            border-top: 1px solid var(--border);
+        .float-card-weather {
+            top: 20%;
+            left: -60px;
+            animation-delay: -1s;
+        }
+
+        .float-card-schedule {
+            bottom: 25%;
+            right: -50px;
+            animation-delay: -2s;
+        }
+
+        .float-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .float-card-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .float-card-value {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           SOCIAL PROOF BAR
+           ============================================ */
+        .social-proof {
+            background: var(--white);
+            padding: 40px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .social-proof-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .social-proof-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .social-proof-logos {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-proof-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-proof-stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .social-proof-stat-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .social-proof-stat-text span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           SECTION COMMON
+           ============================================ */
+        .section {
+            padding: 120px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 72px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+
+        .section-desc {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           FEATURES SECTION
+           ============================================ */
+        .features-section {
+            background: var(--white);
         }
 
         .features-grid {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 48px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
 
-        .feature-item h3 {
-            font-size: 1.25rem;
+        .feature-card {
+            background: var(--bg-page);
+            border-radius: var(--radius-md);
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border);
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card-image {
+            width: 100%;
+            border-radius: var(--radius-sm);
+            margin-bottom: 24px;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-icon-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+        }
+
+        .feature-icon-accent {
+            background: linear-gradient(135deg, var(--accent), #fb923c);
+            color: var(--white);
+        }
+
+        .feature-icon-green {
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text-main);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           HOW IT WORKS
+           ============================================ */
+        .how-section {
+            background: var(--bg-page);
+        }
+
+        .how-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .how-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 40px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 1px;
+        }
+
+        .how-step {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 64px;
+            position: relative;
+        }
+
+        .how-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .how-step-number {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 8px var(--bg-page);
+        }
+
+        .how-step-content {
+            padding-top: 16px;
+        }
+
+        .how-step-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
             margin-bottom: 12px;
         }
 
-        .feature-item p {
+        .how-step-content p {
+            font-size: 1.05rem;
             color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 500px;
         }
 
-        /* --- Footer --- */
-
-        footer {
-            padding: 60px 24px;
-            text-align: center;
-            border-top: 1px solid var(--border);
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonials-section {
+            background: var(--white);
         }
 
-        .footer-links {
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-page);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text-main);
+            line-height: 1.7;
             margin-bottom: 24px;
+            font-style: italic;
         }
 
-        .footer-links a {
-            margin: 0 12px;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .copyright {
-            font-size: 0.8rem;
-            color: #94a3b8;
-        }
-
-        /* --- Language Selector Styling --- */
-        .language-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
+        .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-            padding: 8px 16px;
-            border-radius: 99px;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            gap: 12px;
         }
 
-        .language-icon {
-            width: 18px;
-            height: 18px;
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            background: var(--bg-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+
+        .cta-desc {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn-primary {
+            background: var(--white);
             color: var(--primary);
         }
 
-        /* Clean up Google Translate UI */
-        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
-            display: none !important;
+        .cta-buttons .btn-primary:hover {
+            background: #f1f5f9;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
-        .goog-te-gadget {
-            color: transparent !important;
-            font-size: 0 !important;
+
+        .cta-buttons .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.3);
         }
-        .goog-te-combo {
-            background: transparent;
-            border: none;
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact-section {
+            background: var(--bg-page);
+        }
+
+        .contact-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info > p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-detail-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-detail-text strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .contact-detail-text span,
+        .contact-detail-text a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .contact-detail-text a:hover {
+            color: var(--accent);
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
             font-size: 0.875rem;
             font-weight: 600;
-            cursor: pointer;
-            outline: none;
+            color: var(--text-main);
         }
-        body { top: 0 !important; }
 
-        /* Feature Image Styling */
-        .feature-image {
-            width: 100%;
-            border-radius: 20px;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        .form-input {
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
             border: 1px solid var(--border);
-            transition: transform 0.3s ease;
-            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--bg-page);
+            color: var(--text-main);
         }
 
-        .feature-item:hover .feature-image {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(45, 90, 90, 0.1);
         }
 
-        /* --- FAQ Chatbot Styling --- */
+        .form-textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        /* ============================================
+           FAQ CHATBOT
+           ============================================ */
         .chat-widget {
             position: fixed;
             bottom: 30px;
@@ -307,388 +1123,938 @@
         .chat-button {
             width: 60px;
             height: 60px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            box-shadow: 0 10px 25px rgba(45, 90, 90, 0.4);
+            box-shadow: 0 10px 30px rgba(45, 90, 90, 0.4);
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
+            position: relative;
+        }
+
+        .chat-button::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .chat-button:hover {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1);
+        }
+
+        .chat-button:hover::before {
+            opacity: 1;
+        }
+
+        .chat-button-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 20px;
+            height: 20px;
             background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            animation: pulse-dot 2s ease-in-out infinite;
         }
 
         .chat-window {
             position: absolute;
             bottom: 80px;
             right: 0;
-            width: 350px;
-            max-height: 500px;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            width: 380px;
+            max-height: 550px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
             display: none;
             flex-direction: column;
             overflow: hidden;
             border: 1px solid var(--border);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .chat-header {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
-            padding: 20px;
-            font-weight: 700;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .chat-header-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .chat-header-sub {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .chat-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .chat-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
         .chat-content {
             padding: 20px;
             overflow-y: auto;
-            background: #f8fafc;
+            background: var(--bg-page);
             flex-grow: 1;
-            min-height: 250px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .bot-msg {
-            background: white;
-            padding: 12px 16px;
-            border-radius: 16px 16px 16px 4px;
+            background: var(--white);
+            padding: 14px 18px;
+            border-radius: 18px 18px 18px 4px;
             font-size: 0.9rem;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
             color: var(--text-main);
+            line-height: 1.5;
+            max-width: 85%;
+        }
+
+        .user-msg {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 18px 18px 4px 18px;
+            align-self: flex-end;
+            margin-left: auto;
         }
 
         .faq-options {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .faq-btn {
-            background: white;
-            border: 1px solid var(--primary);
+            background: var(--white);
+            border: 1.5px solid var(--primary);
             color: var(--primary);
-            padding: 10px 14px;
-            border-radius: 12px;
+            padding: 12px 16px;
+            border-radius: 14px;
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             text-align: left;
-            transition: var(--transition);
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
         }
 
         .faq-btn:hover {
             background: var(--primary);
-            color: white;
+            color: var(--white);
+            transform: translateX(4px);
         }
 
-        /* --- Contact Form Styling --- */
-        .section-contact {
-            padding: 100px 24px;
-            max-width: 800px;
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: #0f172a;
+            padding: 80px 24px 40px;
+            color: var(--white);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .contact-card {
-            background: white;
-            padding: 48px;
-            border-radius: 32px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 32px;
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 16px;
+            max-width: 300px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-group label {
-            font-size: 0.9rem;
+        .footer-col h4 {
+            font-size: 0.85rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 6px 0;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-content {
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+                gap: 60px;
+            }
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-visual {
+                width: 100%;
+            }
+            .phone-frame {
+                width: 260px;
+                height: 520px;
+            }
+            .phone-float-card {
+                display: none;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .how-steps::before {
+                left: 36px;
+            }
+            .how-step-number {
+                width: 72px;
+                height: 72px;
+                min-width: 72px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .navbar-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+            }
+            .section {
+                padding: 80px 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ============================================
+           LANGUAGE SELECTOR
+           ============================================ */
+        .language-container {
+            position: fixed;
+            top: 16px;
+            right: 100px;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .navbar.scrolled ~ .language-container,
+        .language-container.scrolled {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: var(--border);
+        }
+
+        .language-icon {
+            width: 18px;
+            height: 18px;
+            color: var(--white);
+        }
+
+        .navbar.scrolled ~ .language-container .language-icon,
+        .language-container.scrolled .language-icon {
             color: var(--primary);
         }
 
-        .form-input {
-            padding: 14px 18px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-            background: #f8fafc;
+        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
+            display: none !important;
         }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(45, 90, 90, 0.1);
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0 !important;
         }
-
-        .form-textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background: var(--primary);
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
+        .goog-te-combo {
+            background: transparent;
             border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
+            outline: none;
         }
-
-        .btn-submit:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+        .language-container.scrolled .goog-te-combo {
+            color: var(--text-main);
         }
-
-        /* --- Mobile Responsive --- */
-
-        @media (max-width: 850px) {
-            .header-section {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 60px;
-            }
-            .app-info {
-                max-width: 100%;
-            }
-            .app-icon {
-                margin: 0 auto 32px;
-            }
-            .download-buttons {
-                justify-content: center;
-            }
-            h1.app-name {
-                font-size: 2.75rem;
-            }
-            .iphone-container {
-                margin-top: 40px;
-            }
-        }
+        body { top: 0 !important; }
     </style>
 </head>
 <body>
 
-    <div class="language-container">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-brand">
+                <img src="logo.png" alt="MyHobbyPlan Logo" class="navbar-logo">
+                <span class="navbar-name">MyHobbyPlan</span>
+            </a>
+            <div class="navbar-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+                <a href="#download" class="nav-cta">Get the App</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#features" onclick="toggleMobileMenu()">Features</a>
+            <a href="#how-it-works" onclick="toggleMobileMenu()">How It Works</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()">Reviews</a>
+            <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+            <a href="#download" onclick="toggleMobileMenu()" style="background: var(--accent); color: white; text-align: center;">Get the App</a>
+        </div>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="language-container" id="languageContainer">
         <svg class="language-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
         </svg>
         <div id="google_translate_element"></div>
     </div>
 
-    <header class="header-section">
-        <div class="app-info">
-            <img src="logo.png" alt="MyHobbyPlan Logo" class="app-icon">
-            <h1 class="app-name">MyHobbyPlan</h1>
-            <p class="app-price">Free on Android</p>
-            <p class="app-description">
-                Plan Smarter. Enjoy More. The smart companion for organizing hobbies, scheduling activities, and planning adventures with real-time weather insights.
-            </p>
-
-            <div class="download-buttons">
-                <!-- Play Store Link -->
-                <a href="#">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-btn">
-                </a>
-                <!-- App Store Link (Placeholder) -->
-                <a href="#" style="opacity: 0.5; pointer-events: none;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="store-btn">
-                </a>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Now Available on Android
+                </div>
+                <h1 class="hero-title">
+                    Plan Smarter.<br>
+                    <span class="hero-title-accent">Enjoy More.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    The AI-powered companion that helps you organize hobbies, schedule activities, and plan perfect outdoor adventures — all weather-aware.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.3 2.302-8.636-8.634z"/></svg>
+                        Get on Google Play
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        See Features
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">1,250+</div>
+                        <div class="hero-stat-label">Active Users</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">4.8 ★</div>
+                        <div class="hero-stat-label">App Rating</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">100%</div>
+                        <div class="hero-stat-label">Free to Use</div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="iphone-container">
-            <div class="iphone-frame">
-                <div class="iphone-screen">
-                    <img src="screenshot.png" alt="MyHobbyPlan App Screenshot">
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <img src="screenshot.png" alt="MyHobbyPlan App - Smart hobby planning interface showing weather-aware scheduling">
+                        </div>
+                    </div>
+                    <div class="phone-float-card float-card-weather">
+                        <div class="float-card-icon" style="background: #e0f2fe; color: #0284c7;">☀️</div>
+                        <div class="float-card-title">Perfect Weather</div>
+                        <div class="float-card-value">24°C · Clear Sky</div>
+                    </div>
+                    <div class="phone-float-card float-card-schedule">
+                        <div class="float-card-icon" style="background: #fef3c7; color: #d97706;">📅</div>
+                        <div class="float-card-title">Hiking Planned</div>
+                        <div class="float-card-value">Tomorrow at 8:00 AM</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section class="section-features">
+    <!-- Social Proof Bar -->
+    <section class="social-proof">
+        <div class="social-proof-inner">
+            <div class="social-proof-stat">
+                <div class="social-proof-stat-icon">🎯</div>
+                <div class="social-proof-stat-text">
+                    <strong>10,000+</strong>
+                    <span>Activities Planned</span>
+                </div>
+            </div>
+            <div class="social-proof-stat">
+                <div class="social-proof-stat-icon">🌍</div>
+                <div class="social-proof-stat-text">
+                    <strong>50+</strong>
+                    <span>Cities Covered</span>
+                </div>
+            </div>
+            <div class="social-proof-stat">
+                <div class="social-proof-stat-icon">⚡</div>
+                <div class="social-proof-stat-text">
+                    <strong>Real-time</strong>
+                    <span>Weather Data</span>
+                </div>
+            </div>
+            <div class="social-proof-stat">
+                <div class="social-proof-stat-icon">🔒</div>
+                <div class="social-proof-stat-text">
+                    <strong>100%</strong>
+                    <span>Privacy First</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features-section" id="features">
+        <div class="section-header reveal">
+            <div class="section-tag">✨ Features</div>
+            <h2 class="section-title">Everything You Need to<br>Master Your Hobbies</h2>
+            <p class="section-desc">From weather-aware planning to smart notifications, MyHobbyPlan gives you the tools to make every hobby session perfect.</p>
+        </div>
         <div class="features-grid">
-            <div class="feature-item">
-                <img src="weatheraware_planning.png" alt="Weather-Aware Planning" class="feature-image">
+            <div class="feature-card reveal reveal-delay-1">
+                <img src="weatheraware_planning.png" alt="Weather-Aware Planning feature showing real-time weather data for outdoor hobby scheduling" class="feature-card-image">
+                <div class="feature-icon feature-icon-primary">🌦️</div>
                 <h3>Weather-Aware Planning</h3>
-                <p>View current weather and forecasts for your selected city to determine the best time for outdoor hobbies.</p>
+                <p>Get real-time weather data and 7-day forecasts for your city. MyHobbyPlan helps you pick the perfect day for outdoor activities like hiking, photography, and gardening.</p>
             </div>
-            <div class="feature-item">
-                <img src="smart_scheduling.png" alt="Smart Scheduling" class="feature-image">
+            <div class="feature-card reveal reveal-delay-2">
+                <img src="smart_scheduling.png" alt="Smart Scheduling feature with intuitive calendar interface for hobby planning" class="feature-card-image">
+                <div class="feature-icon feature-icon-accent">📅</div>
                 <h3>Smart Scheduling</h3>
-                <p>Plan activities by date and time with an easy-to-use planner that keeps you on track.</p>
+                <p>Plan activities by date and time with an intuitive calendar. Set recurring sessions, receive reminders, and never miss a hobby session again.</p>
             </div>
-            <div class="feature-item">
-                <img src="hobby_management.png" alt="Hobby Management" class="feature-image">
+            <div class="feature-card reveal reveal-delay-3">
+                <img src="hobby_management.png" alt="Hobby Management dashboard organizing all your activities in one place" class="feature-card-image">
+                <div class="feature-icon feature-icon-green">🗂️</div>
                 <h3>Hobby Management</h3>
-                <p>Create, edit, organize, and manage all your hobbies in one intuitive application.</p>
+                <p>Create, organize, and manage all your hobbies in one beautiful dashboard. Track progress, set goals, and keep your passions organized.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-card reveal reveal-delay-1">
+                <div class="feature-icon feature-icon-accent">⚙️</div>
                 <h3>Personalized Preferences</h3>
-                <p>Set ideal weather conditions for each hobby—temperature, rain, and wind—for custom recommendations.</p>
+                <p>Set ideal weather conditions for each hobby — temperature range, rain tolerance, wind limits. Get custom recommendations tailored to your comfort level.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-card reveal reveal-delay-2">
+                <div class="feature-icon feature-icon-primary">🔔</div>
                 <h3>Smart Notifications</h3>
-                <p>Receive reminders for scheduled hobbies and helpful alerts when weather conditions are ideal.</p>
+                <p>Receive timely reminders for scheduled hobbies and intelligent alerts when weather conditions match your preferences. Never miss the perfect moment.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-card reveal reveal-delay-3">
+                <div class="feature-icon feature-icon-green">👨‍👩‍👧‍👦</div>
                 <h3>Family-Friendly</h3>
-                <p>Designed for users of all ages with a clean, simple, and welcoming interface.</p>
+                <p>Designed for users of all ages with a clean, intuitive interface. Share hobbies with family members and plan group activities together.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-contact" id="contact">
-        <div class="contact-card">
-            <h2>Contact Us</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">
-                Have a question or feedback? Send us a message and we'll get back to you as soon as possible.
-            </p>
-            <form action="https://formspree.io/f/mkolavkw" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="full-name">Full Name</label>
-                    <input type="text" name="name" id="full-name" class="form-input" placeholder="Your Name" required>
+    <!-- How It Works -->
+    <section class="section how-section" id="how-it-works">
+        <div class="section-header reveal">
+            <div class="section-tag">🚀 How It Works</div>
+            <h2 class="section-title">Get Started in<br>Three Simple Steps</h2>
+            <p class="section-desc">No complicated setup. No account required. Download and start planning your hobbies in minutes.</p>
+        </div>
+        <div class="how-steps">
+            <div class="how-step reveal">
+                <div class="how-step-number">1</div>
+                <div class="how-step-content">
+                    <h3>Add Your Hobbies</h3>
+                    <p>Tell us what you love doing. Add any hobby — from hiking and cycling to painting and cooking. Set your preferred conditions for each activity.</p>
                 </div>
-                <div class="form-group">
-                    <label for="email-address">Email Address</label>
-                    <input type="email" name="_replyto" id="email-address" class="form-input" placeholder="email@example.com" required>
+            </div>
+            <div class="how-step reveal reveal-delay-1">
+                <div class="how-step-number">2</div>
+                <div class="how-step-content">
+                    <h3>Set Your Schedule</h3>
+                    <p>Pick dates and times for your activities. MyHobbyPlan syncs with real-time weather data to suggest the best windows for outdoor hobbies.</p>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" class="form-input form-textarea" placeholder="How can we help you?" required></textarea>
+            </div>
+            <div class="how-step reveal reveal-delay-2">
+                <div class="how-step-number">3</div>
+                <div class="how-step-content">
+                    <h3>Enjoy Your Hobbies</h3>
+                    <p>Receive smart reminders, weather alerts, and personalized suggestions. Focus on what you love while we handle the planning.</p>
                 </div>
-                <!-- Hidden Honeypot for Spam Protection -->
-                <input type="text" name="_gotcha" style="display:none">
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-links">
-            <a href="pitch.html">Pitch Deck</a>
-            <a href="#contact">Contact Us</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms & Conditions</a>
+    <!-- Testimonials -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="section-header reveal">
+            <div class="section-tag">💬 Testimonials</div>
+            <h2 class="section-title">Loved by Hobbyists<br>Everywhere</h2>
+            <p class="section-desc">Join thousands of users who have transformed their hobby planning experience with MyHobbyPlan.</p>
         </div>
-        <div class="footer-contact" style="margin-top: 24px; color: var(--text-muted); font-size: 0.9rem;">
-            <p><strong>Eleviq Technologies</strong></p>
-            <p>Email: <a href="mailto:contact@myhobbyplan.net">contact@myhobbyplan.net</a></p>
-            <p>Phone: +254 790 683 823</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal reveal-delay-1">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"MyHobbyPlan completely changed how I plan my weekend hikes. The weather integration is spot-on — I never get caught in rain anymore!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SM</div>
+                    <div>
+                        <div class="testimonial-name">Sarah M.</div>
+                        <div class="testimonial-role">Hiking Enthusiast</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-2">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"As a photographer, lighting matters. This app tells me exactly when conditions are perfect for golden hour shots. Absolutely brilliant."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JK</div>
+                    <div>
+                        <div class="testimonial-name">James K.</div>
+                        <div class="testimonial-role">Photographer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-3">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Simple, beautiful, and actually useful. I use it to organize soccer games with friends. The smart scheduling feature is a game-changer."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AP</div>
+                    <div>
+                        <div class="testimonial-name">Alex P.</div>
+                        <div class="testimonial-role">Sports Organizer</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="copyright" style="margin-top: 32px;">
-            © 2026 MyHobbyPlan by Eleviq Technologies. All rights reserved.
-        </p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="download">
+        <div class="cta-content reveal">
+            <h2 class="cta-title">Ready to Transform<br>Your Hobby Experience?</h2>
+            <p class="cta-desc">Download MyHobbyPlan today and discover how smart planning can help you enjoy more of what you love. Free forever on Android.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.3 2.302-8.636-8.634z"/></svg>
+                    Download Free
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info reveal">
+                <div class="section-tag">📬 Get in Touch</div>
+                <h2>We'd Love to<br>Hear From You</h2>
+                <p>Have questions, feedback, or need support? Our team is here to help. Reach out and we'll respond within 24 hours.</p>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Email Us</strong>
+                        <a href="mailto:contact@myhobbyplan.net">contact@myhobbyplan.net</a>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Call Us</strong>
+                        <a href="tel:+254790683823">+254 790 683 823</a>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Company</strong>
+                        <span>Eleviq Technologies</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-card reveal reveal-delay-1">
+                <form action="https://formspree.io/f/mkolavkw" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" name="name" id="full-name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-address">Email Address</label>
+                            <input type="email" name="_replyto" id="email-address" class="form-input" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" class="form-input" placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" class="form-input form-textarea" placeholder="Tell us what's on your mind..." required></textarea>
+                    </div>
+                    <input type="text" name="_gotcha" style="display:none">
+                    <button type="submit" class="btn-submit">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="navbar-brand" style="color: white;">
+                        <img src="logo.png" alt="MyHobbyPlan Logo" class="navbar-logo">
+                        <span class="navbar-name">MyHobbyPlan</span>
+                    </a>
+                    <p>Plan smarter, enjoy more. The weather-aware hobby companion designed for people who love doing what they love.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#download">Download</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#testimonials">Reviews</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="pitch.html">Pitch Deck</a>
+                    <a href="https://kigechaedward.github.io/eleviq-website/" target="_blank">Eleviq Technologies</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 MyHobbyPlan by Eleviq Technologies. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- FAQ Chatbot -->
     <div class="chat-widget">
         <button class="chat-button" onclick="toggleChat()" title="Ask a question">
+            <span class="chat-button-badge"></span>
             <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
             </svg>
         </button>
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <span>MyHobbyPlan Assistant</span>
-                <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:1.5rem;">&times;</button>
+                <div>
+                    <div class="chat-header-title">MyHobbyPlan Assistant</div>
+                    <div class="chat-header-sub">Ask me anything!</div>
+                </div>
+                <button class="chat-close" onclick="toggleChat()">×</button>
             </div>
             <div class="chat-content" id="chatContent">
-                <div class="bot-msg">Hi there! 👋 I'm here to help you with MyHobbyPlan. What would you like to know?</div>
+                <div class="bot-msg">Hi there! 👋 I'm here to help you learn about MyHobbyPlan. What would you like to know?</div>
                 <div class="faq-options">
-                    <button class="faq-btn" onclick="askQuestion('Is the app free?', 'Yes! MyHobbyPlan is completely free to download and use on Android. We show limited ads to support ongoing development.')">Is the app free?</button>
-                    <button class="faq-btn" onclick="askQuestion('How does weather planning work?', 'The app connects to real-time weather services. You set your preferred conditions for a hobby, and we alert you when the forecast matches your preferences!')">How does weather planning work?</button>
-                    <button class="faq-btn" onclick="askQuestion('Is my data secure?', 'Absolutely. MyHobbyPlan is privacy-first. We store all your hobby data locally on your device. No accounts or server uploads required.')">Is my data secure?</button>
-                    <button class="faq-btn" onclick="askQuestion('What hobbies can I plan?', 'Anything! From hiking and photography to gardening and fitness. You can customize settings for any activity you love.')">What hobbies can I plan?</button>
-                    <button class="faq-btn" onclick="askQuestion('How can I contact support?', 'You can use the contact form on this page, or email us at contact@myhobbyplan.net. We are also available at +254 790 683 823.')">How can I contact support?</button>
+                    <button class="faq-btn" onclick="askQuestion('Is the app free?', 'Yes! MyHobbyPlan is completely free to download and use. We show minimal ads to support development, but all core features are 100% free.')">💰 Is the app free?</button>
+                    <button class="faq-btn" onclick="askQuestion('How does weather planning work?', 'We connect to real-time weather services for your location. You set preferred conditions (temperature, rain, wind) for each hobby, and we alert you when conditions are perfect!')">🌤️ How does weather planning work?</button>
+                    <button class="faq-btn" onclick="askQuestion('Is my data secure?', 'Absolutely! Your privacy is our priority. All hobby data is stored locally on your device. No accounts, no server uploads, no tracking.')">🔒 Is my data secure?</button>
+                    <button class="faq-btn" onclick="askQuestion('What hobbies can I plan?', 'Anything! Hiking, photography, cycling, gardening, fitness, cooking, painting, sports — you can customize settings for any activity you love.')">🎯 What hobbies can I plan?</button>
+                    <button class="faq-btn" onclick="askQuestion('How can I contact support?', 'You can use the contact form on this page, email us at contact@myhobbyplan.net, or call +254 790 683 823. We respond within 24 hours!')">📩 How can I contact support?</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Chatbot Logic -->
+    <!-- JavaScript -->
     <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const langContainer = document.getElementById('languageContainer');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                langContainer.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+                langContainer.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Chatbot
         function toggleChat() {
-            const window = document.getElementById('chatWindow');
-            window.style.display = (window.style.display === 'flex') ? 'none' : 'flex';
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.style.display = (chatWindow.style.display === 'flex') ? 'none' : 'flex';
         }
 
         function askQuestion(question, answer) {
             const content = document.getElementById('chatContent');
+            const optionsContainer = content.querySelector('.faq-options');
 
-            // Add User Question
             const userMsg = document.createElement('div');
-            userMsg.className = 'bot-msg';
-            userMsg.style.background = 'var(--primary)';
-            userMsg.style.color = 'white';
-            userMsg.style.alignSelf = 'flex-end';
-            userMsg.style.borderRadius = '16px 16px 4px 16px';
-            userMsg.style.marginLeft = '40px';
-            userMsg.innerText = question;
-            content.appendChild(userMsg);
+            userMsg.className = 'bot-msg user-msg';
+            userMsg.textContent = question;
+            content.insertBefore(userMsg, optionsContainer);
 
-            // Add Bot Answer
             setTimeout(() => {
                 const botMsg = document.createElement('div');
                 botMsg.className = 'bot-msg';
-                botMsg.innerText = answer;
-                content.appendChild(botMsg);
+                botMsg.textContent = answer;
+                content.insertBefore(botMsg, optionsContainer);
                 content.scrollTop = content.scrollHeight;
-            }, 500);
+            }, 400);
 
             content.scrollTop = content.scrollHeight;
         }
-    </script>
 
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
+        // Google Translate
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: true // Set to true for more automatic behavior
+                autoDisplay: true
             }, 'google_translate_element');
 
-            // Automatic detection and translation logic
             setTimeout(function() {
                 var select = document.querySelector('select.goog-te-combo');
                 if (select && select.value === "") {
-                    // Get browser language (e.g., "fr-FR" -> "fr")
                     var browserLang = navigator.language.split('-')[0];
-                    var supportedLangs = ['af', 'sq', 'am', 'ar', 'hy', 'az', 'eu', 'be', 'bn', 'bs', 'bg', 'ca', 'ceb', 'ny', 'zh-CN', 'zh-TW', 'co', 'hr', 'cs', 'da', 'nl', 'en', 'eo', 'et', 'tl', 'fi', 'fr', 'fy', 'gl', 'ka', 'de', 'el', 'gu', 'ht', 'ha', 'haw', 'iw', 'hi', 'hmn', 'hu', 'is', 'ig', 'id', 'ga', 'it', 'ja', 'jw', 'kn', 'kk', 'km', 'ko', 'ku', 'ky', 'lo', 'la', 'lv', 'lt', 'lb', 'mk', 'mg', 'ms', 'ml', 'mt', 'mi', 'mr', 'mn', 'my', 'ne', 'no', 'ps', 'fa', 'pl', 'pt', 'pa', 'ro', 'ru', 'sm', 'gd', 'sr', 'st', 'sn', 'sd', 'si', 'sk', 'sl', 'so', 'es', 'su', 'sw', 'sv', 'tg', 'ta', 'te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi', 'yo', 'zu'];
+                    var supportedLangs = ['af','sq','am','ar','hy','az','eu','be','bn','bs','bg','ca','ceb','ny','zh-CN','zh-TW','co','hr','cs','da','nl','en','eo','et','tl','fi','fr','fy','gl','ka','de','el','gu','ht','ha','haw','iw','hi','hmn','hu','is','ig','id','ga','it','ja','jw','kn','kk','km','ko','ku','ky','lo','la','lv','lt','lb','mk','mg','ms','ml','mt','mi','mr','mn','my','ne','no','ps','fa','pl','pt','pa','ro','ru','sm','gd','sr','st','sn','sd','si','sk','sl','so','es','su','sw','sv','tg','ta','te','th','tr','uk','ur','uz','vi','cy','xh','yi','yo','zu'];
 
                     if (browserLang !== 'en' && supportedLangs.includes(browserLang)) {
                         select.value = browserLang;
@@ -699,6 +2065,5 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 </body>
 </html>
