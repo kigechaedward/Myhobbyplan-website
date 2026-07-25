@@ -27,9 +27,15 @@
 │   ├── privacy.html    # Privacy policy page
 │   ├── terms.html      # Terms and conditions page
 │   ├── logo.png        # App logo
-│   ├── screenshot.png  # App screenshot
-│   ├── app-ads.txt     # Ad configuration
-│   └── *.png           # Feature images
+│   ├── favicon.png     # Browser tab icon
+│   ├── screenshot.png  # Hero section app screenshot
+│   ├── weatheraware_planning.png  # Feature screenshot
+│   ├── smart_scheduling.png       # Feature screenshot
+│   ├── hobby_management.png       # Feature screenshot
+│   ├── personalized_preferences.png # Feature screenshot
+│   ├── smart_notifications.png    # Feature screenshot
+│   ├── family_friendly.png        # Feature screenshot
+│   └── app-ads.txt     # Ad configuration
 ├── .github/workflows/
 │   └── deploy-pages.yml  # GitHub Pages deployment
 └── app-ads.txt         # Root ad configuration
@@ -85,3 +91,6 @@
 - Enhanced SEO with rich JSON-LD structured data and ratings
 - Added mobile responsive hamburger menu
 - Improved contact form with dual-column layout
+- Added feature screenshots for all 6 app features
+- Added favicon for browser tab icon
+- Updated pitch deck PDF
