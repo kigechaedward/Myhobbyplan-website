@@ -1517,18 +1517,31 @@
                 bottom: 100px;
                 left: 16px;
                 right: auto;
+                width: fit-content;
+                max-width: 160px;
                 padding: 6px 10px;
                 gap: 0;
                 background: rgba(255, 255, 255, 0.95);
                 border-color: var(--border);
                 box-shadow: var(--shadow-md);
+                border-radius: var(--radius-full);
+                overflow: hidden;
             }
             .language-container .language-icon {
                 display: none;
             }
+            .language-container #google_translate_element {
+                width: 100%;
+                max-width: 130px;
+                overflow: hidden;
+            }
             .language-container .goog-te-combo {
                 color: var(--text-main);
-                font-size: 0.75rem;
+                font-size: 0.7rem;
+                max-width: 130px;
+            }
+            .language-container iframe {
+                display: none !important;
             }
         }
 
@@ -1583,6 +1596,13 @@
             font-weight: 600;
             cursor: pointer;
             outline: none;
+        }
+        #google_translate_element {
+            width: fit-content;
+            max-width: 200px;
+        }
+        #google_translate_element iframe {
+            display: none !important;
         }
         .language-container.scrolled .goog-te-combo {
             color: var(--text-main);
