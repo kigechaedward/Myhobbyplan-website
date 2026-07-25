@@ -94,3 +94,4 @@
 - Added feature screenshots for all 6 app features
 - Added favicon for browser tab icon
 - Updated pitch deck PDF
+- Fixed mobile translate button overlapping hero title — repositioned to bottom-left on mobile, globe icon hidden for compactness
