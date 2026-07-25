@@ -1690,16 +1690,28 @@
             display: none !important;
         }
 
-        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
+        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame,
+        .goog-te-gadget-icon, .goog-te-gadget-image,
+        .goog-te-gadget > img, .goog-te-gadget > a {
             display: none !important;
         }
         .goog-te-gadget {
             color: transparent !important;
             font-size: 0 !important;
+            background: none !important;
+            border: none !important;
+        }
+        .goog-te-gadget > * {
+            display: none !important;
         }
         #google_translate_element iframe,
-        .goog-te-banner-frame {
+        .goog-te-banner-frame,
+        .goog-te-banner-frame:not([style*="display: none"]) {
             display: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
         }
 
         @media (max-width: 850px) {
