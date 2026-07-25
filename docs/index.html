@@ -1511,15 +1511,18 @@
         }
 
         /* ============================================
-           LANGUAGE SELECTOR (in navbar)
+           LANGUAGE SELECTOR (custom searchable dropdown)
            ============================================ */
-        .nav-translate {
+        .lang-picker {
+            position: relative;
             display: flex;
             align-items: center;
-            margin-left: auto;
         }
 
-        .nav-translate .goog-te-combo {
+        .lang-picker-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: rgba(255, 255, 255, 0.9);
@@ -1531,32 +1534,160 @@
             cursor: pointer;
             outline: none;
             transition: all 0.2s ease;
-            max-width: 140px;
+            white-space: nowrap;
         }
 
-        .nav-translate .goog-te-combo:hover {
+        .lang-picker-btn:hover {
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .navbar.scrolled .nav-translate .goog-te-combo {
+        .navbar.scrolled .lang-picker-btn {
             background: rgba(45, 90, 90, 0.08);
             border-color: var(--border);
             color: var(--text-main);
         }
 
-        .navbar.scrolled .nav-translate .goog-te-combo:hover {
+        .navbar.scrolled .lang-picker-btn:hover {
             background: rgba(45, 90, 90, 0.15);
         }
 
-        @media (max-width: 850px) {
-            .nav-translate {
-                margin-left: 0;
-            }
-            .nav-translate .goog-te-combo {
-                font-size: 0.7rem;
-                padding: 5px 8px;
-                max-width: 110px;
-            }
+        .lang-picker-btn svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .lang-picker-btn .lang-arrow {
+            width: 10px;
+            height: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .lang-picker.open .lang-picker-btn .lang-arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            width: 280px;
+            max-height: 360px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            z-index: 10000;
+            overflow: hidden;
+            animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lang-picker.open .lang-dropdown {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lang-search {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lang-search input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            background: var(--bg-page);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .lang-search input:focus {
+            border-color: var(--primary);
+        }
+
+        .lang-search input::placeholder {
+            color: var(--text-light);
+        }
+
+        .lang-list {
+            overflow-y: auto;
+            flex: 1;
+            max-height: 290px;
+            padding: 6px;
+            scroll-behavior: smooth;
+        }
+
+        .lang-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .lang-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .lang-list::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            transition: background 0.15s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-option:hover {
+            background: var(--bg-page);
+        }
+
+        .lang-option.active {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .lang-option-flag {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .lang-option-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .lang-option-code {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .lang-no-results {
+            padding: 24px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Hidden Google Translate native select */
+        .goog-te-combo {
+            display: none !important;
         }
 
         .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
@@ -1570,6 +1701,21 @@
         .goog-te-banner-frame {
             display: none !important;
         }
+
+        @media (max-width: 850px) {
+            .nav-translate {
+                margin-left: 0;
+            }
+            .lang-picker-btn {
+                font-size: 0.7rem;
+                padding: 5px 8px;
+            }
+            .lang-dropdown {
+                width: 260px;
+                right: -10px;
+            }
+        }
+
         body { top: 0 !important; }
     </style>
 </head>
@@ -1589,7 +1735,25 @@
                 <a href="#contact">Contact</a>
                 <a href="#download" class="nav-cta">Get the App</a>
             </div>
-            <div class="nav-translate" id="navTranslate"></div>
+            <div class="nav-translate" id="navTranslate">
+                <div class="lang-picker" id="langPicker">
+                    <button class="lang-picker-btn" id="langPickerBtn" aria-label="Select language">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                        </svg>
+                        <span id="langPickerLabel">English</span>
+                        <svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-search">
+                            <input type="text" id="langSearchInput" placeholder="Search languages..." autocomplete="off">
+                        </div>
+                        <div class="lang-list" id="langList"></div>
+                    </div>
+                </div>
+            </div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -2044,7 +2208,192 @@
             content.scrollTop = content.scrollHeight;
         }
 
-        // Google Translate
+        // Language data
+        var langData = [
+            { code: 'af', name: 'Afrikaans', flag: '🇿🇦' },
+            { code: 'sq', name: 'Albanian', flag: '🇦🇱' },
+            { code: 'am', name: 'Amharic', flag: '🇪🇹' },
+            { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
+            { code: 'hy', name: 'Armenian', flag: '🇦🇲' },
+            { code: 'az', name: 'Azerbaijani', flag: '🇦🇿' },
+            { code: 'eu', name: 'Basque', flag: '🏴' },
+            { code: 'be', name: 'Belarusian', flag: '🇧🇾' },
+            { code: 'bn', name: 'Bengali', flag: '🇧🇩' },
+            { code: 'bs', name: 'Bosnian', flag: '🇧🇦' },
+            { code: 'bg', name: 'Bulgarian', flag: '🇧🇬' },
+            { code: 'ca', name: 'Catalan', flag: '🏴' },
+            { code: 'ceb', name: 'Cebuano', flag: '🇵🇭' },
+            { code: 'ny', name: 'Chichewa', flag: '🇲🇼' },
+            { code: 'zh-CN', name: 'Chinese (Simplified)', flag: '🇨🇳' },
+            { code: 'zh-TW', name: 'Chinese (Traditional)', flag: '🇹🇼' },
+            { code: 'co', name: 'Corsican', flag: '🏴' },
+            { code: 'hr', name: 'Croatian', flag: '🇭🇷' },
+            { code: 'cs', name: 'Czech', flag: '🇨🇿' },
+            { code: 'da', name: 'Danish', flag: '🇩🇰' },
+            { code: 'nl', name: 'Dutch', flag: '🇳🇱' },
+            { code: 'en', name: 'English', flag: '🇬🇧' },
+            { code: 'eo', name: 'Esperanto', flag: '🌍' },
+            { code: 'et', name: 'Estonian', flag: '🇪🇪' },
+            { code: 'tl', name: 'Filipino', flag: '🇵🇭' },
+            { code: 'fi', name: 'Finnish', flag: '🇫🇮' },
+            { code: 'fr', name: 'French', flag: '🇫🇷' },
+            { code: 'fy', name: 'Frisian', flag: '🇳🇱' },
+            { code: 'gl', name: 'Galician', flag: '🏴' },
+            { code: 'ka', name: 'Georgian', flag: '🇬🇪' },
+            { code: 'de', name: 'German', flag: '🇩🇪' },
+            { code: 'el', name: 'Greek', flag: '🇬🇷' },
+            { code: 'gu', name: 'Gujarati', flag: '🇮🇳' },
+            { code: 'ht', name: 'Haitian Creole', flag: '🇭🇹' },
+            { code: 'ha', name: 'Hausa', flag: '🇳🇬' },
+            { code: 'haw', name: 'Hawaiian', flag: '🏝️' },
+            { code: 'iw', name: 'Hebrew', flag: '🇮🇱' },
+            { code: 'hi', name: 'Hindi', flag: '🇮🇳' },
+            { code: 'hmn', name: 'Hmong', flag: '🏴' },
+            { code: 'hu', name: 'Hungarian', flag: '🇭🇺' },
+            { code: 'is', name: 'Icelandic', flag: '🇮🇸' },
+            { code: 'ig', name: 'Igbo', flag: '🇳🇬' },
+            { code: 'id', name: 'Indonesian', flag: '🇮🇩' },
+            { code: 'ga', name: 'Irish', flag: '🇮🇪' },
+            { code: 'it', name: 'Italian', flag: '🇮🇹' },
+            { code: 'ja', name: 'Japanese', flag: '🇯🇵' },
+            { code: 'jw', name: 'Javanese', flag: '🇮🇩' },
+            { code: 'kn', name: 'Kannada', flag: '🇮🇳' },
+            { code: 'kk', name: 'Kazakh', flag: '🇰🇿' },
+            { code: 'km', name: 'Khmer', flag: '🇰🇭' },
+            { code: 'ko', name: 'Korean', flag: '🇰🇷' },
+            { code: 'ku', name: 'Kurdish', flag: '🏴' },
+            { code: 'ky', name: 'Kyrgyz', flag: '🇰🇬' },
+            { code: 'lo', name: 'Lao', flag: '🇱🇦' },
+            { code: 'la', name: 'Latin', flag: '🏛️' },
+            { code: 'lv', name: 'Latvian', flag: '🇱🇻' },
+            { code: 'lt', name: 'Lithuanian', flag: '🇱🇹' },
+            { code: 'lb', name: 'Luxembourgish', flag: '🇱🇺' },
+            { code: 'mk', name: 'Macedonian', flag: '🇲🇰' },
+            { code: 'mg', name: 'Malagasy', flag: '🇲🇬' },
+            { code: 'ms', name: 'Malay', flag: '🇲🇾' },
+            { code: 'ml', name: 'Malayalam', flag: '🇮🇳' },
+            { code: 'mt', name: 'Maltese', flag: '🇲🇹' },
+            { code: 'mi', name: 'Maori', flag: '🇳🇿' },
+            { code: 'mr', name: 'Marathi', flag: '🇮🇳' },
+            { code: 'mn', name: 'Mongolian', flag: '🇲🇳' },
+            { code: 'my', name: 'Myanmar', flag: '🇲🇲' },
+            { code: 'ne', name: 'Nepali', flag: '🇳🇵' },
+            { code: 'no', name: 'Norwegian', flag: '🇳🇴' },
+            { code: 'ps', name: 'Pashto', flag: '🇦🇫' },
+            { code: 'fa', name: 'Persian', flag: '🇮🇷' },
+            { code: 'pl', name: 'Polish', flag: '🇵🇱' },
+            { code: 'pt', name: 'Portuguese', flag: '🇵🇹' },
+            { code: 'pa', name: 'Punjabi', flag: '🇮🇳' },
+            { code: 'ro', name: 'Romanian', flag: '🇷🇴' },
+            { code: 'ru', name: 'Russian', flag: '🇷🇺' },
+            { code: 'sm', name: 'Samoan', flag: '🇼🇸' },
+            { code: 'gd', name: 'Scots Gaelic', flag: '🏴' },
+            { code: 'sr', name: 'Serbian', flag: '🇷🇸' },
+            { code: 'st', name: 'Sesotho', flag: '🇱🇸' },
+            { code: 'sn', name: 'Shona', flag: '🇿🇼' },
+            { code: 'sd', name: 'Sindhi', flag: '🇵🇰' },
+            { code: 'si', name: 'Sinhala', flag: '🇱🇰' },
+            { code: 'sk', name: 'Slovak', flag: '🇸🇰' },
+            { code: 'sl', name: 'Slovenian', flag: '🇸🇮' },
+            { code: 'so', name: 'Somali', flag: '🇸🇴' },
+            { code: 'es', name: 'Spanish', flag: '🇪🇸' },
+            { code: 'su', name: 'Sundanese', flag: '🇮🇩' },
+            { code: 'sw', name: 'Swahili', flag: '🇹🇿' },
+            { code: 'sv', name: 'Swedish', flag: '🇸🇪' },
+            { code: 'tg', name: 'Tajik', flag: '🇹🇯' },
+            { code: 'ta', name: 'Tamil', flag: '🇮🇳' },
+            { code: 'te', name: 'Telugu', flag: '🇮🇳' },
+            { code: 'th', name: 'Thai', flag: '🇹🇭' },
+            { code: 'tr', name: 'Turkish', flag: '🇹🇷' },
+            { code: 'uk', name: 'Ukrainian', flag: '🇺🇦' },
+            { code: 'ur', name: 'Urdu', flag: '🇵🇰' },
+            { code: 'uz', name: 'Uzbek', flag: '🇺🇿' },
+            { code: 'vi', name: 'Vietnamese', flag: '🇻🇳' },
+            { code: 'cy', name: 'Welsh', flag: '🏴' },
+            { code: 'xh', name: 'Xhosa', flag: '🇿🇦' },
+            { code: 'yi', name: 'Yiddish', flag: '🌍' },
+            { code: 'yo', name: 'Yoruba', flag: '🇳🇬' },
+            { code: 'zu', name: 'Zulu', flag: '🇿🇦' }
+        ];
+
+        // Custom language picker
+        var langPicker = document.getElementById('langPicker');
+        var langPickerBtn = document.getElementById('langPickerBtn');
+        var langPickerLabel = document.getElementById('langPickerLabel');
+        var langDropdown = document.getElementById('langDropdown');
+        var langList = document.getElementById('langList');
+        var langSearchInput = document.getElementById('langSearchInput');
+        var currentLang = 'en';
+
+        function buildLangList(filter) {
+            var query = (filter || '').toLowerCase();
+            var filtered = langData.filter(function(l) {
+                return l.name.toLowerCase().includes(query) || l.code.toLowerCase().includes(query);
+            });
+
+            langList.innerHTML = '';
+            if (filtered.length === 0) {
+                langList.innerHTML = '<div class="lang-no-results">No languages found</div>';
+                return;
+            }
+
+            filtered.forEach(function(lang) {
+                var div = document.createElement('div');
+                div.className = 'lang-option' + (lang.code === currentLang ? ' active' : '');
+                div.innerHTML = '<span class="lang-option-flag">' + lang.flag + '</span>' +
+                    '<span class="lang-option-name">' + lang.name + '</span>' +
+                    '<span class="lang-option-code">' + lang.code + '</span>';
+                div.addEventListener('click', function() {
+                    selectLanguage(lang.code, lang.name);
+                });
+                langList.appendChild(div);
+            });
+        }
+
+        function selectLanguage(code, name) {
+            currentLang = code;
+            langPickerLabel.textContent = name || code;
+            langPicker.classList.remove('open');
+
+            // Sync with Google Translate hidden select
+            var select = document.querySelector('select.goog-te-combo');
+            if (select) {
+                select.value = code;
+                select.dispatchEvent(new Event('change'));
+            }
+
+            buildLangList(langSearchInput.value);
+        }
+
+        // Toggle dropdown
+        langPickerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langPicker.classList.toggle('open');
+            if (langPicker.classList.contains('open')) {
+                langSearchInput.value = '';
+                buildLangList('');
+                setTimeout(function() { langSearchInput.focus(); }, 100);
+            }
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!langPicker.contains(e.target)) {
+                langPicker.classList.remove('open');
+            }
+        });
+
+        // Search filter
+        langSearchInput.addEventListener('input', function() {
+            buildLangList(this.value);
+        });
+
+        // Prevent dropdown clicks from closing
+        langDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Google Translate init
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
@@ -2053,17 +2402,23 @@
             }, 'navTranslate');
 
             setTimeout(function() {
+                // Hide the native Google Translate select
                 var select = document.querySelector('select.goog-te-combo');
-                if (select && select.value === "") {
-                    var browserLang = navigator.language.split('-')[0];
-                    var supportedLangs = ['af','sq','am','ar','hy','az','eu','be','bn','bs','bg','ca','ceb','ny','zh-CN','zh-TW','co','hr','cs','da','nl','en','eo','et','tl','fi','fr','fy','gl','ka','de','el','gu','ht','ha','haw','iw','hi','hmn','hu','is','ig','id','ga','it','ja','jw','kn','kk','km','ko','ku','ky','lo','la','lv','lt','lb','mk','mg','ms','ml','mt','mi','mr','mn','my','ne','no','ps','fa','pl','pt','pa','ro','ru','sm','gd','sr','st','sn','sd','si','sk','sl','so','es','su','sw','sv','tg','ta','te','th','tr','uk','ur','uz','vi','cy','xh','yi','yo','zu'];
+                if (select) {
+                    select.style.display = 'none';
 
-                    if (browserLang !== 'en' && supportedLangs.includes(browserLang)) {
-                        select.value = browserLang;
-                        select.dispatchEvent(new Event('change'));
+                    // Auto-detect browser language
+                    if (select.value === "") {
+                        var browserLang = navigator.language.split('-')[0];
+                        var match = langData.find(function(l) { return l.code === browserLang; });
+                        if (match && browserLang !== 'en') {
+                            selectLanguage(match.code, match.name);
+                        }
                     }
                 }
-            }, 1000);
+
+                buildLangList('');
+            }, 1500);
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
