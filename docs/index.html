@@ -1685,25 +1685,27 @@
             font-size: 0.85rem;
         }
 
-        /* Hidden Google Translate native select */
+        /* Visually hide Google Translate elements but keep functional */
         .goog-te-combo {
+            position: absolute !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .goog-logo-link, .goog-te-banner-frame,
+        .goog-te-gadget-icon, .goog-te-gadget-image {
             display: none !important;
         }
 
-        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame,
-        .goog-te-gadget-icon, .goog-te-gadget-image,
-        .goog-te-gadget > img, .goog-te-gadget > a {
-            display: none !important;
-        }
         .goog-te-gadget {
-            color: transparent !important;
-            font-size: 0 !important;
-            background: none !important;
-            border: none !important;
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
         }
-        .goog-te-gadget > * {
-            display: none !important;
-        }
+
         #google_translate_element iframe,
         .goog-te-banner-frame,
         .goog-te-banner-frame:not([style*="display: none"]) {
@@ -2368,7 +2370,11 @@
             var select = document.querySelector('select.goog-te-combo');
             if (select) {
                 select.value = code;
-                select.dispatchEvent(new Event('change'));
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+                // Also try calling onchange directly if it exists
+                if (select.onchange) {
+                    select.onchange();
+                }
             }
 
             buildLangList(langSearchInput.value);
