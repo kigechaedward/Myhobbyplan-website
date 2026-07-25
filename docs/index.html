@@ -1516,6 +1516,7 @@
         .nav-translate {
             display: flex;
             align-items: center;
+            margin-left: auto;
         }
 
         .nav-translate .goog-te-combo {
@@ -1547,25 +1548,15 @@
             background: rgba(45, 90, 90, 0.15);
         }
 
-        .mobile-translate {
-            padding: 8px 16px;
-            border-radius: var(--radius-sm);
-            background: var(--bg-page);
-            margin: 4px 0;
-        }
-
-        .mobile-translate .goog-te-combo {
-            background: var(--white);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 10px 14px;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            outline: none;
-            width: 100%;
+        @media (max-width: 850px) {
+            .nav-translate {
+                margin-left: 0;
+            }
+            .nav-translate .goog-te-combo {
+                font-size: 0.7rem;
+                padding: 5px 8px;
+                max-width: 110px;
+            }
         }
 
         .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
@@ -1596,9 +1587,9 @@
                 <a href="#how-it-works">How It Works</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="#contact">Contact</a>
-                <div class="nav-translate" id="navTranslate"></div>
                 <a href="#download" class="nav-cta">Get the App</a>
             </div>
+            <div class="nav-translate" id="navTranslate"></div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -1614,7 +1605,6 @@
             <a href="#how-it-works" onclick="toggleMobileMenu()">How It Works</a>
             <a href="#testimonials" onclick="toggleMobileMenu()">Reviews</a>
             <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
-            <div class="mobile-translate" id="mobileTranslate"></div>
             <a href="#download" onclick="toggleMobileMenu()" style="background: var(--accent); color: white; text-align: center;">Get the App</a>
         </div>
     </div>
@@ -2016,26 +2006,6 @@
             document.getElementById('mobileMenu').classList.toggle('active');
         }
 
-        // Move translate dropdown between navbar and mobile menu based on screen width
-        function moveTranslateDropdown() {
-            var select = document.querySelector('select.goog-te-combo');
-            if (!select) return;
-
-            var navTarget = document.getElementById('navTranslate');
-            var mobileTarget = document.getElementById('mobileTranslate');
-            var parent = select.parentElement;
-
-            if (window.innerWidth <= 850) {
-                if (parent !== mobileTarget) {
-                    mobileTarget.appendChild(parent);
-                }
-            } else {
-                if (parent !== navTarget) {
-                    navTarget.appendChild(parent);
-                }
-            }
-        }
-
         // Scroll reveal animation
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
@@ -2083,9 +2053,6 @@
             }, 'navTranslate');
 
             setTimeout(function() {
-                moveTranslateDropdown();
-                window.addEventListener('resize', moveTranslateDropdown);
-
                 var select = document.querySelector('select.goog-te-combo');
                 if (select && select.value === "") {
                     var browserLang = navigator.language.split('-')[0];
