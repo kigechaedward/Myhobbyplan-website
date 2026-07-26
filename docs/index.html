@@ -2171,112 +2171,28 @@
             content.scrollTop = content.scrollHeight;
         }
 
-        // Language data
+        // Language data (Curated Major Languages)
         var langData = [
-            { code: 'af', name: 'Afrikaans', flag: '🇿🇦' },
-            { code: 'sq', name: 'Albanian', flag: '🇦🇱' },
-            { code: 'am', name: 'Amharic', flag: '🇪🇹' },
-            { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
-            { code: 'hy', name: 'Armenian', flag: '🇦🇲' },
-            { code: 'az', name: 'Azerbaijani', flag: '🇦🇿' },
-            { code: 'eu', name: 'Basque', flag: '🏴' },
-            { code: 'be', name: 'Belarusian', flag: '🇧🇾' },
-            { code: 'bn', name: 'Bengali', flag: '🇧🇩' },
-            { code: 'bs', name: 'Bosnian', flag: '🇧🇦' },
-            { code: 'bg', name: 'Bulgarian', flag: '🇧🇬' },
-            { code: 'ca', name: 'Catalan', flag: '🏴' },
-            { code: 'ceb', name: 'Cebuano', flag: '🇵🇭' },
-            { code: 'ny', name: 'Chichewa', flag: '🇲🇼' },
+            { code: 'en', name: 'English', flag: '🇬🇧' },
+            { code: 'es', name: 'Spanish', flag: '🇪🇸' },
+            { code: 'fr', name: 'French', flag: '🇫🇷' },
+            { code: 'de', name: 'German', flag: '🇩🇪' },
+            { code: 'it', name: 'Italian', flag: '🇮🇹' },
+            { code: 'pt', name: 'Portuguese', flag: '🇵🇹' },
             { code: 'zh-CN', name: 'Chinese (Simplified)', flag: '🇨🇳' },
             { code: 'zh-TW', name: 'Chinese (Traditional)', flag: '🇹🇼' },
-            { code: 'co', name: 'Corsican', flag: '🏴' },
-            { code: 'hr', name: 'Croatian', flag: '🇭🇷' },
-            { code: 'cs', name: 'Czech', flag: '🇨🇿' },
-            { code: 'da', name: 'Danish', flag: '🇩🇰' },
-            { code: 'nl', name: 'Dutch', flag: '🇳🇱' },
-            { code: 'en', name: 'English', flag: '🇬🇧' },
-            { code: 'eo', name: 'Esperanto', flag: '🌍' },
-            { code: 'et', name: 'Estonian', flag: '🇪🇪' },
-            { code: 'tl', name: 'Filipino', flag: '🇵🇭' },
-            { code: 'fi', name: 'Finnish', flag: '🇫🇮' },
-            { code: 'fr', name: 'French', flag: '🇫🇷' },
-            { code: 'fy', name: 'Frisian', flag: '🇳🇱' },
-            { code: 'gl', name: 'Galician', flag: '🏴' },
-            { code: 'ka', name: 'Georgian', flag: '🇬🇪' },
-            { code: 'de', name: 'German', flag: '🇩🇪' },
-            { code: 'el', name: 'Greek', flag: '🇬🇷' },
-            { code: 'gu', name: 'Gujarati', flag: '🇮🇳' },
-            { code: 'ht', name: 'Haitian Creole', flag: '🇭🇹' },
-            { code: 'ha', name: 'Hausa', flag: '🇳🇬' },
-            { code: 'haw', name: 'Hawaiian', flag: '🏝️' },
-            { code: 'iw', name: 'Hebrew', flag: '🇮🇱' },
-            { code: 'hi', name: 'Hindi', flag: '🇮🇳' },
-            { code: 'hmn', name: 'Hmong', flag: '🏴' },
-            { code: 'hu', name: 'Hungarian', flag: '🇭🇺' },
-            { code: 'is', name: 'Icelandic', flag: '🇮🇸' },
-            { code: 'ig', name: 'Igbo', flag: '🇳🇬' },
-            { code: 'id', name: 'Indonesian', flag: '🇮🇩' },
-            { code: 'ga', name: 'Irish', flag: '🇮🇪' },
-            { code: 'it', name: 'Italian', flag: '🇮🇹' },
             { code: 'ja', name: 'Japanese', flag: '🇯🇵' },
-            { code: 'jw', name: 'Javanese', flag: '🇮🇩' },
-            { code: 'kn', name: 'Kannada', flag: '🇮🇳' },
-            { code: 'kk', name: 'Kazakh', flag: '🇰🇿' },
-            { code: 'km', name: 'Khmer', flag: '🇰🇭' },
             { code: 'ko', name: 'Korean', flag: '🇰🇷' },
-            { code: 'ku', name: 'Kurdish', flag: '🏴' },
-            { code: 'ky', name: 'Kyrgyz', flag: '🇰🇬' },
-            { code: 'lo', name: 'Lao', flag: '🇱🇦' },
-            { code: 'la', name: 'Latin', flag: '🏛️' },
-            { code: 'lv', name: 'Latvian', flag: '🇱🇻' },
-            { code: 'lt', name: 'Lithuanian', flag: '🇱🇹' },
-            { code: 'lb', name: 'Luxembourgish', flag: '🇱🇺' },
-            { code: 'mk', name: 'Macedonian', flag: '🇲🇰' },
-            { code: 'mg', name: 'Malagasy', flag: '🇲🇬' },
-            { code: 'ms', name: 'Malay', flag: '🇲🇾' },
-            { code: 'ml', name: 'Malayalam', flag: '🇮🇳' },
-            { code: 'mt', name: 'Maltese', flag: '🇲🇹' },
-            { code: 'mi', name: 'Maori', flag: '🇳🇿' },
-            { code: 'mr', name: 'Marathi', flag: '🇮🇳' },
-            { code: 'mn', name: 'Mongolian', flag: '🇲🇳' },
-            { code: 'my', name: 'Myanmar', flag: '🇲🇲' },
-            { code: 'ne', name: 'Nepali', flag: '🇳🇵' },
-            { code: 'no', name: 'Norwegian', flag: '🇳🇴' },
-            { code: 'ps', name: 'Pashto', flag: '🇦🇫' },
-            { code: 'fa', name: 'Persian', flag: '🇮🇷' },
-            { code: 'pl', name: 'Polish', flag: '🇵🇱' },
-            { code: 'pt', name: 'Portuguese', flag: '🇵🇹' },
-            { code: 'pa', name: 'Punjabi', flag: '🇮🇳' },
-            { code: 'ro', name: 'Romanian', flag: '🇷🇴' },
+            { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
+            { code: 'hi', name: 'Hindi', flag: '🇮🇳' },
             { code: 'ru', name: 'Russian', flag: '🇷🇺' },
-            { code: 'sm', name: 'Samoan', flag: '🇼🇸' },
-            { code: 'gd', name: 'Scots Gaelic', flag: '🏴' },
-            { code: 'sr', name: 'Serbian', flag: '🇷🇸' },
-            { code: 'st', name: 'Sesotho', flag: '🇱🇸' },
-            { code: 'sn', name: 'Shona', flag: '🇿🇼' },
-            { code: 'sd', name: 'Sindhi', flag: '🇵🇰' },
-            { code: 'si', name: 'Sinhala', flag: '🇱🇰' },
-            { code: 'sk', name: 'Slovak', flag: '🇸🇰' },
-            { code: 'sl', name: 'Slovenian', flag: '🇸🇮' },
-            { code: 'so', name: 'Somali', flag: '🇸🇴' },
-            { code: 'es', name: 'Spanish', flag: '🇪🇸' },
-            { code: 'su', name: 'Sundanese', flag: '🇮🇩' },
             { code: 'sw', name: 'Swahili', flag: '🇹🇿' },
-            { code: 'sv', name: 'Swedish', flag: '🇸🇪' },
-            { code: 'tg', name: 'Tajik', flag: '🇹🇯' },
-            { code: 'ta', name: 'Tamil', flag: '🇮🇳' },
-            { code: 'te', name: 'Telugu', flag: '🇮🇳' },
-            { code: 'th', name: 'Thai', flag: '🇹🇭' },
-            { code: 'tr', name: 'Turkish', flag: '🇹🇷' },
-            { code: 'uk', name: 'Ukrainian', flag: '🇺🇦' },
-            { code: 'ur', name: 'Urdu', flag: '🇵🇰' },
-            { code: 'uz', name: 'Uzbek', flag: '🇺🇿' },
+            { code: 'id', name: 'Indonesian', flag: '🇮🇩' },
             { code: 'vi', name: 'Vietnamese', flag: '🇻🇳' },
-            { code: 'cy', name: 'Welsh', flag: '🏴' },
-            { code: 'xh', name: 'Xhosa', flag: '🇿🇦' },
-            { code: 'yi', name: 'Yiddish', flag: '🌍' },
-            { code: 'yo', name: 'Yoruba', flag: '🇳🇬' },
-            { code: 'zu', name: 'Zulu', flag: '🇿🇦' }
+            { code: 'tr', name: 'Turkish', flag: '🇹🇷' },
+            { code: 'nl', name: 'Dutch', flag: '🇳🇱' },
+            { code: 'pl', name: 'Polish', flag: '🇵🇱' },
+            { code: 'th', name: 'Thai', flag: '🇹🇭' }
         ];
 
         // Custom language picker
@@ -2287,6 +2203,22 @@
         var langList = document.getElementById('langList');
         var langSearchInput = document.getElementById('langSearchInput');
         var currentLang = 'en';
+
+        function getCookie(name) {
+            var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return v ? v[2] : null;
+        }
+
+        function setTranslateCookie(code) {
+            var domain = window.location.hostname;
+            // For GitHub Pages or local testing, sometimes empty domain is better or specific
+            var cookieValue = "/en/" + code;
+            document.cookie = "googtrans=" + cookieValue + "; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+            // Also set for domain specifically to ensure persistence
+            if (domain.includes("github.io")) {
+                document.cookie = "googtrans=" + cookieValue + "; path=/; domain=" + domain + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+            }
+        }
 
         function buildLangList(filter) {
             var query = (filter || '').toLowerCase();
@@ -2318,15 +2250,20 @@
             langPickerLabel.textContent = name || code;
             langPicker.classList.remove('open');
 
+            // Set cookie for persistence
+            setTranslateCookie(code);
+
             // Sync with Google Translate hidden select
             var select = document.querySelector('select.goog-te-combo');
             if (select) {
                 select.value = code;
                 select.dispatchEvent(new Event('change', { bubbles: true }));
-                // Also try calling onchange directly if it exists
                 if (select.onchange) {
                     select.onchange();
                 }
+            } else {
+                // If Google Translate hasn't loaded yet, it will use the cookie on load
+                location.reload(); // Force reload to apply cookie-based translation if widget is missing
             }
 
             buildLangList(langSearchInput.value);
@@ -2368,24 +2305,36 @@
                 autoDisplay: true
             }, 'navTranslate');
 
-            setTimeout(function() {
-                // Hide the native Google Translate select
+            // Wait for Google Translate to initialize
+            var checkInterval = setInterval(function() {
                 var select = document.querySelector('select.goog-te-combo');
                 if (select) {
+                    clearInterval(checkInterval);
                     select.style.display = 'none';
 
-                    // Auto-detect browser language
-                    if (select.value === "") {
+                    // Check for existing cookie
+                    var cookie = getCookie('googtrans');
+                    if (cookie) {
+                        var code = cookie.split('/').pop();
+                        var match = langData.find(function(l) { return l.code === code; });
+                        if (match) {
+                            currentLang = match.code;
+                            langPickerLabel.textContent = match.name;
+                        }
+                    } else {
+                        // Auto-detect browser language if no cookie set
                         var browserLang = navigator.language.split('-')[0];
                         var match = langData.find(function(l) { return l.code === browserLang; });
                         if (match && browserLang !== 'en') {
                             selectLanguage(match.code, match.name);
                         }
                     }
+                    buildLangList('');
                 }
+            }, 100);
 
-                buildLangList('');
-            }, 1500);
+            // Timeout after 5 seconds
+            setTimeout(function() { clearInterval(checkInterval); }, 5000);
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
