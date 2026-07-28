@@ -1281,6 +1281,102 @@
             transform: translateX(4px);
         }
 
+        .chat-input-area {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 1.5px solid var(--border);
+            border-radius: 24px;
+            padding: 10px 16px;
+            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s ease;
+            background: var(--bg-page);
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .chat-send-btn:hover {
+            background: var(--primary-light);
+            transform: scale(1.05);
+        }
+
+        .chat-send-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 4px;
+            padding: 14px 18px;
+            background: var(--white);
+            border-radius: 18px 18px 18px 4px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            width: fit-content;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        .chat-fallback {
+            font-style: italic;
+            color: #64748b;
+        }
+
         /* ============================================
            FOOTER
            ============================================ */
@@ -2104,13 +2200,24 @@
             </div>
             <div class="chat-content" id="chatContent">
                 <div class="bot-msg">Hi there! 👋 I'm here to help you learn about MyHobbyPlan. What would you like to know?</div>
-                <div class="faq-options">
+                <div class="faq-options" id="faqOptions">
                     <button class="faq-btn" onclick="askQuestion('Is the app free?', 'Yes! MyHobbyPlan is completely free to download and use. We show minimal ads to support development, but all core features are 100% free.')">💰 Is the app free?</button>
                     <button class="faq-btn" onclick="askQuestion('How does weather planning work?', 'We connect to real-time weather services for your location. You set preferred conditions (temperature, rain, wind) for each hobby, and we alert you when conditions are perfect!')">🌤️ How does weather planning work?</button>
                     <button class="faq-btn" onclick="askQuestion('Is my data secure?', 'Absolutely! Your privacy is our priority. All hobby data is stored locally on your device. No accounts, no server uploads, no tracking.')">🔒 Is my data secure?</button>
                     <button class="faq-btn" onclick="askQuestion('What hobbies can I plan?', 'Anything! Hiking, photography, cycling, gardening, fitness, cooking, painting, sports — you can customize settings for any activity you love.')">🎯 What hobbies can I plan?</button>
                     <button class="faq-btn" onclick="askQuestion('How can I contact support?', 'You can use the contact form on this page, email us at contact@myhobbyplan.net, or call +254 790 683 823. We respond within 24 hours!')">📩 How can I contact support?</button>
                 </div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." autocomplete="off">
+                <button class="chat-send-btn" id="chatSendBtn" title="Send">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
             </div>
         </div>
     </div>
@@ -2146,30 +2253,158 @@
         revealElements.forEach(el => revealObserver.observe(el));
 
         // Chatbot
+        const faqData = [
+            { keywords: ['free', 'cost', 'price', 'pay', 'subscription', 'premium', 'charge', 'money'], answer: 'Yes! MyHobbyPlan is completely free to download and use. We show minimal ads to support development, but all core features are 100% free.' },
+            { keywords: ['weather', 'rain', 'temperature', 'forecast', 'wind', 'conditions', 'climate', 'sunny'], answer: 'We connect to real-time weather services for your location. You set preferred conditions (temperature, rain, wind) for each hobby, and we alert you when conditions are perfect!' },
+            { keywords: ['privacy', 'secure', 'data', 'tracking', 'delete', 'gdpr', 'information', 'safe', 'protection'], answer: 'Absolutely! Your privacy is our priority. All hobby data is stored locally on your device. No accounts, no server uploads, no tracking. You can delete your data anytime from the app settings.' },
+            { keywords: ['hobby', 'hobbies', 'activity', 'activities', 'plan', 'customize', 'sport', 'interest'], answer: 'Anything! Hiking, photography, cycling, gardening, fitness, cooking, painting, sports — you can customize settings for any activity you love.' },
+            { keywords: ['contact', 'support', 'email', 'phone', 'help', 'feedback', 'reach', 'assist'], answer: 'You can use the contact form on this page, email us at contact@myhobbyplan.net, or call +254 790 683 823. We respond within 24 hours!' },
+            { keywords: ['download', 'install', 'get', 'store', 'play store', 'app store', 'link'], answer: 'MyHobbyPlan is available on both Android and iOS. Search for "MyHobbyPlan" in the Google Play Store or Apple App Store, or use the download buttons on this page!' },
+            { keywords: ['ios', 'iphone', 'apple', 'ipad'], answer: 'Yes! MyHobbyPlan is available on the Apple App Store for iPhone and iPad. Just search for "MyHobbyPlan" and download it for free.' },
+            { keywords: ['android', 'samsung', 'google', 'play store'], answer: 'Yes! MyHobbyPlan is available on the Google Play Store for all Android devices. Search for "MyHobbyPlan" and install it for free.' },
+            { keywords: ['schedule', 'calendar', 'plan', 'organize', 'time', 'slot', 'booking', 'event'], answer: 'MyHobbyPlan lets you create a smart schedule for all your hobbies. Set preferred time slots, and the app will suggest the best times based on weather, your availability, and past patterns.' },
+            { keywords: ['notification', 'notify', 'alert', 'push', 'alarm', 'remind', 'reminder'], answer: 'The app sends smart notifications when weather conditions are ideal for your hobbies, when it\'s time for scheduled activities, and for weekly activity summaries. You can customize which notifications you receive.' },
+            { keywords: ['preference', 'setting', 'configure', 'option', 'custom', 'personalize', 'adjust'], answer: 'You can fully customize your experience: set preferred weather conditions per hobby, choose notification preferences, set activity time slots, and select your interests during onboarding.' },
+            { keywords: ['offline', 'internet', 'connection', 'no wifi', 'without'], answer: 'Yes! MyHobbyPlan works offline. Your hobby schedules and preferences are always accessible. Weather updates require an internet connection, but the app caches forecasts for when you\'re offline.' },
+            { keywords: ['battery', 'power', 'drain', 'energy', 'consumption'], answer: 'MyHobbyPlan is designed to be battery-efficient. Weather checks happen in the background at smart intervals, and we use optimized APIs to minimize battery consumption.' },
+            { keywords: ['storage', 'space', 'size', 'mb', 'gb', 'memory'], answer: 'MyHobbyPlan is lightweight — it takes up less than 20MB of storage. Your hobby data is stored efficiently on your device.' },
+            { keywords: ['update', 'version', 'upgrade', 'new', 'latest', 'changelog'], answer: 'We regularly update MyHobbyPlan with new features and improvements. Check the Google Play Store or App Store for the latest version. Enable auto-updates to stay current!' },
+            { keywords: ['bug', 'crash', 'error', 'problem', 'issue', 'glitch', 'not working', 'broken'], answer: 'Sorry to hear that! Try restarting the app first. If the issue persists, please contact us at contact@myhobbyplan.net with your device model and app version, and we\'ll help fix it ASAP.' },
+            { keywords: ['family', 'shared', 'share', 'together', 'group', 'household'], answer: 'MyHobbyPlan supports family sharing! Multiple family members can have their own hobby profiles within the app, and you can sync shared activities and schedules.' },
+            { keywords: ['kid', 'kids', 'child', 'children', 'young', 'teen', 'age'], answer: 'MyHobbyPlan is family-friendly! Kids can have their own profiles with age-appropriate hobby suggestions. Parents can monitor and manage activities for younger users.' },
+            { keywords: ['parental', 'control', 'supervision', 'monitor', 'restrict'], answer: 'Yes! Parental controls let you manage your children\'s activity schedules, set time limits, and receive updates on their hobby progress.' },
+            { keywords: ['account', 'sign up', 'register', 'login', 'log in', 'password', 'profile'], answer: 'No account required! MyHobbyPlan works without signing up. All your data stays on your device. If you want to back up your data, you can optionally create a local backup.' },
+            { keywords: ['setup', 'start', 'begin', 'onboarding', 'first', 'tutorial', 'how to use', 'guide'], answer: 'Getting started is easy! Download the app, select your hobbies during onboarding, set your preferred weather conditions and time slots, and you\'re ready to go! The app walks you through everything.' },
+            { keywords: ['back up', 'backup', 'restore', 'sync', 'transfer', 'switch phone', 'new phone'], answer: 'You can create a local backup of your hobby data from Settings > Backup. This backup file can be restored on the same device or transferred to a new phone.' },
+            { keywords: ['language', 'translate', 'localization', 'swahili', 'french', 'spanish', 'multilingual'], answer: 'MyHobbyPlan currently supports English, with more languages coming soon. We\'re working on adding Swahili, French, Spanish, and other languages in future updates.' },
+            { keywords: ['recommend', 'suggestion', 'suggest', 'ai', 'smart', 'intelligent', 'personalized'], answer: 'MyHobbyPlan learns from your activity patterns and weather preferences to suggest the best times for your hobbies. The more you use it, the smarter the recommendations get!' },
+            { keywords: ['fitness', 'workout', 'exercise', 'gym', 'run', 'running', 'jog'], answer: 'MyHobbyPlan is great for fitness activities! Set your preferred weather conditions for outdoor workouts, schedule gym sessions, and track your running routes with weather-aware timing.' },
+            { keywords: ['garden', 'gardening', 'plant', 'outdoor', 'yard'], answer: 'Gardening enthusiasts love MyHobbyPlan! Set optimal temperature and humidity conditions, get notified when it\'s the best time to water plants, and plan gardening sessions around weather forecasts.' },
+            { keywords: ['photo', 'photography', 'camera', 'picture', 'shoot'], answer: 'Photographers can set ideal lighting and weather conditions. Get alerts for golden hour, storm photography opportunities, or perfect overcast days for portraits!' },
+            { keywords: ['cycle', 'cycling', 'bike', 'bicycle', 'ride'], answer: 'Plan your cycling sessions with weather-aware scheduling. Get notified when wind, temperature, and rain conditions are ideal for your rides.' },
+            { keywords: ['hike', 'hiking', 'trail', 'mountain', 'walk', 'trek'], answer: 'Hikers get alerts for perfect trail conditions — ideal temperature, low wind, no rain, and good visibility. Plan your next adventure with confidence!' },
+            { keywords: ['cooking', 'cook', 'recipe', 'kitchen', 'bake', 'baking'], answer: 'Even indoor hobbies benefit from planning! Set cooking schedules, get reminders for meal prep times, and organize your recipe experimentation sessions.' },
+            { keywords: ['paint', 'painting', 'art', 'draw', 'drawing', 'creative'], answer: 'Artists can schedule painting sessions, set reminders for creative time, and even get weather-based inspiration — like painting outdoors on beautiful days!' },
+            { keywords: ['sport', 'football', 'soccer', 'tennis', 'basketball', 'cricket', 'match'], answer: 'Organize your sports activities with weather-aware scheduling. Get alerts for ideal playing conditions and plan matches around perfect weather windows.' },
+            { keywords: ['fish', 'fishing', 'angl', 'catch'], answer: 'Fishermen love weather-aware planning! Get notifications when barometric pressure, temperature, and wind conditions are optimal for fishing.' },
+            { keywords: ['swim', 'swimming', 'pool', 'beach', 'surf', 'surfing', 'water'], answer: 'Plan water activities with weather and wind condition alerts. Get notified when it\'s safe and ideal for swimming, surfing, or beach visits.' },
+            { keywords: ['yoga', 'meditation', 'mindful', 'relax', 'wellness'], answer: 'Schedule your yoga and meditation sessions, set daily reminders, and even plan outdoor yoga when the weather is perfect for it.' },
+            { keywords: ['weekly', 'summary', 'report', 'stats', 'statistics', 'progress'], answer: 'MyHobbyPlan sends weekly activity summaries showing your hobby time, streaks, weather matches, and suggestions for the coming week.' },
+            { keywords: ['streak', 'consistency', 'habit', 'routine', 'daily'], answer: 'Build hobby streaks! MyHobbyPlan tracks your consistency and celebrates milestones. Set daily or weekly goals for each hobby to stay motivated.' },
+            { keywords: ['ad', 'ads', 'advertisement', 'pop up', 'popup', 'annoying'], answer: 'We keep ads minimal and non-intrusive. They appear only in designated areas and never interrupt your hobby planning experience. Premium ad-free options may come in the future.' },
+            { keywords: ['feature', 'what can', 'what does', 'capability', 'do', 'offer'], answer: 'Key features include: weather-aware hobby planning, smart scheduling, customizable notifications, activity tracking, weekly summaries, streak tracking, and family sharing. All for free!' },
+            { keywords: ['about', 'what is', 'who', 'myhobbyplan', 'app'], answer: 'MyHobbyPlan is a smart hobby planning app that uses weather data to help you plan outdoor activities at the perfect time. It\'s designed for people who love doing what they love!' },
+            { keywords: ['weather', 'aware', 'weather-aware'], answer: 'Weather-aware planning means the app considers real-time weather conditions for each of your hobbies and alerts you when it\'s the perfect time to engage in them.' },
+            { keywords: ['suggestion', 'idea', 'what to do', 'bored', 'new hobby'], answer: 'Not sure what to do? MyHobbyPlan can suggest activities based on your interests, the current weather, and your past activity patterns. Try checking the app\'s recommendation section!' },
+            { keywords: ['time', 'when', 'best time', 'ideal'], answer: 'MyHobbyPlan analyzes weather forecasts, your schedule, and past patterns to suggest the best times for each hobby. You can also manually set preferred time slots in settings.' },
+            { keywords: ['location', 'place', 'where', 'city', 'area', 'gps'], answer: 'MyHobbyPlan uses your device location to provide accurate weather data for your area. You can also manually set locations for hobbies you do in different places.' }
+        ];
+
+        const faqFallback = "I'm not sure about that specific topic. You can reach us at contact@myhobbyplan.net or call +254 790 683 823 for personalized help!";
+
+        function normalizeText(text) {
+            return text.toLowerCase().replace(/[^\w\s]/g, '').trim();
+        }
+
+        function findBestMatch(userInput) {
+            const normalized = normalizeText(userInput);
+            const words = normalized.split(/\s+/).filter(function(w) { return w.length > 1; });
+            let bestScore = 0;
+            let bestEntry = null;
+
+            for (var i = 0; i < faqData.length; i++) {
+                var entry = faqData[i];
+                var score = 0;
+                for (var j = 0; j < words.length; j++) {
+                    for (var k = 0; k < entry.keywords.length; k++) {
+                        if (entry.keywords[k] === words[j] || words[j].indexOf(entry.keywords[k]) !== -1 || entry.keywords[k].indexOf(words[j]) !== -1) {
+                            score++;
+                            break;
+                        }
+                    }
+                }
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestEntry = entry;
+                }
+            }
+
+            return bestScore > 0 ? bestEntry : null;
+        }
+
         function toggleChat() {
-            const chatWindow = document.getElementById('chatWindow');
+            var chatWindow = document.getElementById('chatWindow');
             chatWindow.style.display = (chatWindow.style.display === 'flex') ? 'none' : 'flex';
+            if (chatWindow.style.display === 'flex') {
+                document.getElementById('chatInput').focus();
+            }
         }
 
         function askQuestion(question, answer) {
-            const content = document.getElementById('chatContent');
-            const optionsContainer = content.querySelector('.faq-options');
+            var content = document.getElementById('chatContent');
+            var optionsContainer = document.getElementById('faqOptions');
+            var typingIndicator = document.getElementById('typingIndicator');
 
-            const userMsg = document.createElement('div');
+            var userMsg = document.createElement('div');
             userMsg.className = 'bot-msg user-msg';
             userMsg.textContent = question;
             content.insertBefore(userMsg, optionsContainer);
 
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
+            typingIndicator.classList.add('active');
+            content.scrollTop = content.scrollHeight;
+
+            setTimeout(function() {
+                typingIndicator.classList.remove('active');
+                var botMsg = document.createElement('div');
                 botMsg.className = 'bot-msg';
                 botMsg.textContent = answer;
                 content.insertBefore(botMsg, optionsContainer);
                 content.scrollTop = content.scrollHeight;
-            }, 400);
+            }, 600);
 
             content.scrollTop = content.scrollHeight;
         }
+
+        function sendMessage() {
+            var input = document.getElementById('chatInput');
+            var text = input.value.trim();
+            if (!text) return;
+
+            var content = document.getElementById('chatContent');
+            var optionsContainer = document.getElementById('faqOptions');
+            var typingIndicator = document.getElementById('typingIndicator');
+
+            var userMsg = document.createElement('div');
+            userMsg.className = 'bot-msg user-msg';
+            userMsg.textContent = text;
+            content.insertBefore(userMsg, optionsContainer);
+            input.value = '';
+
+            typingIndicator.classList.add('active');
+            content.scrollTop = content.scrollHeight;
+
+            setTimeout(function() {
+                typingIndicator.classList.remove('active');
+                var match = findBestMatch(text);
+                var botMsg = document.createElement('div');
+                botMsg.className = 'bot-msg';
+                if (match) {
+                    botMsg.textContent = match.answer;
+                } else {
+                    botMsg.className = 'bot-msg chat-fallback';
+                    botMsg.textContent = faqFallback;
+                }
+                content.insertBefore(botMsg, optionsContainer);
+                content.scrollTop = content.scrollHeight;
+            }, 800);
+
+            content.scrollTop = content.scrollHeight;
+        }
+
+        document.getElementById('chatSendBtn').addEventListener('click', sendMessage);
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
 
         // Language data (Curated Major Languages)
         var langData = [
