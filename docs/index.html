@@ -8,7 +8,7 @@
     <!-- Primary Meta Tags -->
     <meta name="title" content="MyHobbyPlan — Plan Smarter. Enjoy More. | Smart Hobby Planning & Weather-Aware Scheduling">
     <meta name="description" content="MyHobbyPlan combines intelligent hobby planning with weather-aware insights so you can make the most of your free time. Plan hobbies around real weather. Prepare for tomorrow. Enjoy more of what you love.">
-    <meta name="keywords" content="hobby planner, smart hobby planner, weather-aware hobby planning, hobby planning app, outdoor activity planner, AI hobby planner, weather planning app, MyHobbyPlan, Eleviq Technologies, activity scheduler, weather intelligence">
+    <meta name="keywords" content="hobby planner, smart hobby planner, weather-aware hobby planning, hobby planning app, outdoor activity planner, weather-aware hobby planner, weather planning app, MyHobbyPlan, Eleviq Technologies, activity scheduler, weather intelligence">
     <meta name="author" content="Eleviq Technologies">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://kigechaedward.github.io/Myhobbyplan-website/">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kigechaedward.github.io/Myhobbyplan-website/">
     <meta property="og:title" content="MyHobbyPlan — Plan Smarter. Enjoy More.">
-    <meta property="og:description" content="A smart lifestyle and hobby planning platform that helps you organize hobbies and decide when and how to enjoy them — with weather intelligence and AI-assisted planning.">
+    <meta property="og:description" content="A smart lifestyle and hobby planning platform that helps you organize hobbies and decide when and how to enjoy them — with weather intelligence and forecast-aware planning.">
     <meta property="og:image" content="https://kigechaedward.github.io/Myhobbyplan-website/logo.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
@@ -73,8 +73,8 @@
         "Weather-Aware Planning",
         "Smart Scheduling",
         "Personalized Weather Preferences",
-        "Smart Notifications",
-        "AI-Assisted Planning"
+        "Smart Notifications & Barometric Alerts",
+        "Smart Forecasting"
       ]
     }
     </script>
@@ -101,38 +101,42 @@
     <style>
         /* ============================================================
            DESIGN SYSTEM
+           Mirrors the Android app's Cyberpunk palette. Source of truth:
+           app/src/main/java/com/example/myhobbyplan/ui/theme/Color.kt
            ============================================================ */
         :root {
-            --bg: #05080f;
-            --bg-2: #0a101d;
-            --bg-3: #0d1626;
-            --surface: #101a2e;
-            --surface-2: #152239;
-            --line: rgba(151, 184, 214, 0.14);
-            --line-strong: rgba(151, 184, 214, 0.26);
+            /* Surfaces — app DarkBackground / DarkSurface / DarkSurfaceElevated */
+            --bg: #070A12;
+            --bg-2: #0B1018;
+            --bg-3: #0F1624;
+            --surface: #111827;
+            --surface-2: #1E293B;
+            --line: rgba(148, 163, 184, 0.14);
+            --line-strong: rgba(148, 163, 184, 0.26);
 
-            --text: #eef3f9;
-            --text-2: #b7c7da;
-            --text-3: #7f93ab;
+            /* Type — app DarkTextPrimary / DarkTextSecondary / neutral slate */
+            --text: #FFFFFF;
+            --text-2: #94A3B8;
+            --text-3: #64748B;
 
-            --deep: #2f6fd6;
-            --sky: #38bdf8;
-            --sky-2: #7dd3fc;
-            --green: #34d399;
-            --green-2: #6ee7b7;
-            --mint: #a7f3d0;
-            --warm: #fbbf24;
-            --rose: #fb7185;
+            /* Neon accents */
+            --lime: #CCFF00;      /* primary CTA / focus / hover — app AccentBlue */
+            --lime-soft: #E6FF8F; /* headings + hover text */
+            --cyan: #00E5FF;      /* secondary accent, metrics — app AccentMint */
+            --jade: #00E676;      /* positive, "Live", optimal — app GoodGreen */
+            --amber: #FFD600;     /* caution, in-development — app CautionAmber */
+            --coral: #FF3D71;     /* alerts, danger — app DangerRed */
+            --violet: #7C3AED;    /* brand gradient tail — app GradientEnd */
 
-            --grad-cta: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
-            --grad-sky: linear-gradient(180deg, rgba(56, 189, 248, 0.28), rgba(56, 189, 248, 0));
-            --grad-text: linear-gradient(120deg, #7dd3fc 0%, #34d399 100%);
+            /* Brand gradient mirrors app GradientStart → GradientMid → GradientEnd */
+            --grad-cta: linear-gradient(135deg, #CCFF00 0%, #00E5FF 100%);
+            --grad-text: linear-gradient(120deg, var(--lime-soft) 0%, var(--cyan) 58%, var(--violet) 100%);
 
             --font-display: 'Sora', 'Inter', system-ui, sans-serif;
             --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 
             --shadow-card: 0 24px 60px -20px rgba(0, 0, 0, 0.65);
-            --shadow-glow: 0 0 60px rgba(56, 189, 248, 0.16);
+            --shadow-glow: 0 0 60px rgba(204, 255, 0, 0.16);
             --radius: 22px;
             --radius-lg: 32px;
             --radius-sm: 14px;
@@ -160,7 +164,7 @@
             text-rendering: optimizeLegibility;
         }
 
-        ::selection { background: rgba(56, 189, 248, 0.3); color: #fff; }
+        ::selection { background: var(--lime); color: var(--bg); }
 
         img { max-width: 100%; display: block; }
         a { color: inherit; }
@@ -197,11 +201,11 @@
             font-weight: 700;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--sky-2);
+            color: var(--lime-soft);
             padding: 8px 16px;
             border: 1px solid var(--line);
             border-radius: 999px;
-            background: rgba(56, 189, 248, 0.06);
+            background: rgba(204, 255, 0, 0.06);
         }
 
         .eyebrow::before {
@@ -209,8 +213,8 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 12px var(--green);
+            background: var(--cyan);
+            box-shadow: 0 0 12px var(--cyan);
         }
 
         .section {
@@ -261,17 +265,17 @@
 
         .btn-primary {
             background: var(--grad-cta);
-            color: #04121d;
-            box-shadow: 0 14px 34px -12px rgba(52, 211, 153, 0.5);
+            color: #070A12;
+            box-shadow: 0 14px 34px -12px rgba(0, 230, 118, 0.5);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 22px 44px -14px rgba(56, 189, 248, 0.55);
+            box-shadow: 0 22px 44px -14px rgba(204, 255, 0, 0.55);
         }
 
         .btn-ghost {
-            background: rgba(151, 184, 214, 0.07);
+            background: rgba(148, 163, 184, 0.07);
             color: var(--text);
             border-color: var(--line-strong);
             backdrop-filter: blur(8px);
@@ -279,8 +283,8 @@
 
         .btn-ghost:hover {
             transform: translateY(-3px);
-            border-color: var(--sky);
-            color: var(--sky-2);
+            border-color: var(--lime);
+            color: var(--lime-soft);
         }
 
         .btn-lg { padding: 19px 38px; font-size: 1.04rem; }
@@ -301,7 +305,7 @@
 
         .site-nav.scrolled {
             height: 64px;
-            background: rgba(5, 8, 15, 0.72);
+            background: rgba(7, 10, 18, 0.72);
             backdrop-filter: blur(20px) saturate(160%);
             -webkit-backdrop-filter: blur(20px) saturate(160%);
             border-bottom-color: var(--line);
@@ -361,7 +365,7 @@
 
         .nav-link:hover {
             color: var(--text);
-            background: rgba(151, 184, 214, 0.08);
+            background: rgba(148, 163, 184, 0.08);
         }
 
         .nav-right {
@@ -395,7 +399,7 @@
             position: fixed;
             inset: 0;
             z-index: 990;
-            background: rgba(5, 8, 15, 0.86);
+            background: rgba(7, 10, 18, 0.86);
             backdrop-filter: blur(26px);
             -webkit-backdrop-filter: blur(26px);
             display: flex;
@@ -416,7 +420,7 @@
             max-width: 560px;
             padding: 28px;
             padding-bottom: calc(28px + env(safe-area-inset-bottom));
-            background: rgba(16, 26, 46, 0.94);
+            background: rgba(17, 24, 39, 0.94);
             border: 1px solid var(--line);
             border-bottom: none;
             border-radius: 26px 26px 0 0;
@@ -476,9 +480,9 @@
             inset: 0;
             z-index: 0;
             background:
-                radial-gradient(1200px 700px at 80% -10%, rgba(47, 111, 214, 0.28), transparent 60%),
-                radial-gradient(900px 600px at -10% 110%, rgba(52, 211, 153, 0.14), transparent 60%),
-                linear-gradient(180deg, #070c17 0%, #0a101d 55%, #0d1626 100%);
+                radial-gradient(1200px 700px at 80% -10%, rgba(124, 58, 237, 0.28), transparent 60%),
+                radial-gradient(900px 600px at -10% 110%, rgba(0, 230, 118, 0.14), transparent 60%),
+                linear-gradient(180deg, #070A12 0%, #0B1018 55%, #0F1624 100%);
         }
 
         .hero-grid-overlay {
@@ -486,8 +490,8 @@
             inset: 0;
             z-index: 0;
             background-image:
-                linear-gradient(rgba(151, 184, 214, 0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(151, 184, 214, 0.045) 1px, transparent 1px);
+                linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
             background-size: 72px 72px;
             -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 75%);
             mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 75%);
@@ -538,15 +542,15 @@
             padding: 9px 18px;
             border: 1px solid var(--line);
             border-radius: 999px;
-            background: rgba(151, 184, 214, 0.06);
+            background: rgba(148, 163, 184, 0.06);
             margin-bottom: 30px;
         }
 
         .hero-badge .dot {
             width: 7px; height: 7px;
             border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+            background: var(--cyan);
+            box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.6);
             animation: pulse-dot 2.4s var(--ease) infinite;
         }
 
@@ -619,7 +623,7 @@
             transform: translateX(-50%);
             width: 3px; height: 7px;
             border-radius: 2px;
-            background: var(--sky);
+            background: var(--lime);
             animation: cue-wheel 1.8s var(--ease) infinite;
         }
 
@@ -650,9 +654,9 @@
         .d5 { transition-delay: 0.4s; }
 
         @keyframes pulse-dot {
-            0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
-            70% { box-shadow: 0 0 0 12px rgba(52, 211, 153, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.55); }
+            70% { box-shadow: 0 0 0 12px rgba(0, 230, 118, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
         }
 
         @keyframes cue-wheel {
@@ -687,10 +691,10 @@
         .phone-frame {
             position: absolute;
             inset: 0;
-            background: #070b12;
+            background: #070A12;
             border-radius: 46px;
-            border: 7px solid #0d1420;
-            box-shadow: inset 0 0 0 2px rgba(151, 184, 214, 0.14);
+            border: 7px solid #0C1220;
+            box-shadow: inset 0 0 0 2px rgba(148, 163, 184, 0.14);
             overflow: hidden;
         }
         .phone-notch {
@@ -698,7 +702,7 @@
             top: 0; left: 50%;
             transform: translateX(-50%);
             width: 118px; height: 26px;
-            background: #0d1420;
+            background: #0C1220;
             border-radius: 0 0 18px 18px;
             z-index: 2;
         }
@@ -710,7 +714,7 @@
         .problem-glow {
             position: absolute; top: 10%; left: 50%;
             width: 700px; height: 700px; transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(47, 111, 214, 0.1), transparent 65%);
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 65%);
             pointer-events: none;
         }
         .split {
@@ -746,8 +750,8 @@
             font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
             padding: 5px 12px; border-radius: 999px;
         }
-        .day-status.mess { background: rgba(251, 113, 133, 0.1); color: var(--rose); }
-        .day-status.flow { background: rgba(52, 211, 153, 0.12); color: var(--green-2); }
+        .day-status.mess { background: rgba(255, 61, 113, 0.1); color: var(--coral); }
+        .day-status.flow { background: rgba(0, 230, 118, 0.12); color: var(--jade); }
         .day-sub { color: var(--text-3); font-size: 0.88rem; margin-bottom: 24px; }
         .day-grid {
             display: grid;
@@ -757,18 +761,18 @@
         }
         .cell {
             border-radius: 13px;
-            background: rgba(151, 184, 214, 0.05);
+            background: rgba(148, 163, 184, 0.05);
             border: 1px solid var(--line);
             display: flex; align-items: center; justify-content: center;
             font-size: 1.25rem;
         }
-        .cell.miss { background: rgba(251, 113, 133, 0.06); border-color: rgba(251, 113, 133, 0.22); }
-        .cell.warn { background: rgba(251, 191, 36, 0.06); border-color: rgba(251, 191, 36, 0.22); }
-        .cell.ok { background: rgba(52, 211, 153, 0.07); border-color: rgba(52, 211, 153, 0.26); }
+        .cell.miss { background: rgba(255, 61, 113, 0.06); border-color: rgba(255, 61, 113, 0.22); }
+        .cell.warn { background: rgba(255, 214, 0, 0.06); border-color: rgba(255, 214, 0, 0.22); }
+        .cell.ok { background: rgba(0, 230, 118, 0.07); border-color: rgba(0, 230, 118, 0.26); }
         .cell.plan {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(52, 211, 153, 0.16));
-            border-color: rgba(56, 189, 248, 0.55);
-            box-shadow: 0 0 22px rgba(56, 189, 248, 0.16);
+            background: linear-gradient(135deg, rgba(204, 255, 0, 0.16), rgba(0, 230, 118, 0.16));
+            border-color: rgba(204, 255, 0, 0.55);
+            box-shadow: 0 0 22px rgba(204, 255, 0, 0.16);
         }
         .day-panel.before .cell { animation: jitter 3.4s ease-in-out infinite; }
         .day-panel.before .cell:nth-child(3n) { animation-delay: 0.5s; }
@@ -788,7 +792,7 @@
             border: 1px solid var(--line); border-radius: var(--radius-sm);
         }
         .pain-list .x {
-            color: var(--rose); flex-shrink: 0; margin-top: 3px;
+            color: var(--coral); flex-shrink: 0; margin-top: 3px;
             width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
         }
 
@@ -798,7 +802,7 @@
         .flow::before {
             content: '';
             position: absolute; left: 28px; top: 8px; bottom: 8px; width: 2px;
-            background: linear-gradient(180deg, rgba(56, 189, 248, 0.5), rgba(52, 211, 153, 0.5));
+            background: linear-gradient(180deg, rgba(204, 255, 0, 0.5), rgba(0, 230, 118, 0.5));
         }
         .flow-node {
             position: relative;
@@ -810,7 +814,7 @@
             width: 56px; height: 56px; border-radius: 50%;
             background: var(--surface-2); border: 1px solid var(--line-strong);
             display: flex; align-items: center; justify-content: center;
-            color: var(--sky-2); z-index: 2;
+            color: var(--lime-soft); z-index: 2;
             box-shadow: 0 0 0 7px var(--bg), 0 12px 30px -12px rgba(0, 0, 0, 0.7);
         }
         .flow-node h3 { font-size: 1.3rem; margin: 2px 0 8px; }
@@ -820,10 +824,10 @@
         /* ---------- How it works ---------- */
         .how { background: var(--bg-2); }
         .steps { position: relative; max-width: 760px; margin: 0 auto; padding: 20px 0 0; }
-        .steps-progress { position: absolute; left: 25px; top: 20px; bottom: 20px; width: 2px; background: rgba(151, 184, 214, 0.12); border-radius: 2px; }
+        .steps-progress { position: absolute; left: 25px; top: 20px; bottom: 20px; width: 2px; background: rgba(148, 163, 184, 0.12); border-radius: 2px; }
         .steps-progress span {
             position: absolute; inset: 0 auto 0 0; width: 100%; height: 0;
-            background: linear-gradient(180deg, var(--sky), var(--green));
+            background: linear-gradient(180deg, var(--lime), var(--cyan));
             border-radius: 2px;
         }
         .step {
@@ -837,18 +841,18 @@
             background: var(--surface-2); border: 1px solid var(--line-strong);
             display: flex; align-items: center; justify-content: center;
             font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
-            color: var(--sky-2); position: relative; z-index: 1;
+            color: var(--lime-soft); position: relative; z-index: 1;
             transition: all 0.5s var(--ease);
         }
         .step.active .step-num {
-            color: #04121d; background: var(--grad-cta);
-            box-shadow: 0 0 28px rgba(56, 189, 248, 0.4);
+            color: #070A12; background: var(--grad-cta);
+            box-shadow: 0 0 28px rgba(204, 255, 0, 0.4);
         }
         .step-body h3 { font-size: 1.35rem; margin-bottom: 10px; }
         .step-body p { color: var(--text-2); max-width: 460px; }
         .step-body .step-chip {
             display: inline-block; margin-top: 14px; font-size: 0.76rem; font-weight: 600;
-            color: var(--sky-2); background: rgba(56, 189, 248, 0.08);
+            color: var(--lime-soft); background: rgba(204, 255, 0, 0.08);
             border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px;
         }
 
@@ -857,7 +861,7 @@
         .weather-stage {
             position: relative; height: 440px;
             border-radius: var(--radius-lg); border: 1px solid var(--line);
-            background: linear-gradient(180deg, #0c1526 0%, #0d1a2c 100%);
+            background: linear-gradient(180deg, #0E1626 0%, #0F1725 100%);
             overflow: hidden;
         }
         .weather-canvas { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
@@ -866,15 +870,15 @@
         .weather-canvas.ready ~ .weather-fallback, .weather-canvas.ready + .weather-fallback { opacity: 0; pointer-events: none; }
         .weather-orb {
             width: 220px; height: 220px; border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, rgba(125, 211, 252, 0.45), rgba(56, 189, 248, 0.15) 48%, rgba(16, 26, 46, 0.1) 72%);
-            box-shadow: inset -24px -24px 60px rgba(5, 8, 15, 0.7), 0 0 90px rgba(56, 189, 248, 0.22);
+            background: radial-gradient(circle at 35% 30%, rgba(230, 255, 143, 0.45), rgba(204, 255, 0, 0.15) 48%, rgba(17, 24, 39, 0.1) 72%);
+            box-shadow: inset -24px -24px 60px rgba(7, 10, 18, 0.7), 0 0 90px rgba(204, 255, 0, 0.22);
             position: relative;
             animation: float-y 6s ease-in-out infinite;
         }
         .weather-orb::after {
             content: ''; position: absolute; inset: 16px;
             border-radius: 50%;
-            border: 1px solid rgba(125, 211, 252, 0.35);
+            border: 1px solid rgba(230, 255, 143, 0.35);
             animation: spin 26s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -890,7 +894,7 @@
             width: 52px; height: 52px; border-radius: 16px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.45rem; margin: 18px 0 12px;
-            background: rgba(56, 189, 248, 0.09);
+            background: rgba(204, 255, 0, 0.09);
         }
         .fc-temp { font-family: var(--font-display); font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
         .fc-cond { color: var(--text-2); font-size: 0.92rem; margin: 6px 0 16px; }
@@ -899,17 +903,17 @@
             font-size: 0.78rem; font-weight: 600;
             padding: 7px 14px; border-radius: 999px;
         }
-        .v-good { background: rgba(52, 211, 153, 0.12); color: var(--green-2); }
-        .v-warn { background: rgba(251, 191, 36, 0.1); color: var(--warm); }
-        .v-ok { background: rgba(56, 189, 248, 0.12); color: var(--sky-2); }
+        .v-good { background: rgba(0, 230, 118, 0.12); color: var(--jade); }
+        .v-warn { background: rgba(255, 214, 0, 0.1); color: var(--amber); }
+        .v-ok { background: rgba(204, 255, 0, 0.12); color: var(--lime-soft); }
         .timeline-day {
             margin-top: 26px; background: var(--surface);
             border: 1px solid var(--line); border-radius: var(--radius);
             padding: 22px 26px;
         }
         .tl-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 16px; }
-        .tl-head b { color: var(--sky-2); font-weight: 600; letter-spacing: 0.04em; text-transform: none; }
-        .tl-track { position: relative; height: 26px; border-radius: 999px; background: rgba(151, 184, 214, 0.07); overflow: hidden; }
+        .tl-head b { color: var(--lime-soft); font-weight: 600; letter-spacing: 0.04em; text-transform: none; }
+        .tl-track { position: relative; height: 26px; border-radius: 999px; background: rgba(148, 163, 184, 0.07); overflow: hidden; }
         .tl-seg {
             position: absolute; top: 0; bottom: 0; border-radius: 999px;
             opacity: 0.85; transition: width 1s var(--ease);
@@ -930,7 +934,7 @@
         .device-screen img { width: 100%; height: auto; }
         .device-glow {
             position: absolute; inset: 0;
-            background: radial-gradient(500px 300px at 50% 0%, rgba(56, 189, 248, 0.14), transparent 60%);
+            background: radial-gradient(500px 300px at 50% 0%, rgba(204, 255, 0, 0.14), transparent 60%);
             pointer-events: none;
         }
         .check-list { list-style: none; display: grid; gap: 14px; margin-top: 32px; }
@@ -943,7 +947,7 @@
         .check-item:hover { transform: translateX(6px); border-color: var(--line-strong); }
         .check-item .ic {
             width: 42px; height: 42px; border-radius: 13px; flex-shrink: 0;
-            background: rgba(52, 211, 153, 0.12); color: var(--green-2);
+            background: rgba(0, 230, 118, 0.12); color: var(--jade);
             display: flex; align-items: center; justify-content: center;
         }
         .check-item h4 { font-size: 1rem; margin-bottom: 3px; }
@@ -957,13 +961,13 @@
             border-radius: var(--radius); padding: 32px; position: relative; overflow: hidden;
         }
         .cap-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-        .cap-card.live::before { background: linear-gradient(90deg, var(--sky), var(--green)); }
-        .cap-card.soon::before { background: linear-gradient(90deg, rgba(251, 191, 36, 0.6), rgba(251, 191, 36, 0.12)); }
+        .cap-card.live::before { background: linear-gradient(90deg, var(--lime), var(--cyan)); }
+        .cap-card.soon::before { background: linear-gradient(90deg, rgba(255, 214, 0, 0.6), rgba(255, 214, 0, 0.12)); }
         .cap-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .cap-head h3 { font-size: 1.3rem; }
         .cap-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border-radius: 999px; }
-        .b-live { background: rgba(52, 211, 153, 0.14); color: var(--green-2); }
-        .b-soon { background: rgba(251, 191, 36, 0.12); color: var(--warm); }
+        .b-live { background: rgba(0, 230, 118, 0.14); color: var(--jade); }
+        .b-soon { background: rgba(255, 214, 0, 0.12); color: var(--amber); }
         .cap-list { list-style: none; display: grid; gap: 13px; }
         .cap-list li { display: flex; gap: 10px; color: var(--text-2); font-size: 0.95rem; align-items: flex-start; }
         .cap-list li svg { flex-shrink: 0; margin-top: 4px; }
@@ -976,25 +980,26 @@
         .ai-pulse {
             position: absolute; top: -70px; right: -70px;
             width: 220px; height: 220px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 70%);
+            background: radial-gradient(circle, rgba(204, 255, 0, 0.16), transparent 70%);
             pointer-events: none;
         }
         .chat-demo-head { display: flex; align-items: center; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
         .chat-demo-head .avatar {
             width: 40px; height: 40px; border-radius: 50%;
-            background: var(--grad-cta); color: #04121d;
+            background: var(--grad-cta); color: #070A12;
             display: flex; align-items: center; justify-content: center;
             font-weight: 700; font-size: 0.8rem;
         }
         .chat-demo .name { font-weight: 600; font-size: 0.95rem; }
         .chat-demo .sub { font-size: 0.76rem; color: var(--text-3); }
         .bubble { max-width: 88%; padding: 14px 18px; border-radius: 18px; font-size: 0.93rem; line-height: 1.6; margin-bottom: 14px; }
-        .bubble.ai { background: rgba(151, 184, 214, 0.07); border: 1px solid var(--line); border-bottom-left-radius: 6px; color: var(--text); }
-        .bubble.user { margin-left: auto; background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(52, 211, 153, 0.15)); border: 1px solid rgba(56, 189, 248, 0.3); border-bottom-right-radius: 6px; }
+        .bubble.ai { background: rgba(148, 163, 184, 0.07); border: 1px solid var(--line); border-bottom-left-radius: 6px; color: var(--text); }
+        .bubble.user { margin-left: auto; background: linear-gradient(135deg, rgba(204, 255, 0, 0.18), rgba(0, 230, 118, 0.15)); border: 1px solid rgba(204, 255, 0, 0.3); border-bottom-right-radius: 6px; }
         .chat-demo .visible .bubble, .chat-demo.visible .bubble { animation: bubbleIn 0.6s var(--ease) both; }
-        .chat-demo .bubble:nth-child(1) { animation-delay: 0.15s; }
-        .chat-demo .bubble:nth-child(2) { animation-delay: 0.45s; }
-        .chat-demo .bubble:nth-child(3) { animation-delay: 0.8s; }
+        /* ai-pulse and chat-demo-head are children 1 and 2, so bubbles start at 3 */
+        .chat-demo .bubble:nth-child(3) { animation-delay: 0.15s; }
+        .chat-demo .bubble:nth-child(4) { animation-delay: 0.45s; }
+        .chat-demo .bubble:nth-child(5) { animation-delay: 0.8s; }
         @keyframes bubbleIn { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
 
         /* ---------- Smart preparation ---------- */
@@ -1008,19 +1013,19 @@
         }
         .assistant::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, var(--sky), var(--green));
+            background: linear-gradient(90deg, var(--lime), var(--cyan));
         }
         .assistant-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
         .assistant-label { font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); }
         .assistant-title { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-top: 4px; }
         .assistant-weather { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-        .aw-item { background: rgba(151, 184, 214, 0.05); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+        .aw-item { background: rgba(148, 163, 184, 0.05); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
         .aw-item b { display: block; font-family: var(--font-display); font-size: 1.25rem; }
         .aw-item span { font-size: 0.76rem; color: var(--text-3); }
         .gear-list { list-style: none; display: grid; gap: 10px; }
         .gear-item {
             display: flex; align-items: center; gap: 14px;
-            padding: 14px 16px; background: rgba(151, 184, 214, 0.04);
+            padding: 14px 16px; background: rgba(148, 163, 184, 0.04);
             border: 1px solid var(--line); border-radius: var(--radius-sm);
             opacity: 0; transform: translateX(18px);
             transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
@@ -1032,7 +1037,7 @@
         .visible .gear-item:nth-child(4), .gear-item.visible:nth-child(4) { transition-delay: 0.55s; }
         .gear-check {
             width: 27px; height: 27px; border-radius: 50%; flex-shrink: 0;
-            background: rgba(52, 211, 153, 0.14); color: var(--green-2);
+            background: rgba(0, 230, 118, 0.14); color: var(--jade);
             display: flex; align-items: center; justify-content: center;
         }
         .gear-item span { font-size: 0.94rem; color: var(--text-2); font-weight: 500; }
@@ -1049,25 +1054,25 @@
         }
         .plan:hover { transform: translateY(-8px); }
         .plan.featured {
-            border-color: rgba(56, 189, 248, 0.5);
-            background: linear-gradient(180deg, rgba(56, 189, 248, 0.08), var(--surface) 55%);
-            box-shadow: 0 0 70px rgba(56, 189, 248, 0.12);
+            border-color: rgba(204, 255, 0, 0.5);
+            background: linear-gradient(180deg, rgba(204, 255, 0, 0.08), var(--surface) 55%);
+            box-shadow: 0 0 70px rgba(204, 255, 0, 0.12);
         }
         .plan-chip {
             position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--grad-cta); color: #04121d;
+            background: var(--grad-cta); color: #070A12;
             font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
             padding: 7px 16px; border-radius: 999px; white-space: nowrap;
         }
         .plan-name { font-size: 1.02rem; color: var(--text-2); font-weight: 600; }
         .plan-price { font-family: var(--font-display); font-size: 3.3rem; font-weight: 800; letter-spacing: -0.04em; margin: 14px 0 4px; }
         .plan-price small { font-size: 1rem; color: var(--text-3); font-weight: 600; }
-        .plan-savings { color: var(--green-2); font-size: 0.9rem; font-weight: 600; min-height: 22px; }
+        .plan-savings { color: var(--jade); font-size: 0.9rem; font-weight: 600; min-height: 22px; }
         .plan-per { color: var(--text-3); font-size: 0.86rem; margin-bottom: 26px; }
         .plan-feats { list-style: none; display: grid; gap: 12px; margin: 6px 0 32px; }
         .plan-feat { display: flex; gap: 11px; align-items: flex-start; color: var(--text-2); font-size: 0.94rem; }
         .plan-feat.off { color: var(--text-3); }
-        .plan-feat .ck { color: var(--green-2); flex-shrink: 0; margin-top: 3px; }
+        .plan-feat .ck { color: var(--jade); flex-shrink: 0; margin-top: 3px; }
         .plan .btn { margin-top: auto; }
         .pro-note { text-align: center; margin-top: 30px; color: var(--text-3); font-size: 0.88rem; }
         .pro-note b { color: var(--text-2); }
@@ -1088,7 +1093,7 @@
         .hobby-name { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
         .hobby-glow {
             position: absolute; left: -30%; right: -30%; bottom: -40%; height: 65%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 70%);
+            background: radial-gradient(circle, rgba(204, 255, 0, 0.16), transparent 70%);
             opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
         }
         .hobby:hover .hobby-glow { opacity: 1; }
@@ -1102,7 +1107,7 @@
         /* ---------- Ecosystem ---------- */
         .eco { background: var(--bg-2); }
         .orbit { position: relative; max-width: 620px; margin: 0 auto; aspect-ratio: 1; }
-        .orbit-ring { position: absolute; border: 1px dashed rgba(151, 184, 214, 0.22); border-radius: 50%; }
+        .orbit-ring { position: absolute; border: 1px dashed rgba(148, 163, 184, 0.22); border-radius: 50%; }
         .orbit-ring.r1 { inset: 4%; }
         .orbit-ring.r2 { inset: 22%; }
         .orbit-ring.r3 { inset: 40%; }
@@ -1112,7 +1117,7 @@
             background: var(--surface-2); border: 1px solid var(--line-strong);
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
             text-align: center;
-            box-shadow: var(--shadow-card), 0 0 60px rgba(56, 189, 248, 0.14);
+            box-shadow: var(--shadow-card), 0 0 60px rgba(204, 255, 0, 0.14);
         }
         .orbit-center img { width: 52px; height: 52px; border-radius: 15px; }
         .orbit-center b { font-family: var(--font-display); font-size: 1rem; }
@@ -1127,14 +1132,14 @@
             box-shadow: 0 14px 32px -14px rgba(0, 0, 0, 0.7);
         }
         .orbit-node::before { content: ''; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-        .orbit-node.now::before { background: var(--green); box-shadow: 0 0 10px var(--green); }
+        .orbit-node.now::before { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
         .orbit-node.next { color: var(--text-3); }
-        .orbit-node.next::before { background: var(--sky); opacity: 0.55; }
+        .orbit-node.next::before { background: var(--lime); opacity: 0.55; }
         .eco-legend { display: flex; justify-content: center; gap: 30px; margin-top: 30px; font-size: 0.86rem; color: var(--text-2); }
         .eco-legend span { display: inline-flex; align-items: center; gap: 8px; }
         .eco-legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
-        .eco-legend .lg-now { background: var(--green); box-shadow: 0 0 10px var(--green); }
-        .eco-legend .lg-next { background: var(--sky); opacity: 0.6; }
+        .eco-legend .lg-now { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+        .eco-legend .lg-next { background: var(--lime); opacity: 0.6; }
 
         /* ---------- Why ---------- */
         .compare { max-width: 860px; margin: 0 auto; }
@@ -1146,15 +1151,15 @@
         }
         .comp-row:hover { transform: translateY(-3px); }
         .comp-row.highlight {
-            border-color: rgba(56, 189, 248, 0.5);
-            background: linear-gradient(90deg, rgba(56, 189, 248, 0.08), var(--surface) 55%);
-            box-shadow: 0 0 44px rgba(56, 189, 248, 0.08);
+            border-color: rgba(204, 255, 0, 0.5);
+            background: linear-gradient(90deg, rgba(204, 255, 0, 0.08), var(--surface) 55%);
+            box-shadow: 0 0 44px rgba(204, 255, 0, 0.08);
         }
-        .comp-icon { width: 52px; height: 52px; border-radius: 16px; background: rgba(151, 184, 214, 0.07); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .comp-icon { width: 52px; height: 52px; border-radius: 16px; background: rgba(148, 163, 184, 0.07); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
         .comp-tag { font-family: var(--font-display); font-weight: 700; margin-bottom: 3px; }
         .comp-desc { color: var(--text-2); font-size: 0.92rem; }
         .comp-verdict { text-align: right; font-size: 0.82rem; font-weight: 600; color: var(--text-3); }
-        .comp-verdict.strong { color: var(--green-2); }
+        .comp-verdict.strong { color: var(--jade); }
 
         /* ---------- Vision ---------- */
         .vision-quote {
@@ -1169,8 +1174,8 @@
             border-radius: var(--radius); padding: 32px;
             transition: transform 0.4s var(--ease), border-color 0.3s ease;
         }
-        .vcard:hover { transform: translateY(-6px); border-color: var(--line-strong); }
-        .vcard .ic { width: 46px; height: 46px; border-radius: 14px; background: rgba(56, 189, 248, 0.1); color: var(--sky-2); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+        .vcard:hover { transform: translateY(-6px); border-color: var(--line-strong); box-shadow: var(--shadow-card), var(--shadow-glow); }
+        .vcard .ic { width: 46px; height: 46px; border-radius: 14px; background: rgba(204, 255, 0, 0.1); color: var(--lime-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
         .vcard h4 { font-size: 1.08rem; margin-bottom: 8px; }
         .vcard p { color: var(--text-2); font-size: 0.94rem; }
 
@@ -1186,7 +1191,7 @@
         .final-cta .cta-glow {
             position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
             width: 800px; height: 500px; pointer-events: none;
-            background: radial-gradient(closest-side, rgba(47, 111, 214, 0.16), transparent);
+            background: radial-gradient(closest-side, rgba(124, 58, 237, 0.16), transparent);
         }
         .final-cta-inner { text-align: center; position: relative; }
         .cta-title { font-size: clamp(2.3rem, 6vw, 4.1rem); font-weight: 800; letter-spacing: -0.04em; }
@@ -1194,7 +1199,7 @@
         .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 52px; }
         .cta-link-row { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 0.92rem; }
         .cta-link-row a { color: var(--text-2); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; transition: color 0.3s, border-color 0.3s; }
-        .cta-link-row a:hover { color: var(--sky-2); border-color: var(--sky); }
+        .cta-link-row a:hover { color: var(--lime-soft); border-color: var(--lime); }
 
         /* ---------- Contact ---------- */
         .contact { background: var(--bg-2); }
@@ -1207,12 +1212,12 @@
         }
         .contact-details .ic {
             width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
-            background: rgba(56, 189, 248, 0.1); color: var(--sky-2);
+            background: rgba(204, 255, 0, 0.1); color: var(--lime-soft);
             display: flex; align-items: center; justify-content: center;
         }
         .contact-details b { display: block; font-size: 0.94rem; margin-bottom: 2px; }
         .contact-details a, .contact-details span { color: var(--text-2); font-size: 0.9rem; text-decoration: none; }
-        .contact-details a:hover { color: var(--sky-2); }
+        .contact-details a:hover { color: var(--lime-soft); }
         .contact-form-wrap {
             background: var(--surface); border: 1px solid var(--line-strong);
             border-radius: var(--radius-lg); padding: 40px;
@@ -1227,18 +1232,18 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .form-input::placeholder { color: var(--text-3); }
-        .form-input:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12); }
+        .form-input:focus { outline: none; border-color: var(--lime); box-shadow: 0 0 0 4px rgba(204, 255, 0, 0.12); }
         textarea.form-input { resize: vertical; min-height: 130px; }
         .btn-submit {
             width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            background: var(--grad-cta); color: #04121d;
+            background: var(--grad-cta); color: #070A12;
             padding: 17px 30px; border: none; border-radius: 999px;
             font-family: var(--font-display); font-weight: 600; font-size: 1rem; cursor: pointer;
             transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
         }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(56, 189, 248, 0.55); }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(204, 255, 0, 0.55); }
         .form-note { font-size: 0.8rem; color: var(--text-3); margin-top: 8px; text-align: center; }
-        .form-ok { color: var(--green-2); text-align: center; padding: 18px; font-size: 0.95rem; }
+        .form-ok { color: var(--jade); text-align: center; padding: 18px; font-size: 0.95rem; }
 
         /* ---------- Footer ---------- */
         .footer { background: var(--bg-3); border-top: 1px solid var(--line); padding: 72px 0 38px; }
@@ -1246,7 +1251,7 @@
         .footer-brand p { color: var(--text-3); margin-top: 16px; max-width: 280px; font-size: 0.92rem; }
         .footer-col h4 { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 18px; }
         .footer-col a { display: block; color: var(--text-2); text-decoration: none; font-size: 0.92rem; padding: 6px 0; transition: color 0.3s ease; }
-        .footer-col a:hover { color: var(--sky-2); }
+        .footer-col a:hover { color: var(--lime-soft); }
         .footer-bottom {
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px;
             margin-top: 56px; padding-top: 26px; border-top: 1px solid var(--line);
@@ -1255,20 +1260,20 @@
         .social-row { display: flex; gap: 12px; }
         .social-row a {
             width: 40px; height: 40px; border-radius: 12px;
-            background: rgba(151, 184, 214, 0.06); border: 1px solid var(--line);
+            background: rgba(148, 163, 184, 0.06); border: 1px solid var(--line);
             display: flex; align-items: center; justify-content: center;
             color: var(--text-2); text-decoration: none;
             transition: all 0.3s ease;
         }
-        .social-row a:hover { color: var(--sky-2); border-color: var(--sky); transform: translateY(-3px); }
+        .social-row a:hover { color: var(--lime-soft); border-color: var(--lime); transform: translateY(-3px); }
 
         /* ---------- FAQ Chatbot ---------- */
         .chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 1500; }
         .chat-button {
             position: relative; width: 58px; height: 58px; border-radius: 50%;
-            background: var(--grad-cta); border: none; color: #04121d;
+            background: var(--grad-cta); border: none; color: #070A12;
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 14px 34px -10px rgba(56, 189, 248, 0.5);
+            cursor: pointer; box-shadow: 0 14px 34px -10px rgba(204, 255, 0, 0.5);
             transition: transform 0.35s var(--ease);
         }
         .chat-button:hover { transform: scale(1.08); }
@@ -1276,7 +1281,7 @@
         .chat-button-badge {
             position: absolute; top: 2px; right: 2px;
             width: 14px; height: 14px; border-radius: 50%;
-            background: var(--warm); border: 2px solid var(--bg);
+            background: var(--amber); border: 2px solid var(--bg);
         }
         .chat-window {
             position: absolute; bottom: 72px; right: 0;
@@ -1290,7 +1295,7 @@
         .chat-header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 24px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(52, 211, 153, 0.12));
+            background: linear-gradient(135deg, rgba(204, 255, 0, 0.16), rgba(0, 230, 118, 0.12));
             border-bottom: 1px solid var(--line);
         }
         .chat-header-title { font-family: var(--font-display); font-weight: 700; }
@@ -1308,8 +1313,8 @@
         }
         .user-msg {
             align-self: flex-end;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(52, 211, 153, 0.18));
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: linear-gradient(135deg, rgba(204, 255, 0, 0.2), rgba(0, 230, 118, 0.18));
+            border: 1px solid rgba(204, 255, 0, 0.3);
             border-radius: 16px 16px 4px 16px;
         }
         .faq-options { display: flex; flex-direction: column; gap: 8px; }
@@ -1319,7 +1324,7 @@
             font-size: 0.84rem; cursor: pointer; font-family: var(--font-body);
             transition: all 0.25s ease;
         }
-        .faq-btn:hover { border-color: var(--sky); color: var(--sky-2); transform: translateX(4px); }
+        .faq-btn:hover { border-color: var(--lime); color: var(--lime-soft); transform: translateX(4px); }
         .typing-indicator { align-self: flex-start; display: none; gap: 5px; padding: 14px 18px; background: var(--surface-2); border-radius: 16px 16px 16px 4px; width: fit-content; }
         .typing-indicator.active { display: flex; }
         .typing-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-3); animation: typingBounce 1.4s infinite ease-in-out; }
@@ -1332,10 +1337,10 @@
             border-radius: 999px; padding: 12px 18px; font-size: 0.88rem; font-family: var(--font-body);
             outline: none; transition: border-color 0.25s ease;
         }
-        .chat-input:focus { border-color: var(--sky); }
+        .chat-input:focus { border-color: var(--lime); }
         .chat-send-btn {
             width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
-            background: var(--grad-cta); border: none; color: #04121d;
+            background: var(--grad-cta); border: none; color: #070A12;
             cursor: pointer; display: flex; align-items: center; justify-content: center;
         }
         .chat-fallback { font-style: italic; color: var(--text-3); }
@@ -1344,7 +1349,7 @@
         .lang-picker { position: relative; display: flex; align-items: center; }
         .lang-picker-btn {
             display: flex; align-items: center; gap: 7px;
-            background: rgba(151, 184, 214, 0.06); border: 1px solid var(--line);
+            background: rgba(148, 163, 184, 0.06); border: 1px solid var(--line);
             color: var(--text-2); font-family: var(--font-body);
             font-size: 0.8rem; font-weight: 600; padding: 8px 13px;
             border-radius: 999px; cursor: pointer; transition: all 0.25s ease;
@@ -1366,7 +1371,7 @@
             color: var(--text); border-radius: 10px; font-family: var(--font-body);
             font-size: 0.85rem; outline: none;
         }
-        .lang-search input:focus { border-color: var(--sky); }
+        .lang-search input:focus { border-color: var(--lime); }
         .lang-list { overflow-y: auto; flex: 1; max-height: 300px; padding: 6px; }
         .lang-option {
             display: flex; align-items: center; gap: 10px;
@@ -1374,8 +1379,8 @@
             font-size: 0.85rem; color: var(--text-2);
             transition: background 0.15s ease; font-family: var(--font-body);
         }
-        .lang-option:hover { background: rgba(151, 184, 214, 0.07); }
-        .lang-option.active { background: rgba(56, 189, 248, 0.1); color: var(--sky-2); font-weight: 600; }
+        .lang-option:hover { background: rgba(148, 163, 184, 0.07); }
+        .lang-option.active { background: rgba(204, 255, 0, 0.1); color: var(--lime-soft); font-weight: 600; }
         .lang-option-flag { font-size: 1.05rem; width: 24px; text-align: center; flex-shrink: 0; }
         .lang-option-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .lang-option-code { font-size: 0.7rem; color: var(--text-3); font-weight: 500; }
@@ -1462,7 +1467,7 @@
                 <a class="nav-link" href="#home">Home</a>
                 <a class="nav-link" href="#how-it-works">How It Works</a>
                 <a class="nav-link" href="#features">Features</a>
-                <a class="nav-link" href="#ai">AI</a>
+                <a class="nav-link" href="#ai">Smart</a>
                 <a class="nav-link" href="#pro">Pro</a>
                 <a class="nav-link" href="#vision">Vision</a>
                 <a class="nav-link" href="#company">About</a>
@@ -1499,7 +1504,7 @@
             <a class="mobile-menu-link" href="#home">Home <small>01</small></a>
             <a class="mobile-menu-link" href="#how-it-works">How It Works <small>02</small></a>
             <a class="mobile-menu-link" href="#features">Features <small>03</small></a>
-            <a class="mobile-menu-link" href="#ai">AI <small>04</small></a>
+            <a class="mobile-menu-link" href="#ai">Smart <small>04</small></a>
             <a class="mobile-menu-link" href="#pro">Pro <small>05</small></a>
             <a class="mobile-menu-link" href="#vision">Vision <small>06</small></a>
             <a class="mobile-menu-link" href="#company">About <small>07</small></a>
@@ -1548,7 +1553,7 @@
                     <span class="sep">•</span>
                     <span>Hobby management</span>
                     <span class="sep">•</span>
-                    <span>AI-assisted planning</span>
+                    <span>Forecast-aware planning</span>
                 </div>
             </div>
         </div>
@@ -1778,7 +1783,7 @@
                 <div class="fc-card reveal-up d3">
                     <div class="fc-tag"><span>Photography</span><span>Evening</span></div>
                     <div class="fc-icon">📸</div>
-                    <div class="fc-temp">Golden hour</div>
+                    <div class="fc-temp">Low wind</div>
                     <p class="fc-cond">Excellent visibility</p>
                     <span class="fc-verdict v-good">Ideal conditions</span>
                 </div>
@@ -1797,11 +1802,11 @@
                     <b>Best window 4:00 PM – 6:30 PM</b>
                 </div>
                 <div class="tl-track" id="tlTrack" aria-hidden="true">
-                    <span class="tl-seg" data-w="18" style="left:0%;background:rgba(125,211,252,0.8)"></span>
-                    <span class="tl-seg" data-w="14" style="left:18%;background:rgba(151,184,214,0.55)"></span>
-                    <span class="tl-seg" data-w="22" style="left:32%;background:rgba(56,189,248,0.95)"></span>
-                    <span class="tl-seg" data-w="16" style="left:54%;background:rgba(52,211,153,0.85)"></span>
-                    <span class="tl-seg" data-w="30" style="left:70%;background:rgba(56,189,248,0.7)"></span>
+                    <span class="tl-seg" data-w="18" style="left:0%;background:rgba(230, 255, 143,0.8)"></span>
+                    <span class="tl-seg" data-w="14" style="left:18%;background:rgba(148, 163, 184,0.55)"></span>
+                    <span class="tl-seg" data-w="22" style="left:32%;background:rgba(204, 255, 0,0.95)"></span>
+                    <span class="tl-seg" data-w="16" style="left:54%;background:rgba(0, 230, 118,0.85)"></span>
+                    <span class="tl-seg" data-w="30" style="left:70%;background:rgba(204, 255, 0,0.7)"></span>
                 </div>
                 <div class="tl-hours">
                     <span>6 AM</span><span>9 AM</span><span>12 PM</span><span>3 PM</span><span>6 PM</span><span>9 PM</span>
@@ -1840,7 +1845,11 @@
                         </li>
                         <li class="check-item">
                             <span class="ic"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></span>
-                            <div><h4>Weather preferences</h4><p>Set ideal conditions per hobby — the app matches them.</p></div>
+                            <div><h4>Weather preferences</h4><p>Set ideal conditions per hobby — the app scores suitability against them.</p></div>
+                        </li>
+                        <li class="check-item">
+                            <span class="ic"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></span>
+                            <div><h4>Cloud sync</h4><p>Your hobbies stay in sync across all your signed-in devices.</p></div>
                         </li>
                     </ul>
                 </div>
@@ -1861,7 +1870,11 @@
                         </li>
                         <li class="check-item">
                             <span class="ic"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
-                            <div><h4>Calendar planning</h4><p>Everything lands on a clean calendar you can trust.</p></div>
+                            <div><h4>Planner &amp; calendar</h4><p>Plan sessions with a weekly/monthly planner and clear timeline.</p></div>
+                        </li>
+                        <li class="check-item">
+                            <span class="ic"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></span>
+                            <div><h4>Mission Control &amp; group events</h4><p>Create or join shared missions with an invite code and a live comms view.</p></div>
                         </li>
                     </ul>
                 </div>
@@ -1875,13 +1888,13 @@
         </div>
     </section>
 
-    <!-- AI-POWERED FUTURE -->
-    <section class="section ai" id="ai" aria-label="AI-powered future">
+<!-- SMART FORECASTING + ROADMAP -->
+    <section class="section ai" id="ai" aria-label="Smart forecasting and roadmap">
         <div class="container">
             <div class="section-head reveal-up">
-                <div class="eyebrow">AI-Powered Future</div>
+                <div class="eyebrow">Smart Forecasting</div>
                 <h2 class="section-title">Your plan should<br>think ahead.</h2>
-                <p class="section-lead">MyHobbyPlan is evolving from a planner into a companion that anticipates what you'll need.</p>
+                <p class="section-lead">MyHobbyPlan scores every hobby against the forecast and your device's barometer, then nudges you toward the better window. The logic runs on your phone &mdash; no black box, and nothing leaves the device.</p>
             </div>
 
             <div class="cap-grid">
@@ -1891,40 +1904,40 @@
                         <span class="cap-badge b-live">Live</span>
                     </div>
                     <ul class="cap-list">
-                        <li><svg width="18" height="18" fill="none" stroke="var(--green-2)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Weather-aware planning and smart scheduling</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--green-2)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Weather preference matching for every hobby</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--green-2)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Smart notifications and reminders</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--green-2)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Activity tracking, streaks and weekly summaries</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--green-2)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Family-friendly profiles</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--jade)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Per-hobby weather scoring, tuned to each activity</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--jade)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Better-window alerts when a sharper 3-hour block beats your plan</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--jade)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Gear nudges built from temperature, wind, humidity and visibility</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--jade)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Storm and &ldquo;conditions clearing&rdquo; warnings from the on-device barometer</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--jade)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Plan-ahead prompts for days you have deliberately left empty</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--jade)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Four independent notification toggles: smart, alerts, reminders, planning</li>
                     </ul>
                 </div>
 
                 <div class="cap-card soon reveal-up d2">
                     <div class="cap-head">
-                        <h3>Coming with AI</h3>
+                        <h3>On the roadmap</h3>
                         <span class="cap-badge b-soon">In development</span>
                     </div>
                     <ul class="cap-list">
-                        <li><svg width="18" height="18" fill="none" stroke="var(--warm)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>AI recommendations for the best time to plan</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--warm)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Proactive preparation guidance</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--warm)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Automatic rescheduling when weather changes</li>
-                        <li><svg width="18" height="18" fill="none" stroke="var(--warm)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Insights built on your habits and preferences</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--amber)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Voice-activated &ldquo;mission start&rdquo; planning</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--amber)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Leaderboard of the community's most reliable weather protocols</li>
+                        <li><svg width="18" height="18" fill="none" stroke="var(--amber)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Full-screen 48-hour atmospheric trend charts</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="chat-demo reveal-scale" role="img" aria-label="Example of future AI planning conversation">
+            <div class="chat-demo reveal-scale" role="img" aria-label="Examples of the smart notifications MyHobbyPlan sends">
                 <div class="ai-pulse"></div>
                 <div class="chat-demo-head">
-                    <div class="avatar">AI</div>
+                    <div class="avatar">MHP</div>
                     <div>
-                        <div class="name">MyHobbyPlan Assistant</div>
-                        <div class="sub">Conversation preview · Future AI</div>
+                        <div class="name">Smart notification</div>
+                        <div class="sub">Sample output &middot; MyHobbyPlan 4.6</div>
                     </div>
                 </div>
-                <div class="bubble user">Is Saturday good for a hike?</div>
-                <div class="bubble ai">Saturday has the best weather this week for cycling — clear skies, light wind. For your hike, Sunday morning before 10 AM is ideal.</div>
-                <div class="bubble ai">Heavy rain is expected tomorrow. Would you like to move your hike to Saturday instead?</div>
+                <div class="bubble ai"><strong>Good to go &mdash; Cycling.</strong> Optimal conditions at 15:00. Clear skies, light wind, 21&deg;C. Tap to open the hobby.</div>
+                <div class="bubble ai"><strong>Better window.</strong> Saturday 06:00&ndash;09:00 scores meaningfully better than the 14:00 slot you planned.</div>
+                <div class="bubble ai"><strong>Storm warning.</strong> Barometric pressure has dropped sharply over the last three hours. Consider moving tomorrow&rsquo;s outing.</div>
             </div>
         </div>
     </section>
@@ -1936,16 +1949,16 @@
                 <div class="prep-copy reveal-up">
                     <div class="eyebrow">Smart Preparation</div>
                     <h2 class="section-title">Ready before you<br>step outside.</h2>
-                    <p>The future preparation assistant reads your plan and the weather — then tells you exactly what to bring.</p>
-                    <p style="color:var(--text-3); font-size:0.92rem;">Preparation guidance arrives with the AI assistant.</p>
+                    <p>The gear nudge reads your planned hobby and the hour-by-hour forecast for it &mdash; then tells you exactly what to bring.</p>
+                    <p style="color:var(--text-3); font-size:0.92rem;">Delivered as a smart notification, alongside your other weather alerts.</p>
                 </div>
-                <div class="assistant reveal-scale d2" role="img" aria-label="Preparation assistant example for a hike tomorrow">
+                <div class="assistant reveal-scale d2" role="img" aria-label="Gear nudge example for a hike tomorrow">
                     <div class="assistant-head">
                         <div>
-                            <div class="assistant-label">MyHobbyPlan Assistant</div>
-                            <div class="assistant-title">HIKE — TOMORROW</div>
+                            <div class="assistant-label">Gear nudge</div>
+                            <div class="assistant-title">HIKE &mdash; TOMORROW</div>
                         </div>
-                        <span class="cap-badge b-soon" style="margin:0;">Soon</span>
+                        <span class="cap-badge b-live" style="margin:0;">Live</span>
                     </div>
                     <div class="assistant-weather">
                         <div class="aw-item"><b>18°C</b><span>Temperature</span></div>
@@ -1959,7 +1972,7 @@
                         <li class="gear-item"><span class="gear-check"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span><span>Fully charged phone</span></li>
                     </ul>
                     <div class="prep-note">
-                        <svg width="18" height="18" fill="none" stroke="var(--sky-2)" viewBox="0 0 24 24" style="flex-shrink:0; margin-top:1px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg width="18" height="18" fill="none" stroke="var(--lime-soft)" viewBox="0 0 24 24" style="flex-shrink:0; margin-top:1px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         <span>Generated from your hike's weather forecast and activity type. A calm nudge — not a checklist.</span>
                     </div>
                 </div>
@@ -1987,7 +2000,7 @@
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>3-day forecast</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Basic planning</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Basic reminders</li>
-                        <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Limited AI suggestions</li>
+                        <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Limited smart suggestions</li>
                     </ul>
                     <a class="btn btn-ghost" href="#download">Get the App</a>
                 </div>
@@ -2002,11 +2015,11 @@
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Unlimited hobbies</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>14-day forecasts</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Advanced weather insights</li>
-                        <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>AI planning</li>
+                        <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Smart forecasting</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Smart preparation</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Intelligent reminders</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Weekly planning insights</li>
-                        <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Unlimited AI recommendations</li>
+                        <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Unlimited smart notifications</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>Advanced weather preferences</li>
                         <li class="plan-feat"><span class="ck"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></span>No advertisements</li>
                     </ul>
@@ -2070,12 +2083,12 @@
                 </div>
 
                 <div class="orbit-node now" style="top:2%; left:50%; transform:translateX(-50%);">Mobile App</div>
-                <div class="orbit-node next" style="top:22%; right:0;">AI Assistant</div>
-                <div class="orbit-node next" style="top:50%; right:-2%; transform:translateY(-50%);">Wearables</div>
-                <div class="orbit-node next" style="top:78%; right:8%;">Cloud Sync</div>
+                <div class="orbit-node now" style="top:22%; right:0;">Android Auto</div>
+                <div class="orbit-node now" style="top:50%; right:-2%; transform:translateY(-50%);">Wear OS Tile</div>
+                <div class="orbit-node now" style="top:78%; right:8%;">Cloud Sync</div>
                 <div class="orbit-node next" style="bottom:2%; left:50%; transform:translateX(-50%);">iOS</div>
                 <div class="orbit-node next" style="top:78%; left:8%;">Web</div>
-                <div class="orbit-node next" style="top:50%; left:-2%; transform:translateY(-50%);">Community</div>
+                <div class="orbit-node now" style="top:50%; left:-2%; transform:translateY(-50%);">Mission Control</div>
                 <div class="orbit-node next" style="top:22%; left:0;">Partners</div>
             </div>
 
@@ -2121,7 +2134,7 @@
                     <div class="comp-verdict">Lists only</div>
                 </div>
                 <div class="comp-row highlight reveal-up d4">
-                    <div class="comp-icon"><svg width="26" height="26" fill="none" stroke="var(--sky-2)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                    <div class="comp-icon"><svg width="26" height="26" fill="none" stroke="var(--lime-soft)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
                     <div>
                         <div class="comp-tag">MyHobbyPlan</div>
                         <div class="comp-desc">Connects weather, time, and your hobbies into one intelligent plan.</div>
@@ -2170,7 +2183,7 @@
             <img class="company-logo reveal-scale" src="logo.png" alt="MyHobbyPlan logo">
             <div class="eyebrow reveal-up">The Company</div>
             <h2 class="section-title reveal-up" style="font-size:clamp(1.8rem, 4vw, 2.8rem); margin-top:18px;">Eleviq Technologies</h2>
-            <p class="company-blurb reveal-up d1">Eleviq Technologies builds innovative digital products using modern software, AI, and cloud technologies. MyHobbyPlan is its weather-aware lifestyle platform — and the first step toward an intelligent companion for the things people love to do.</p>
+            <p class="company-blurb reveal-up d1">Eleviq Technologies builds innovative digital products using modern software, AI, and cloud technologies. MyHobbyPlan is its weather-aware lifestyle platform — and the first step toward a smarter companion for the things people love to do.</p>
             <div class="company-links reveal-up d2">
                 <a class="btn btn-ghost" href="https://kigechaedward.github.io/eleviq-website/" target="_blank" rel="noopener">
                     Visit Eleviq Technologies
@@ -2509,18 +2522,18 @@
                     var dir = new THREE.DirectionalLight(0xffffff, 1.1);
                     dir.position.set(3, 5, 4);
                     scene.add(dir);
-                    var fill = new THREE.PointLight(0x38bdf8, 1.4, 30);
+                    var fill = new THREE.PointLight(0xCCFF00, 1.4, 30);
                     fill.position.set(-4, -2, 3);
                     scene.add(fill);
 
                     var group = new THREE.Group();
                     var panel = new THREE.Mesh(
                         new THREE.BoxGeometry(3.3, 4.4, 0.14),
-                        new THREE.MeshStandardMaterial({ color: 0x101a2e, roughness: 0.25, metalness: 0.35, transparent: true, opacity: 0.9 })
+                        new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.25, metalness: 0.35, transparent: true, opacity: 0.9 })
                     );
                     group.add(panel);
 
-                    var chipColors = [0x38bdf8, 0x34d399, 0xfbbf24, 0x7dd3fc];
+                    var chipColors = [0xCCFF00, 0x00E676, 0xFFD600, 0xE6FF8F];
                     var chipCount = low ? 3 : 6;
                     for (var i = 0; i < chipCount; i++) {
                         var chip = new THREE.Mesh(
@@ -2532,15 +2545,15 @@
                     }
                     var frame = new THREE.Mesh(
                         new THREE.BoxGeometry(3.55, 4.65, 0.06),
-                        new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.16 })
+                        new THREE.MeshBasicMaterial({ color: 0xCCFF00, transparent: true, opacity: 0.16 })
                     );
                     group.add(frame);
 
                     var orbs = [];
                     function orb(mesh, radius, speed, phase) { return { mesh: mesh, r: radius, s: speed, p: phase || 0 }; }
 
-                    var sun = new THREE.Mesh(new THREE.SphereGeometry(0.42, 16, 16), new THREE.MeshBasicMaterial({ color: 0xfbbf24 }));
-                    var sunHalo = new THREE.Mesh(new THREE.SphereGeometry(0.62, 16, 16), new THREE.MeshBasicMaterial({ color: 0xfbbf24, transparent: true, opacity: 0.14, blending: THREE.AdditiveBlending }));
+                    var sun = new THREE.Mesh(new THREE.SphereGeometry(0.42, 16, 16), new THREE.MeshBasicMaterial({ color: 0xFFD600 }));
+                    var sunHalo = new THREE.Mesh(new THREE.SphereGeometry(0.62, 16, 16), new THREE.MeshBasicMaterial({ color: 0xFFD600, transparent: true, opacity: 0.14, blending: THREE.AdditiveBlending }));
                     sun.add(sunHalo);
                     orbs.push(orb(sun, 4.4, 0.18, 0));
 
@@ -2553,14 +2566,14 @@
                     orbs.push(orb(cloud, 4.9, 0.13, 2.1));
 
                     var cal = new THREE.Group();
-                    var calBody = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.56, 0.1), new THREE.MeshStandardMaterial({ color: 0x2f6fd6, roughness: 0.4 }));
+                    var calBody = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.56, 0.1), new THREE.MeshStandardMaterial({ color: 0x7C3AED, roughness: 0.4 }));
                     cal.add(calBody);
-                    var calTop = new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.1, 0.1), new THREE.MeshBasicMaterial({ color: 0x7dd3fc }));
+                    var calTop = new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.1, 0.1), new THREE.MeshBasicMaterial({ color: 0xE6FF8F }));
                     calTop.position.y = 0.3;
                     cal.add(calTop);
                     orbs.push(orb(cal, 4.6, 0.16, 4.2));
 
-                    var bike = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.08, 10, 24), new THREE.MeshStandardMaterial({ color: 0x34d399, roughness: 0.35, metalness: 0.3 }));
+                    var bike = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.08, 10, 24), new THREE.MeshStandardMaterial({ color: 0x00E676, roughness: 0.35, metalness: 0.3 }));
                     orbs.push(orb(bike, 5.1, 0.11, 5.5));
 
                     orbs.forEach(function (o) {
@@ -2573,7 +2586,7 @@
                     if (!low) {
                         rain = [];
                         for (var r = 0; r < 26; r++) {
-                            var seg = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.5, 4), new THREE.MeshBasicMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.35 }));
+                            var seg = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.5, 4), new THREE.MeshBasicMaterial({ color: 0xE6FF8F, transparent: true, opacity: 0.35 }));
                             seg.position.set(3 + Math.random() * 3, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 2);
                             seg.userData.speed = 0.02 + Math.random() * 0.03;
                             scene.add(seg);
@@ -2581,7 +2594,7 @@
                         }
                     }
 
-                    var stars = buildParticles(scene, low ? 140 : 480, 0x7dd3fc, low ? 0.05 : 0.045);
+                    var stars = buildParticles(scene, low ? 140 : 480, 0xE6FF8F, low ? 0.05 : 0.045);
 
                     var mouseX = 0, mouseY = 0;
                     document.addEventListener('mousemove', function (e) {
@@ -2686,14 +2699,14 @@
                     var orbGrp = new THREE.Group();
                     var orbMesh = new THREE.Mesh(
                         new THREE.SphereGeometry(1.4, 32, 32),
-                        new THREE.MeshPhysicalMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.16, roughness: 0.05, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.1 })
+                        new THREE.MeshPhysicalMaterial({ color: 0xE6FF8F, transparent: true, opacity: 0.16, roughness: 0.05, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.1 })
                     );
                     orbGrp.add(orbMesh);
-                    var innerSun = new THREE.Mesh(new THREE.SphereGeometry(0.55, 20, 20), new THREE.MeshBasicMaterial({ color: 0xfbbf24, transparent: true, opacity: 0.9 }));
+                    var innerSun = new THREE.Mesh(new THREE.SphereGeometry(0.55, 20, 20), new THREE.MeshBasicMaterial({ color: 0xFFD600, transparent: true, opacity: 0.9 }));
                     orbGrp.add(innerSun);
                     var innerRain = new THREE.Group();
                     for (var i = 0; i < 22; i++) {
-                        var seg = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.42, 4), new THREE.MeshBasicMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.5 }));
+                        var seg = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.42, 4), new THREE.MeshBasicMaterial({ color: 0xE6FF8F, transparent: true, opacity: 0.5 }));
                         seg.position.set((Math.random() - 0.5) * 1.2, (Math.random() - 0.5) * 1.2, (Math.random() - 0.5) * 1.2);
                         innerRain.add(seg);
                     }
@@ -2717,7 +2730,7 @@
                     if (!low) { makeCloud(2.2, -0.5, 0.9); makeCloud(1.4, -1.6, 1.15); makeCloud(2.9, -2.4, 0.7); }
                     else { makeCloud(2, -1, 1); }
 
-                    var rainPts = buildParticles(scene, low ? 60 : 220, 0x7dd3fc, low ? 0.06 : 0.05);
+                    var rainPts = buildParticles(scene, low ? 60 : 220, 0xE6FF8F, low ? 0.06 : 0.05);
 
                     var running = true;
                     var last = performance.now();
@@ -2780,28 +2793,28 @@
             { keywords: ['preference', 'setting', 'configure', 'option', 'custom', 'personalize', 'adjust'], answer: 'You can fully customize your experience: set preferred weather conditions per hobby, choose notification preferences, set activity time slots, and select your interests during onboarding.' },
             { keywords: ['offline', 'internet', 'connection', 'no wifi', 'without'], answer: 'Yes! MyHobbyPlan works offline. Your hobby schedules and preferences are always accessible. Weather updates require an internet connection, and the app caches forecasts for when you\'re offline.' },
             { keywords: ['battery', 'power', 'drain', 'energy', 'consumption'], answer: 'MyHobbyPlan is designed to be battery-efficient. Weather checks happen in the background at smart intervals, and we use optimized APIs to minimize battery consumption.' },
-            { keywords: ['family', 'shared', 'share', 'together', 'group', 'household'], answer: 'MyHobbyPlan supports family sharing! Multiple family members can have their own hobby profiles within the app, and you can sync shared activities and schedules.' },
-            { keywords: ['kid', 'kids', 'child', 'children', 'young', 'teen', 'age'], answer: 'MyHobbyPlan is family-friendly! Kids can have their own profiles with age-appropriate hobby suggestions. Parents can monitor and manage activities for younger users.' },
-            { keywords: ['account', 'sign up', 'register', 'login', 'log in', 'password', 'profile'], answer: 'No account required! MyHobbyPlan works without signing up. All your data stays on your device. If you want to back up your data, you can optionally create a local backup.' },
-            { keywords: ['back up', 'backup', 'restore', 'sync', 'transfer', 'switch phone', 'new phone'], answer: 'You can create a local backup of your hobby data from Settings > Backup. This backup file can be restored on the same device or transferred to a new phone.' },
-            { keywords: ['recommend', 'suggestion', 'suggest', 'ai', 'smart', 'intelligent', 'personalized'], answer: 'MyHobbyPlan learns from your activity patterns and weather preferences to suggest the best times for your hobbies. AI-assisted planning is also in development.' },
-            { keywords: ['fitness', 'workout', 'exercise', 'gym', 'run', 'running', 'jog'], answer: 'MyHobbyPlan is great for fitness activities! Set your preferred weather conditions for outdoor workouts, schedule gym sessions, and track your running routes with weather-aware timing.' },
+            { keywords: ['family', 'shared', 'share', 'together', 'group', 'household'], answer: 'MyHobbyPlan supports sharing! Create a shared mission, invite friends with a code, and everyone in the group sees the same plan, roster and comms thread.' },
+            { keywords: ['kid', 'kids', 'child', 'children', 'young', 'teen', 'age'], answer: 'MyHobbyPlan is great for groups! Create a shared mission, invite friends with a code, and everyone in the group sees the same plan, roster and comms thread.' },
+            { keywords: ['account', 'sign up', 'register', 'login', 'log in', 'password', 'profile'], answer: 'No account required! Your hobbies and settings stay on your device and the app works fully offline. Sign in only if you want cloud sync across devices and shared missions with friends.' },
+            { keywords: ['back up', 'backup', 'restore', 'sync', 'transfer', 'switch phone', 'new phone'], answer: 'Sign in to your account and your hobbies, settings and Pro status sync automatically across every device you use. If you upgrade devices, sign in once and your plan comes with you.' },
+            { keywords: ['recommend', 'suggestion', 'suggest', 'smart', 'forecast', 'intelligent', 'personalized'], answer: 'MyHobbyPlan learns from your activity patterns and weather preferences to suggest the best times for your hobbies. The scoring runs on-device from forecast data and your device\'s barometer.' },
+            { keywords: ['fitness', 'workout', 'exercise', 'gym', 'run', 'running', 'jog'], answer: 'MyHobbyPlan is great for fitness activities! Set your preferred weather conditions for outdoor workouts, schedule gym sessions, and get weather-aware timing for your runs.' },
             { keywords: ['garden', 'gardening', 'plant', 'outdoor', 'yard'], answer: 'Gardening enthusiasts love MyHobbyPlan! Set optimal temperature and humidity conditions, get notified when it\'s the best time to water plants, and plan gardening sessions around weather forecasts.' },
-            { keywords: ['photo', 'photography', 'camera', 'picture', 'shoot'], answer: 'Photographers can set ideal lighting and weather conditions. Get alerts for golden hour, storm photography opportunities, or perfect overcast days for portraits!' },
+            { keywords: ['photo', 'photography', 'camera', 'picture', 'shoot'], answer: 'Photographers can set ideal visibility, wind and humidity conditions per hobby, and get notified when the forecast actually suits the shot.' },
             { keywords: ['cycle', 'cycling', 'bike', 'bicycle', 'ride'], answer: 'Plan your cycling sessions with weather-aware scheduling. Get notified when wind, temperature, and rain conditions are ideal for your rides.' },
             { keywords: ['hike', 'hiking', 'trail', 'mountain', 'walk', 'trek'], answer: 'Hikers get alerts for perfect trail conditions — ideal temperature, low wind, no rain, and good visibility. Plan your next adventure with confidence!' },
             { keywords: ['sport', 'football', 'soccer', 'tennis', 'basketball', 'cricket', 'match'], answer: 'Organize your sports activities with weather-aware scheduling. Get alerts for ideal playing conditions and plan matches around perfect weather windows.' },
             { keywords: ['fish', 'fishing', 'angl', 'catch'], answer: 'Fishermen love weather-aware planning! Get notifications when barometric pressure, temperature, and wind conditions are optimal for fishing.' },
             { keywords: ['swim', 'swimming', 'pool', 'beach', 'surf', 'surfing', 'water'], answer: 'Plan water activities with weather and wind condition alerts. Get notified when it\'s safe and ideal for swimming, surfing, or beach visits.' },
-            { keywords: ['weekly', 'summary', 'report', 'stats', 'statistics', 'progress'], answer: 'MyHobbyPlan sends weekly activity summaries showing your hobby time, streaks, weather matches, and suggestions for the coming week.' },
-            { keywords: ['streak', 'consistency', 'habit', 'routine', 'daily'], answer: 'Build hobby streaks! MyHobbyPlan tracks your consistency and celebrates milestones. Set daily or weekly goals for each hobby to stay motivated.' },
+            { keywords: ['weekly', 'summary', 'report', 'stats', 'statistics', 'progress'], answer: 'MyHobbyPlan sends a weekly briefing that looks at the week ahead and suggests the best windows for the hobbies you have planned.' },
+            { keywords: ['streak', 'consistency', 'habit', 'routine', 'daily'], answer: 'Stay consistent with weather-aware prompts. MyHobbyPlan nudges you toward the best window for each hobby, and sends a weekly briefing so you can see what is coming up.' },
             { keywords: ['ad', 'ads', 'advertisement', 'pop up', 'popup', 'annoying'], answer: 'We keep ads minimal and non-intrusive. They appear only in designated areas and never interrupt your hobby planning experience. Pro includes an ad-free experience.' },
-            { keywords: ['feature', 'what can', 'what does', 'capability', 'do', 'offer'], answer: 'Key features include: weather-aware hobby planning, smart scheduling, customizable notifications, activity tracking, weekly summaries, streak tracking, and family sharing — all free.' },
+            { keywords: ['feature', 'what can', 'what does', 'capability', 'do', 'offer'], answer: 'Key features include: weather-aware hobby planning, smart scheduling, customizable notifications, barometric storm alerts, weekly briefings, shared missions with friends, and 20 languages — all free.' },
             { keywords: ['about', 'what is', 'who', 'myhobbyplan', 'app'], answer: 'MyHobbyPlan is a smart hobby planning app that uses weather data to help you plan outdoor activities at the perfect time. It\'s designed for people who love doing what they love!' },
             { keywords: ['weather', 'aware', 'weather-aware'], answer: 'Weather-aware planning means the app considers real-time weather conditions for each of your hobbies and alerts you when it\'s the perfect time to engage in them.' },
             { keywords: ['time', 'when', 'best time', 'ideal'], answer: 'MyHobbyPlan analyzes weather forecasts, your schedule, and past patterns to suggest the best times for each hobby. You can also manually set preferred time slots in settings.' },
             { keywords: ['location', 'place', 'where', 'city', 'area', 'gps'], answer: 'MyHobbyPlan uses your device location to provide accurate weather data for your area. You can also manually set locations for hobbies you do in different places.' },
-            { keywords: ['pro', 'premium', 'upgrade', 'unlimited', 'waitlist'], answer: 'MyHobbyPlan Pro is in development: unlimited hobbies, 14-day forecasts, AI planning, smart preparation, and an ad-free experience. Join the waitlist via the contact form!' }
+            { keywords: ['pro', 'premium', 'upgrade', 'unlimited', 'waitlist'], answer: 'MyHobbyPlan Pro is in development: unlimited hobbies, 14-day forecasts, smart forecasting, smart preparation, and an ad-free experience. Join the waitlist via the contact form!' }
         ];
 
         var faqFallback = "I'm not sure about that specific topic. You can reach us at contact@myhobbyplan.net or call +254 790 683 823 for personalized help!";
