@@ -163,25 +163,31 @@ Traps to keep in mind:
 
 ## Known Drift — open issues on the live site
 Verified against the app, not yet fixed in `docs/`. Fix before publishing.
-- **Pro benefits are overstated.** The Pro table lists "Unlimited smart
-  notifications" and "Smart forecasting", but the notification system and
-  `PreparationAssistant` are **not** gated on `isPro` at all — every toggle works
-  for free users. Only the six gates listed above are real.
-- **Free forecast is 3 days, not 7.** (`WeatherScreen.kt` even reuses a string
-  named `seven_day_forecast` for the 3-day cap.)
-- **Location wording contradicts itself.** The app *does* declare
-  `ACCESS_COARSE_LOCATION` + `ACCESS_FINE_LOCATION` and offers one-tap GPS
-  detect on onboarding and in Settings, while `privacy.html` states "We do not
-  track your real-time GPS location. You manually select a city". Correct copy
-  is: optional one-tap GPS to set your city, or search any city by name —
-  used only to resolve a weather coordinate, never tracked in the background.
-- **The FAQ chatbot still contradicts the rest of the site.** Its `location`
-  entry says the app "uses your device location", its `pro` entry says Pro "is in
-  development" (billing is already wired: SKU `myhobbyplan_pro`, monthly and
-  yearly), and the "Key features" entry needs the real feature list.
+- **`privacy.html` still claims Google AdMob collects your Advertising ID** to
+  serve ads. No ads SDK is bundled, so either wire AdMob in or drop that bullet.
+  (`docs/app-ads.txt` also still exists at repo root and in `docs/`.)
+- **Free forecast is 3 days** and the site now says so correctly, but the app's
+  `WeatherScreen.kt` reuses a string named `seven_day_forecast` for that 3-day
+  cap. Don't let that string name leak into site copy.
 - The `streak` / `weekly summary` chatbot answers were reworded rather than
   deleted, so a user asking about streaks still gets a non-answer. Acceptable,
   but do not reintroduce streak language.
+- `pitch-deck.pdf` is a binary that no longer matches `pitch.html`. Regenerate
+  it from the corrected HTML or the deck will contradict itself.
+
+Already corrected (do not undo): the Pro table lists only the six real `isPro`
+gates, `privacy.html` discloses the optional one-tap GPS lookup, the chatbot's
+`pro` / `free` / `location` / `feature` / `ad` answers match the app, and
+`pitch.html` no longer sells ads or AI — its monetisation slide is now the
+single Pro subscription, its technology slide is "On-Device Smart Forecasting",
+and every family-profiling claim became a shared-missions claim.
+
+## Repo Hygiene — known inconsistencies
+- `pitch.html` uses raw `&` (not `&amp;`) in body copy. Match it.
+- The **company vision** copy in `pitch.html` ("AI-powered digital solutions",
+  "a passion for AI") is about Eleviq Technologies, not the app. It is
+  intentionally left alone — do not treat it as an app-level AI claim.
+- `docs/app-ads.txt` and `docs/family_friendly.png` are unreferenced leftovers.
 
 ## Site Structure (order matters for the nav)
 `#problem` → `#solution` → `#how-it-works` → `#weather` → `#features` → `#ai`
@@ -203,6 +209,10 @@ Verified against the app, not yet fixed in `docs/`. Fix before publishing.
 ## Development Notes
 - `docs/index.html` is ~3000 lines with `<style>` and `<script>` inline. There is
   no separate CSS or JS file.
+- `docs/index.html` and `AGENTS.md` are LF; `docs/privacy.html`, `terms.html`
+  and `pitch.html` are CRLF. Match the file you are editing — don't normalise.
+  The edit tool normalises CRLF files to LF on write, so after editing any CRLF
+  file check `git diff --numstat` and convert back before finishing.
 - UTF-8, no BOM, LF line endings. Preserve all three when rewriting the file —
   PowerShell edits must use `[System.IO.File]::WriteAllText` with
   `New-Object System.Text.UTF8Encoding($false)`.
@@ -229,6 +239,37 @@ Verified against the app, not yet fixed in `docs/`. Fix before publishing.
   Three.js block
 
 ## Recent Changes
+- **Rewrote the `pitch.html` claims that contradicted the app.** The deck still
+  told the pre-v4.6 story: an "AI-Powered Intelligence" block whose "AI engine
+  learns from user behavior", rewarded-video and AdMob banner revenue,
+  "Rewarded Forecasts" and "AI Features" roadmap items, a "Family-Friendly
+  Experience" feature card, and "Family Coordination" / "Family Engagement"
+  claims. Now: technology slide is "On-Device Smart Forecasting" (per-hobby
+  rules engine + barometric history, explicitly no hosted model), the AdMob tech
+  pill became Firebase Auth & Firestore, the monetisation slide is the single Pro
+  subscription at $1.99/month or $19.99/year against a genuinely ad-free free
+  tier, shared missions moved into the roadmap as shipped in v4.6, and every
+  family claim became a shared-missions claim.
+- **Corrected the pricing copy against the app's real `isPro` gates.** The Pro
+  column listed ten benefits; only six are actually gated. It is now: unlimited
+  hobbies, 14-day forecasts, unlimited smart suggestions, daily briefing,
+  weekly briefing, 7-day plan-ahead window. Dropped "Smart forecasting",
+  "Intelligent reminders", "Advanced weather preferences" and "No
+  advertisements" — notifications and gear checklists are not gated, and the
+  free tier has no ads at all. The Free column now states its real allowances
+  ("All smart notifications & weather alerts", "5 smart suggestions a month")
+  instead of "Basic planning" / "Basic reminders", and `.pro-note` spells out
+  that notifications, alerts, checklists, cloud sync, shared missions, the Wear
+  OS tile, Android Auto and all 20 languages are free on both plans.
+- **Fixed the GPS contradiction.** `privacy.html` said "We do not track your
+  real-time GPS location. You manually select a city" while the app declares
+  `ACCESS_COARSE_LOCATION` + `ACCESS_FINE_LOCATION`. It now discloses the
+  optional one-tap lookup (read once, never stored, never backgrounded) and
+  keeps city search and per-hobby locations as the alternative.
+- **Fixed the FAQ chatbot's `pro`, `free`, `location`, `feature` and `ad`
+  answers** plus the "Is the app free?" quick button, all of which still
+  described the pre-v4.6 product (Pro "in development", weekly briefings free,
+  "uses your device location", "we keep ads minimal").
 - **Removed the hero screenshot overlay.** The centered phone mockup wrapping
   `screenshot.png` (`.hero-fallback`) was painted over the hero intro at
   `z-index: 1` and stayed visible until Three.js finished loading from unpkg —

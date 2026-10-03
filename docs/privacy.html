@@ -210,7 +210,8 @@
             <h2>2. Location Data & Weather Services</h2>
             <p>To provide weather-aware hobby planning, we process location data as follows:</p>
             <ul>
-                <li><strong>Manual Entry:</strong> We do not track your real-time GPS location. You manually select a city for weather updates.</li>
+                <li><strong>Optional One-Tap GPS:</strong> The app declares the <em>coarse</em> and <em>fine</em> location permissions so you can fill in your city with a single tap during onboarding or in Settings. Your position is read once, at that moment, and is used only to resolve a nearby weather coordinate. It is never stored, never tracked in the background, and never shared beyond that lookup.</li>
+                <li><strong>Manual Entry:</strong> You can skip GPS entirely and search for any city by name instead. Per-hobby locations are supported if a hobby happens somewhere other than your home city.</li>
                 <li><strong>Third-Party Disclosure:</strong> The selected city is sent to OpenWeather to retrieve forecasts. No unique identifiers are shared with the weather provider.</li>
                 <li><strong>Barometric Sensor:</strong> Where your device has a barometer, MyHobbyPlan reads local air pressure to detect incoming storms. Pressure readings stay on your device and are used only to generate alerts.</li>
             </ul>
